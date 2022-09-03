@@ -6,18 +6,18 @@ beforeEach(() => {
   this.mapper = str => str.length;
 });
 
-describe('min()', () => {
+describe('findMin()', () => {
   it('should return 5', () => {
-    expect(this.numArr.x.min()).toEqual(5);
+    expect(this.numArr.x.findMin()).toEqual(5);
   });
-  it('should return 2', () => {
-    expect(this.strArr.x.min(this.mapper)).toEqual(2);
+  it('should return "ba"', () => {
+    expect(this.strArr.x.findMin(this.mapper)).toEqual('ba');
   });
 
   describe('with tiny arrays', () => {
     it('should work with 2 items', () => {
-      expect([5,8].x.min()).toEqual(5);
-      expect(['foo', 'xx'].x.min(this.mapper)).toEqual(2);
+      expect([5,8].x.findMin()).toEqual(5);
+      expect(['foo', 'xx'].x.findMin(this.mapper)).toEqual('xx');
     });
   });
 });
