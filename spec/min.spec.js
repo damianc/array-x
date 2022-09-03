@@ -1,5 +1,19 @@
 require('../prod/array-x');
 
+const arr = {
+  empty: [],
+  num: {
+    oneItem: [20],
+    twoItems: [20, 10],
+    moreItems: [20, 10, 40]
+  },
+  str: {
+    oneItem: ['xx'],
+    twoItems: ['xx', 'x'],
+    moreItems: ['xx', 'x', 'xxx']
+  }
+};
+
 beforeEach(() => {
   this.numArr = [5, 6, 7, 8];
   this.strArr = ['foo', 'ba', 'rbaz'];
@@ -8,10 +22,10 @@ beforeEach(() => {
 
 describe('min()', () => {
   it('should return 5', () => {
-    expect(this.numArr.x.min()).toEqual(5);
+    expect(arr.num.moreItems.x.min()).toEqual(10);
   });
   it('should return 2', () => {
-    expect(this.strArr.x.min(this.mapper)).toEqual(2);
+    expect(arr.str.moreItems.x.min(this.mapper)).toEqual(1);
   });
 
   describe('with tiny arrays', () => {

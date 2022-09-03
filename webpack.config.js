@@ -8,7 +8,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@array-x': path.resolve(__dirname, 'src')
+      '@array-x': path.resolve(__dirname, 'src'),
+      '@utils': path.resolve(__dirname, 'utils/index.js')
     }
   }
 };
