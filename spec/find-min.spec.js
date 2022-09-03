@@ -1,23 +1,63 @@
 require('../prod/array-x');
 
+const mock = require('./support/mock');
+const { minMax } = require('./support/samples');
+
+const pre = mock(minMax, {
+  empty: null,
+  num: {
+    oneItem: 20,
+    twoItems: 10,
+    moreItems: 10
+  },
+  str: {
+    oneItem: 'xx',
+    twoItems: 'x',
+    moreItems: 'x'
+  }
+});
+
 beforeEach(() => {
-  this.numArr = [5, 6, 7, 8];
-  this.strArr = ['foo', 'ba', 'rbaz'];
   this.mapper = str => str.length;
 });
 
-describe('findMin()', () => {
-  it('should return 5', () => {
-    expect(this.numArr.x.findMin()).toEqual(5);
+describe('findMin() with empty array', () => {
+  it('should work without mapper', () => {
+    const [input, output] = pre(t => t.empty);
+    expect(input.x.findMin()).toEqual(output);
   });
-  it('should return "ba"', () => {
-    expect(this.strArr.x.findMin(this.mapper)).toEqual('ba');
+  it('should work with mapper', () => {
+    const [input, output] = pre(t => t.empty);
+    expect(input.x.findMin(this.mapper)).toEqual(output);
   });
+});
 
-  describe('with tiny arrays', () => {
-    it('should work with 2 items', () => {
-      expect([5,8].x.findMin()).toEqual(5);
-      expect(['foo', 'xx'].x.findMin(this.mapper)).toEqual('xx');
-    });
+describe('findMin() without mapper', () => {
+  it('should handle one-item array', () => {
+    const [input, output] = pre(t => t.num.oneItem);
+    expect(input.x.findMin()).toEqual(output);
+  });
+  it('should handle two-items array', () => {
+    const [input, output] = pre(t => t.num.twoItems);
+    expect(input.x.findMin()).toEqual(output);
+  });
+  it('should handle 3+ items array', () => {
+    const [input, output] = pre(t => t.num.moreItems);
+    expect(input.x.findMin()).toEqual(output);
+  });
+});
+
+describe('findMin() with mapper', () => {
+  it('should handle one-item array', () => {
+    const [input, output] = pre(t => t.str.oneItem);
+    expect(input.x.findMin(this.mapper)).toEqual(output);
+  });
+  it('should handle two-items array', () => {
+    const [input, output] = pre(t => t.str.twoItems);
+    expect(input.x.findMin(this.mapper)).toEqual(output);
+  });
+  it('should handle 3+ items array', () => {
+    const [input, output] = pre(t => t.str.moreItems);
+    expect(input.x.findMin(this.mapper)).toEqual(output);
   });
 });
