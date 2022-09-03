@@ -3,7 +3,7 @@ module.exports.minMax = {
   num: {
     oneItem: [20],
     twoItems: [20, 10],
-    moreItems: [20, 10, 40]
+    moreItems: [20, 10, 40, 10]
   },
   str: {
     oneItem: ['xx'],

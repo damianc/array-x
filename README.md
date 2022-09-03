@@ -39,3 +39,13 @@
 ['xxxx', 'xx', 'xxx'].x.localizeMin(str => str.length)
 // [1, 'xx']
 ```
+
+## `avg([mapper])`
+
+```
+[1, 2, 3, 4].x.avg()
+// 2.5
+
+['x', 'xx', 'xxx'].x.avg(str => str.length)
+// 2
+```
