@@ -40,6 +40,46 @@
 // [1, 'xx']
 ```
 
+## `max([mapper])`
+
+```
+[5, 6, 7, 8].x.max()
+// 8
+
+['xxxx', 'xx', 'xxx'].x.max(str => str.length)
+// 4
+```
+
+## `findMax([mapper])`
+
+```
+[5, 6, 7, 8].x.findMax()
+// 8
+
+['xxxx', 'xx', 'xxx'].x.findMax(str => str.length)
+// 'xxxx'
+```
+
+## `findMaxIndex([mapper])`
+
+```
+[5, 6, 7, 8].x.findMaxIndex()
+// 3
+
+['xxxx', 'xx', 'xxx'].x.findMaxIndex(str => str.length)
+// 0
+```
+
+## `localizeMax([mapper])`
+
+```
+[5, 6, 7, 8].x.localizeMax()
+// [3, 8]
+
+['xxxx', 'xx', 'xxx'].x.localizeMax(str => str.length)
+// [0, 'xxxx']
+```
+
 ## `avg([mapper])`
 
 ```
