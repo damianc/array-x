@@ -11,27 +11,39 @@ const arr = {
     oneItem: ['xx'],
     twoItems: ['xx', 'x'],
     moreItems: ['xx', 'x', 'xxx']
-  }
+  },
+  mapper: str => str.length
 };
 
-beforeEach(() => {
-  this.numArr = [5, 6, 7, 8];
-  this.strArr = ['foo', 'ba', 'rbaz'];
-  this.mapper = str => str.length;
+describe('min() with empty array', () => {
+  it('should work without mapper', () => {
+    expect(arr.empty.x.min()).toEqual(-1);
+  });
+  it('should work with mapper', () => {
+    expect(arr.empty.x.min(arr.mapper)).toEqual(-1);
+  });
 });
 
-describe('min()', () => {
-  it('should return 5', () => {
+describe('min() without mapper', () => {
+  it('should handle one-item array', () => {
+    expect(arr.num.oneItem.x.min()).toEqual(20);
+  });
+  it('should handle two-items array', () => {
+    expect(arr.num.twoItems.x.min()).toEqual(10);
+  });
+  it('should handle 3+ items array', () => {
     expect(arr.num.moreItems.x.min()).toEqual(10);
   });
-  it('should return 2', () => {
-    expect(arr.str.moreItems.x.min(this.mapper)).toEqual(1);
-  });
+});
 
-  describe('with tiny arrays', () => {
-    it('should work with 2 items', () => {
-      expect([5,8].x.min()).toEqual(5);
-      expect(['foo', 'xx'].x.min(this.mapper)).toEqual(2);
-    });
+describe('min() with mapper', () => {
+  it('should handle one-item array', () => {
+    expect(arr.str.oneItem.x.min(arr.mapper)).toEqual(2);
+  });
+  it('should handle two-items array', () => {
+    expect(arr.str.twoItems.x.min(arr.mapper)).toEqual(1);
+  });
+  it('should handle 3+ items array', () => {
+    expect(arr.str.moreItems.x.min(arr.mapper)).toEqual(1);
   });
 });
