@@ -4,7 +4,7 @@ Collecting:
 - [`collectUntil()`](#collectUntilitemOrMatcher-inclusive--true)
 - [`collectUntilReduce()`](#collectUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`skipUntil()`](#skipUntilitemOrMatcher-inclusive--true)
-- [`skipUntilReduce()`](#skipUntilReduce(accTester-reducer-reducerInit-inclusive--true)
+- [`skipUntilReduce()`](#skipUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 
 Searching:
 - [`localize()`](#localizeitemOrMatcher)
