@@ -11,6 +11,7 @@ import max from '@array-x/max';
 import findMax from '@array-x/find-max';
 import findMaxIndex from '@array-x/find-max-index';
 
+import count from '@array-x/count';
 import avg from '@array-x/avg';
 
 Object.defineProperty(Array.prototype, 'x', {
@@ -31,6 +32,7 @@ Object.defineProperty(Array.prototype, 'x', {
       findMax: findMax.bind(that),
       findMaxIndex: findMaxIndex.bind(that),
 
+      count: count.bind(that),
       avg: avg.bind(that)
     };
   }

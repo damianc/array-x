@@ -103,6 +103,19 @@
 // 0
 ```
 
+## `count(itemOrMatcher)`
+
+```
+[10, 20, 10, 20].x.count(20)
+// 2
+
+[1, 2, 3, 4, 5, 6].x.count(x => x % 2 === 0)
+// 3
+
+['x', 'xx', 'xxx'].x.count(str => str.length >= 2)
+// 2
+```
+
 ## `avg([mapper])`
 
 ```
