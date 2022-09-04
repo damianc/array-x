@@ -2,6 +2,7 @@
 
 Collecting:
 - [`collectUntil()`](#collectUntilitemOrMatcher-inclusive--true)
+- [`collectUntilReduce()`](#collectUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`skipUntil()`](#skipUntilitemOrMatcher-inclusive--true)
 
 Searching:
@@ -39,6 +40,40 @@ Min and Max:
 
 [1, 2, 3, 4, 5, 6].x.collectUntil(10)
 // [1, 2, 3, 4, 5, 6]
+```
+
+## `collectUntilReduce(accTester, reducer, reducerInit, inclusive = true)`
+
+```
+[1, 2, 3, 4, 5, 6].x.collectUntilReduce(
+  sum => sum >= 10,
+  (a, b) => a + b,
+  0
+)
+// [1, 2, 3, 4]
+
+[1, 2, 3, 4, 5, 6].x.collectUntilReduce(
+  sum => sum >= 10,
+  (a, b) => a + b,
+  0,
+  false
+)
+// [1, 2, 3]
+
+[10, 20, 30, 40].x.collectUntilReduce(
+  sum => sum >= 10,
+  (a, b) => a + b,
+  0
+)
+// [10]
+
+[10, 20, 30, 40].x.collectUntilReduce(
+  sum => sum >= 10,
+  (a, b) => a + b,
+  0,
+  false
+)
+// []
 ```
 
 ## `skipUntil(itemOrMatcher, inclusive = true)`
