@@ -1,4 +1,5 @@
 import uniq from '@array-x/uniq';
+import uniqSeq from '@array-x/uniq-seq';
 
 import collectUntil from '@array-x/collect-until';
 import collectUntilReduce from '@array-x/collect-until-reduce';
@@ -27,6 +28,7 @@ Object.defineProperty(Array.prototype, 'x', {
 
     return {
       uniq: uniq.bind(that),
+      uniqSeq: uniqSeq.bind(that),
 
       collectUntil: collectUntil.bind(that),
       collectUntilReduce: collectUntilReduce.bind(that),

@@ -6,6 +6,7 @@ Collecting:
 - [`skipUntil()`](#skipUntilitemOrMatcher-inclusive--true)
 - [`skipUntilReduce()`](#skipUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`uniq()`](#uniqselector)
+- [`uniqSeq()`](#uniqseqselector)
 
 Searching:
 - [`localize()`](#localizeitemOrMatcher)
@@ -157,6 +158,34 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 
 [{x:10,y:10}, {x:10,y:20}, {x:20,y:20}, {x:20,y:10}].x.uniq(coords => coords.x)
 // [{x:10,y:10}, {x:20,y:20}]
+```
+
+## `uniqSeq([selector])`
+
+```
+[1, 2, 3, 2, 1].x.uniqSeq()
+// [1, 2, 3, 2, 1]
+
+[1, 2, 3, 3, 2, 2, 1, 1].x.uniqSeq()
+// [1, 2, 3, 2, 1]
+
+[
+  { x: 1, id: 100 },
+  { x: 2, id: 101 },
+  { x: 3, id: 102 },
+  { x: 3, id: 103 },
+  { x: 2, id: 104 },
+  { x: 2, id: 105 },
+  { x: 1, id: 106 },
+  { x: 1, id: 107 }
+].x.uniqSeq(obj => obj.x)
+// [
+//   { x: 1, id: 100 },
+//   { x: 2, id: 101 },
+//   { x: 3, id: 102 },
+//   { x: 2, id: 104 },
+//   { x: 1, id: 106 }
+// ]
 ```
 
 ## `localize(itemOrMatcher)`
