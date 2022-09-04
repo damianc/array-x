@@ -1,5 +1,23 @@
 # `array-x`
 
+Searching:
+- [`localize()`](#localizeitemOrMatcher)
+- [`localizeAll()`](#localizeAllitemOrMatcher)
+- [`localizeMin()`](#localizeMinmapper)
+- [`localizeMax()`](#localizeMaxmapper)
+
+Examining:
+- [`count()`](#countitemOrMatcher)
+- [`avg()`](#avgmapper)
+
+Min and Max:
+- [`min()`](#minmapper)
+- [`max()`](#maxmapper)
+- [`findMin()`](#findMinmapper)
+- [`findMax()`](#findMaxmapper)
+- [`findMinIndex()`](#findMinIndexmapper)
+- [`findMaxIndex()`](#findMaxIndexmapper)
+
 ## `localize(itemOrMatcher)`
 
 ```
