@@ -1,3 +1,5 @@
+import uniq from '@array-x/uniq';
+
 import collectUntil from '@array-x/collect-until';
 import collectUntilReduce from '@array-x/collect-until-reduce';
 import skipUntil from '@array-x/skip-until';
@@ -24,6 +26,8 @@ Object.defineProperty(Array.prototype, 'x', {
     const that = this;
 
     return {
+      uniq: uniq.bind(that),
+
       collectUntil: collectUntil.bind(that),
       collectUntilReduce: collectUntilReduce.bind(that),
       skipUntil: skipUntil.bind(that),
