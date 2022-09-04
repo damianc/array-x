@@ -45,6 +45,17 @@ Min and Max:
 ## `collectUntilReduce(accTester, reducer, reducerInit, inclusive = true)`
 
 ```
+// collect numbers until their average equals 5
+
+const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
+  (acc) => acc.x.avg() === 5,
+  (a, b) => [...a, b],
+  []
+);
+// [6, 5, 4]
+```
+
+```
 [1, 2, 3, 4, 5, 6].x.collectUntilReduce(
   sum => sum >= 10,
   (a, b) => a + b,
