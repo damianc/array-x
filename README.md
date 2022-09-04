@@ -2,6 +2,7 @@
 
 Collecting:
 - [`collectUntil()`](#collectUntilitemOrMatcher-inclusive--true)
+- [`skipUntil()`](#skipUntilitemOrMatcher-inclusive--true)
 
 Searching:
 - [`localize()`](#localizeitemOrMatcher)
@@ -38,6 +39,25 @@ Min and Max:
 
 [1, 2, 3, 4, 5, 6].x.collectUntil(10)
 // [1, 2, 3, 4, 5, 6]
+```
+
+## `skipUntil(itemOrMatcher, inclusive = true)`
+
+```
+[1, 2, 3, 4, 5, 6].x.skipUntil(4)
+// [4, 5, 6]
+
+[1, 2, 3, 4, 5, 6].x.skipUntil(4, false)
+// [5, 6]
+
+[1, 3, 2, 4].x.skipUntil(x => x % 2 === 0)
+// [2, 4]
+
+[1, 3, 2, 4].x.skipUntil(x => x % 2 === 0, false)
+// [4]
+
+[1, 2, 3, 4, 5, 6].x.skipUntil(10)
+// []
 ```
 
 ## `localize(itemOrMatcher)`

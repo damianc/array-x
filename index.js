@@ -1,4 +1,5 @@
 import collectUntil from '@array-x/collect-until';
+import skipUntil from '@array-x/skip-until';
 
 import localize from '@array-x/localize';
 import localizeAll from '@array-x/localize-all';
@@ -22,6 +23,7 @@ Object.defineProperty(Array.prototype, 'x', {
 
     return {
       collectUntil: collectUntil.bind(that),
+      skipUntil: skipUntil.bind(that),
       
       localize: localize.bind(that),
       localizeAll: localizeAll.bind(that),
