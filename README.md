@@ -1,5 +1,8 @@
 # `array-x`
 
+Collecting:
+- [`collectUntil()`](#collectUntilitemOrMatcher-inclusive--true)
+
 Searching:
 - [`localize()`](#localizeitemOrMatcher)
 - [`localizeAll()`](#localizeAllitemOrMatcher)
@@ -17,6 +20,25 @@ Min and Max:
 - [`findMax()`](#findMaxmapper)
 - [`findMinIndex()`](#findMinIndexmapper)
 - [`findMaxIndex()`](#findMaxIndexmapper)
+
+## `collectUntil(itemOrMatcher, inclusive = true)`
+
+```
+[1, 2, 3, 4, 5, 6].x.collectUntil(4)
+// [1, 2, 3, 4]
+
+[1, 2, 3, 4, 5, 6].x.collectUntil(4, false)
+// [1, 2, 3]
+
+[1, 3, 2, 4].x.collectUntil(x => x % 2 === 0)
+// [1, 3, 2]
+
+[1, 3, 2, 4].x.collectUntil(x => x % 2 === 0, false)
+// [1, 3]
+
+[1, 2, 3, 4, 5, 6].x.collectUntil(10)
+// [1, 2, 3, 4, 5, 6]
+```
 
 ## `localize(itemOrMatcher)`
 

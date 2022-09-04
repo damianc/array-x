@@ -1,3 +1,5 @@
+import collectUntil from '@array-x/collect-until';
+
 import localize from '@array-x/localize';
 import localizeAll from '@array-x/localize-all';
 import localizeMin from '@array-x/localize-min';
@@ -19,6 +21,8 @@ Object.defineProperty(Array.prototype, 'x', {
     const that = this;
 
     return {
+      collectUntil: collectUntil.bind(that),
+      
       localize: localize.bind(that),
       localizeAll: localizeAll.bind(that),
       localizeMin: localizeMin.bind(that),
