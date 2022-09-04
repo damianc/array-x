@@ -1,5 +1,48 @@
 # `array-x`
 
+## `localize(itemOrMatcher)`
+
+```
+[10, 20, 30, 40].x.localize(20)
+// [1, 20]
+
+['x', 'xx', 'xxx', 'xx', 'x'].x.localize(str => str.length >= 3)
+// [2, 'xxx']
+```
+
+## `localizeAll(itemOrMatcher)`
+
+```
+[10, 20, 30, 40].x.localizeAll(20)
+// [[1, 20]]
+
+[10, 20, 10, 20].x.localizeAll(20)
+// [[1, 20], [3, 20]]
+
+['x', 'xx', 'xxx'].localizeAll(str => str.length >= 2)
+// [[1, 'xx'], [2, 'xxx']]
+```
+
+## `localizeMin([mapper])`
+
+```
+[5, 6, 7, 8].x.localizeMin()
+// [0, 5]
+
+['xxxx', 'xx', 'xxx'].x.localizeMin(str => str.length)
+// [1, 'xx']
+```
+
+## `localizeMax([mapper])`
+
+```
+[5, 6, 7, 8].x.localizeMax()
+// [3, 8]
+
+['xxxx', 'xx', 'xxx'].x.localizeMax(str => str.length)
+// [0, 'xxxx']
+```
+
 ## `min([mapper])`
 
 ```
@@ -30,16 +73,6 @@
 // 1
 ```
 
-## `localizeMin([mapper])`
-
-```
-[5, 6, 7, 8].x.localizeMin()
-// [0, 5]
-
-['xxxx', 'xx', 'xxx'].x.localizeMin(str => str.length)
-// [1, 'xx']
-```
-
 ## `max([mapper])`
 
 ```
@@ -68,16 +101,6 @@
 
 ['xxxx', 'xx', 'xxx'].x.findMaxIndex(str => str.length)
 // 0
-```
-
-## `localizeMax([mapper])`
-
-```
-[5, 6, 7, 8].x.localizeMax()
-// [3, 8]
-
-['xxxx', 'xx', 'xxx'].x.localizeMax(str => str.length)
-// [0, 'xxxx']
 ```
 
 ## `avg([mapper])`
