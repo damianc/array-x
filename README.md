@@ -4,6 +4,7 @@ Collecting:
 - [`collectUntil()`](#collectUntilitemOrMatcher-inclusive--true)
 - [`collectUntilReduce()`](#collectUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`skipUntil()`](#skipUntilitemOrMatcher-inclusive--true)
+- [`skipUntilReduce()`](#skipUntilReduce(accTester-reducer-reducerInit-inclusive--true)
 
 Searching:
 - [`localize()`](#localizeitemOrMatcher)
@@ -103,6 +104,47 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 // [4]
 
 [1, 2, 3, 4, 5, 6].x.skipUntil(10)
+// []
+```
+
+## `skipUntilReduce(accTester, reducer, reducerInit, inclusive = true)`
+
+```
+[1, 2, 3, 4, 5, 6].x.skipUntilReduce(
+  sum => sum >= 10,
+  (a, b) => a + b,
+  0
+)
+// [4, 5, 6]
+
+[1, 2, 3, 4, 5, 6].x.skipUntilReduce(
+  sum => sum >= 10,
+  (a, b) => a + b,
+  0,
+  false
+)
+// [5, 6]
+
+[10, 20, 30, 40].x.skipUntilReduce(
+  sum => sum >= 10,
+  (a, b) => a + b,
+  0
+)
+// [10, 20, 30, 40]
+
+[10, 20, 30, 40].x.skipUntilReduce(
+  sum => sum >= 10,
+  (a, b) => a + b,
+  0,
+  false
+)
+// [20, 30, 40]
+
+[1, 2, 1, 2].x.skipUntilReduce(
+  sum => sum >= 10,
+  (a, b) => a + b,
+  0
+)
 // []
 ```
 

@@ -1,6 +1,7 @@
 import collectUntil from '@array-x/collect-until';
-import skipUntil from '@array-x/skip-until';
 import collectUntilReduce from '@array-x/collect-until-reduce';
+import skipUntil from '@array-x/skip-until';
+import skipUntilReduce from '@array-x/skip-until-reduce';
 
 import localize from '@array-x/localize';
 import localizeAll from '@array-x/localize-all';
@@ -24,8 +25,9 @@ Object.defineProperty(Array.prototype, 'x', {
 
     return {
       collectUntil: collectUntil.bind(that),
-      skipUntil: skipUntil.bind(that),
       collectUntilReduce: collectUntilReduce.bind(that),
+      skipUntil: skipUntil.bind(that),
+      skipUntilReduce: skipUntilReduce.bind(that),
       
       localize: localize.bind(that),
       localizeAll: localizeAll.bind(that),
