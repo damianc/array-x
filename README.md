@@ -8,6 +8,9 @@
 
 ['x', 'xx', 'xxx', 'xx', 'x'].x.localize(str => str.length >= 3)
 // [2, 'xxx']
+
+[1, 2, 3, 4].x.localize(20)
+// null
 ```
 
 ## `localizeAll(itemOrMatcher)`
@@ -21,6 +24,9 @@
 
 ['x', 'xx', 'xxx'].localizeAll(str => str.length >= 2)
 // [[1, 'xx'], [2, 'xxx']]
+
+[1, 2, 3, 4].x.localizeAll(20)
+// []
 ```
 
 ## `localizeMin([mapper])`
@@ -31,6 +37,9 @@
 
 ['xxxx', 'xx', 'xxx'].x.localizeMin(str => str.length)
 // [1, 'xx']
+
+[].x.localizeMin()
+// null
 ```
 
 ## `localizeMax([mapper])`
@@ -41,6 +50,9 @@
 
 ['xxxx', 'xx', 'xxx'].x.localizeMax(str => str.length)
 // [0, 'xxxx']
+
+[].x.localizeMax()
+// null
 ```
 
 ## `min([mapper])`
@@ -51,6 +63,9 @@
 
 ['xxxx', 'xx', 'xxx'].x.min(str => str.length)
 // 2
+
+[].x.min()
+// null
 ```
 
 ## `findMin([mapper])`
@@ -61,6 +76,9 @@
 
 ['xxxx', 'xx', 'xxx'].x.findMin(str => str.length)
 // 'xx'
+
+[].x.findMin()
+// null
 ```
 
 ## `findMinIndex([mapper])`
@@ -71,6 +89,9 @@
 
 ['xxxx', 'xx', 'xxx'].x.findMinIndex(str => str.length)
 // 1
+
+[].x.findMinIndex()
+// -1
 ```
 
 ## `max([mapper])`
@@ -81,6 +102,9 @@
 
 ['xxxx', 'xx', 'xxx'].x.max(str => str.length)
 // 4
+
+[].x.max()
+// null
 ```
 
 ## `findMax([mapper])`
@@ -91,6 +115,9 @@
 
 ['xxxx', 'xx', 'xxx'].x.findMax(str => str.length)
 // 'xxxx'
+
+[].x.findMax()
+// null
 ```
 
 ## `findMaxIndex([mapper])`
@@ -101,6 +128,9 @@
 
 ['xxxx', 'xx', 'xxx'].x.findMaxIndex(str => str.length)
 // 0
+
+[].x.findMaxIndex()
+// -1
 ```
 
 ## `count(itemOrMatcher)`
@@ -114,6 +144,9 @@
 
 ['x', 'xx', 'xxx'].x.count(str => str.length >= 2)
 // 2
+
+[1, 2, 3, 4].count(20)
+// 0
 ```
 
 ## `avg([mapper])`
@@ -124,4 +157,7 @@
 
 ['x', 'xx', 'xxx'].x.avg(str => str.length)
 // 2
+
+[].x.avg()
+// null
 ```
