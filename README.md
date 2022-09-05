@@ -18,7 +18,7 @@ Searching:
 Examining:
 - [`count()`](#countitemOrMatcher)
 - [`avg()`](#avgmapper)
-- [`wavg()`](#wavgweights)
+- [`wavg()`](#wavgweights-mapper)
 
 Min and Max:
 - [`min()`](#minmapper)
@@ -389,11 +389,17 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 ['x', 'xx', 'xxx'].x.avg(str => str.length)
 // 2
 
+[
+  { examId: 120, mark: 5 },
+  { examId: 121, mark: 4 }
+].x.avg(exam => exam.mark)
+// 4.5
+
 [].x.avg()
 // null
 ```
 
-## `wavg(weights[])`
+## `wavg(weights[], [mapper])`
 
 ```
 [4].x.wavg([2])
@@ -403,4 +409,15 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 [3, 3].x.wavg([3, 2])
 // 3
 // (3 * 3 + 3 * 2) / (3 + 2) -> (9 + 6) / 5 -> 15 / 5
+
+[
+  { examId: 120, examWeight: 1, mark: 5 },
+  { examId: 121, examWeight: 1, mark: 4 },
+  { examId: 122, examWeight: 3, mark: 4.5 },
+  { examId: 123, examWeight: 2, mark: 5.5 },
+  { examId: 124, examWeight: 4, mark: 5 }
+].x.wavg([1, 1, 3, 2, 4], exam => exam.mark)
+// 4.863636363636363
+// (5 + 4 + 4.5 * 3 + 5.5 * 2 + 5 * 4) / (1 + 1 + 3 + 2 + 4)
+// (5 + 4 + 13.5 + 11 + 20) / 11 -> 53.5 / 11 -> 4.863636363636363
 ```

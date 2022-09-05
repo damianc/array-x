@@ -1,6 +1,8 @@
-import { reduce } from '@utils';
+import { reduce, val } from '@utils';
 
-export default function wavg(weights) {
+export default function wavg(weights = [], mapper = null) {
+  const $ = val(mapper);
+
   if (this.length === 0) return null;
 
   function prepareWeights(valsNumber, weights) {
@@ -19,7 +21,7 @@ export default function wavg(weights) {
     (acc, curr, idx) => {
       const weight = w[idx];
       d += weight;
-      return acc + (curr * weight);
+      return acc + ($(curr) * weight);
     },
     sum => sum / d,
     0
