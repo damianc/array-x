@@ -23,6 +23,7 @@ import findMaxIndex from '@array-x/find-max-index';
 
 import count from '@array-x/count';
 import avg from '@array-x/avg';
+import wavg from '@array-x/wavg';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -53,7 +54,8 @@ Object.defineProperty(Array.prototype, 'x', {
       findMaxIndex: findMaxIndex.bind(that),
 
       count: count.bind(that),
-      avg: avg.bind(that)
+      avg: avg.bind(that),
+      wavg: wavg.bind(that)
     };
   }
 });

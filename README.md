@@ -18,6 +18,7 @@ Searching:
 Examining:
 - [`count()`](#countitemOrMatcher)
 - [`avg()`](#avgmapper)
+- [`wavg()`](#wavgweights)
 
 Min and Max:
 - [`min()`](#minmapper)
@@ -390,4 +391,16 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 
 [].x.avg()
 // null
+```
+
+## `wavg(weights[])`
+
+```
+[4].x.wavg([2])
+// 4
+// (4 * 2) / 2 -> 8 / 2
+
+[3, 3].x.wavg([3, 2])
+// 3
+// (3 * 3 + 3 * 2) / (3 + 2) -> (9 + 6) / 5 -> 15 / 5
 ```
