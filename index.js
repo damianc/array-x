@@ -1,3 +1,5 @@
+import group from '@array-x/group';
+
 import uniq from '@array-x/uniq';
 import uniqSeq from '@array-x/uniq-seq';
 
@@ -27,6 +29,8 @@ Object.defineProperty(Array.prototype, 'x', {
     const that = this;
 
     return {
+      group: group.bind(that),
+      
       uniq: uniq.bind(that),
       uniqSeq: uniqSeq.bind(that),
 

@@ -1,6 +1,7 @@
 # `array-x`
 
 Collecting:
+- [`group()`](#grouplabelFactory)
 - [`collectUntil()`](#collectUntilitemOrMatcher-inclusive--true)
 - [`collectUntilReduce()`](#collectUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`skipUntil()`](#skipUntilitemOrMatcher-inclusive--true)
@@ -25,6 +26,47 @@ Min and Max:
 - [`findMax()`](#findMaxmapper)
 - [`findMinIndex()`](#findMinIndexmapper)
 - [`findMaxIndex()`](#findMaxIndexmapper)
+
+## `group(labelFactory...)`
+
+```
+[1, 2, 3, 4].x.group(x => x % 2 === 0 ? 'even' : 'odd')
+// {
+//   odd: [1, 3],
+//   even: [2, 4]
+// }
+
+[1, 2, 30, 45].x.group(
+  x => x % 2 === 0 ? 'even' : 'odd',
+  x => x > 9 ? 'multidigit' : 'digit'
+)
+// {
+//   odd: [1, 45],
+//   even: [2, 30],
+//   digit: [1, 2],
+//   multidigit: [30, 45]
+// }
+
+[1, 2, 30, 45].x.group(
+  x => x % 2 === 0 ? 'even' : 'odd',
+  x => x > 9 ? 'multidigit' : null
+)
+// {
+//   odd: [1, 45],
+//   even: [2, 30],
+//   multidigit: [30, 45]
+// }
+
+[
+  { name: 'Mark', city: 'LA' },
+  { name: 'John', city: 'NY' },
+  { name: 'Adam', city: 'LA' }
+].x.group(u => u.city)
+// {
+//   LA: [{ name: 'Mark', city: 'LA' }, { name: 'Adam', city: 'LA' }],
+//   NY: [{ name: 'John', city: 'NY' }]
+// }
+```
 
 ## `collectUntil(itemOrMatcher, inclusive = true)`
 
