@@ -74,3 +74,19 @@ describe('wavg() with mapper', () => {
     });
   });
 });
+
+describe('wavg() with weights selector', () => {
+  it('should get proper weight for each item', () => {
+    const weightedAvg = [
+      { examId: 120, examWeight: 1, mark: 5 },
+      { examId: 121, examWeight: 1, mark: 4 },
+      { examId: 122, examWeight: 3, mark: 4.5 },
+      { examId: 123, examWeight: 2, mark: 5.5 },
+      { examId: 124, examWeight: 4, mark: 5 }
+    ].x.wavg(
+      exam => exam.examWeight,
+      exam => exam.mark
+    );
+    expect(+weightedAvg.toFixed(2)).toEqual(4.86);
+  });
+});
