@@ -1,6 +1,10 @@
 require('../prod/array-x');
 
 describe('group()', () => {
+  it('should return empty object if no parameter is passed', () => {
+    expect([1, 2, 3, 2, 1].x.group()).toEqual({});
+  });
+
   describe('with empty array', () => {
     it('should return empty object', () => {
       expect([].x.group(() => 'foo')).toEqual({});
