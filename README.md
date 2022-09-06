@@ -22,6 +22,7 @@ Examining:
 
 Clustering:
 - [`zip()`](#zipotherArrays)
+- [`zipAll()`](#zipAllotherArrays)
 - [`unzip()`](#unzip)
 
 Min and Max:
@@ -453,6 +454,32 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 
 ['a', 'b'].x.zip([1, 2, 3, 4])
 // [ ['a', 1], ['b', 2] ]
+```
+
+## `zipAll(otherArrays...)`
+
+```
+['a', 'b'].x.zip([1, 2])
+// [ ['a', 1], ['b', 2] ]
+
+['a', 'b'].x.zip([1, 2], ['foo', 'bar'])
+// [ ['a', 1, 'foo'], ['b', 2, 'bar'] ]
+
+['a', 'b', 'c', 'd'].x.zip([1, 2])
+// [ ['a', 1], ['b', 2], ['c', undefined], ['d', undefined] ]
+
+['a', 'b'].x.zip([1, 2, 3, 4])
+// [ ['a', 1], ['b', 2], [undefined, 3], [undefined, 4] ]
+```
+
+### `zip()` vs. `zipAll()`
+
+```
+[1, 2, 3, 4].x.zip(['a', 'b'])
+// [ [1, 'a'], [2, 'b'] ]
+
+[1, 2, 3, 4].x.zipAll(['a', 'b'])
+// [ [1, 'a'], [2, 'b'], [3, undefined], [4, undefined] ]
 ```
 
 ## `unzip()`
