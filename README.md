@@ -237,6 +237,18 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 // ]
 ```
 
+### `uniq()` vs. `uniqSeq()`
+
+```
+const arr = [1, 2, 2, 3, 3, 2, 1, 1];
+
+arr.x.uniq()
+// [1, 2, 3]
+
+arr.x.uniqSeq()
+// [1, 2, 3, 2, 1]
+```
+
 ## `localize(itemOrMatcher)`
 
 ```
