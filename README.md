@@ -20,6 +20,10 @@ Examining:
 - [`avg()`](#avgmapper)
 - [`wavg()`](#wavgweightsArrOrWeightSelector-selector)
 
+Clustering:
+- [`zip()`](#zipotherArray)
+- [`unzip()`](#unzip)
+
 Min and Max:
 - [`min()`](#minmapper)
 - [`max()`](#maxmapper)
@@ -433,4 +437,24 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 )
 // 4.863636363636363
 // as above
+```
+
+## `zip(otherArray)`
+
+```
+['a', 'b', 'c', 'd'].x.zip([1, 2, 3, 4])
+// [ ['a', 1], ['b', 2], ['c', 3], ['d', 4] ]
+
+['a', 'b', 'c', 'd'].x.zip([1, 2])
+// [ ['a', 1], ['b', 2] ]
+
+['a', 'b'].x.zip([1, 2, 3, 4])
+// [ ['a', 1], ['b', 2] ]
+```
+
+## `unzip()`
+
+```
+[ ['a', 1], ['b', 2], ['c', 3], ['d', 4] ].x.unzip()
+// [ ['a', 'b', 'c', 'd'], [1, 2, 3, 4] ]
 ```

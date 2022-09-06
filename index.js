@@ -25,6 +25,9 @@ import count from '@array-x/count';
 import avg from '@array-x/avg';
 import wavg from '@array-x/wavg';
 
+import zip from '@array-x/zip';
+import unzip from '@array-x/unzip';
+
 Object.defineProperty(Array.prototype, 'x', {
   get() {
     const that = this;
@@ -55,7 +58,10 @@ Object.defineProperty(Array.prototype, 'x', {
 
       count: count.bind(that),
       avg: avg.bind(that),
-      wavg: wavg.bind(that)
+      wavg: wavg.bind(that),
+
+      zip: zip.bind(that),
+      unzip: unzip.bind(that),
     };
   }
 });
