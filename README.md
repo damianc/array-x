@@ -22,6 +22,7 @@ Examining:
 - [`wavg()`](#wavgweightsArrOrWeightSelector-selector)
 
 Clustering:
+- [`chunk()`](#chunksize)
 - [`zip()`](#zipotherArrays)
 - [`zipAll()`](#zipAllotherArrays)
 - [`unzip()`](#unzip)
@@ -492,6 +493,19 @@ arr.x.uniqSeq()
 )
 // 4.863636363636363
 // as above
+```
+
+## `chunk(size)`
+
+```
+[1,2,3,4,5,6].x.chunk(2)
+// [ [1,2], [3,4], [5,6] ]
+
+[1,2,3,4,5].x.chunk(2)
+// [ [1,2], [3,4], [5] ]
+
+[1,2,3,4].x.chunk(0)
+// []
 ```
 
 ## `zip(otherArrays...)`

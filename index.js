@@ -26,6 +26,7 @@ import countAll from '@array-x/count-all';
 import avg from '@array-x/avg';
 import wavg from '@array-x/wavg';
 
+import chunk from '@array-x/chunk';
 import zip from '@array-x/zip';
 import zipAll from '@array-x/zip-all';
 import unzip from '@array-x/unzip';
@@ -69,6 +70,7 @@ Object.defineProperty(Array.prototype, 'x', {
       avg: avg.bind(that),
       wavg: wavg.bind(that),
 
+      chunk: chunk.bind(that),
       zip: zip.bind(that),
       zipAll: zipAll.bind(that),
       unzip: unzip.bind(that),
