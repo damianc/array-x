@@ -17,6 +17,7 @@ Searching:
 
 Examining:
 - [`count()`](#countitemOrMatcher)
+- [`countAll()`](#countAlllabelFactory)
 - [`avg()`](#avgmapper)
 - [`wavg()`](#wavgweightsArrOrWeightSelector-selector)
 
@@ -396,6 +397,40 @@ arr.x.uniqSeq()
 
 [1, 2, 3, 4].count(20)
 // 0
+```
+
+## `countAll([labelFactory...])`
+
+```
+['foo', 'bar', 'foo', 'baz'].x.countAll()
+// { foo: 2, bar: 1, baz: 1 }
+
+['xx', 'xxx', 'xx'].x.countAll(str => `ofLength${str.length}`)
+// { ofLength2: 2, ofLength3: 1 }
+
+[1, 2, 3, 4, 5, 6].x.countAll(
+  x => x % 2 === 0 ? 'even' : 'odd'
+)
+// { even: 3, odd: 3 }
+
+[1, 23, 4, 56, 7, 89].x.countAll(
+  x => x % 2 === 0 ? 'even' : 'odd',
+  x => x > 9 ? 'multidigit' : 'digit'
+)
+// { even: 2, odd: 4, multidigit: 3, digit: 3  }
+
+[1, 23, 4, 56, 7, 89].x.countAll(
+  x => x % 2 === 0 ? 'even' : 'odd',
+  x => x > 9 ? 'multidigit' : null
+)
+// { even: 2, odd: 4, multidigit: 3  }
+
+[
+  { name: 'Mark', city: 'LA' },
+  { name: 'John', city: 'NY' },
+  { name: 'Adam', city: 'LA' }
+].x.countAll(u => u.city)
+// { LA: 2, NY: 1 }
 ```
 
 ## `avg([mapper])`

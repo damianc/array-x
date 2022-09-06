@@ -22,6 +22,7 @@ import findMax from '@array-x/find-max';
 import findMaxIndex from '@array-x/find-max-index';
 
 import count from '@array-x/count';
+import countAll from '@array-x/count-all';
 import avg from '@array-x/avg';
 import wavg from '@array-x/wavg';
 
@@ -59,6 +60,7 @@ Object.defineProperty(Array.prototype, 'x', {
       findMaxIndex: findMaxIndex.bind(that),
 
       count: count.bind(that),
+      countAll: countAll.bind(that),
       avg: avg.bind(that),
       wavg: wavg.bind(that),
 
