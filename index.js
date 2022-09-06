@@ -28,6 +28,7 @@ import wavg from '@array-x/wavg';
 import zip from '@array-x/zip';
 import zipAll from '@array-x/zip-all';
 import unzip from '@array-x/unzip';
+import unzipAll from '@array-x/unzip-all';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -64,6 +65,7 @@ Object.defineProperty(Array.prototype, 'x', {
       zip: zip.bind(that),
       zipAll: zipAll.bind(that),
       unzip: unzip.bind(that),
+      unzipAll: unzipAll.bind(that)
     };
   }
 });
