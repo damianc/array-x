@@ -26,6 +26,12 @@ Clustering:
 - [`zipAll()`](#zipAllotherArrays)
 - [`unzip()`](#unzip)
 - [`unzipAll()`](#unzipAll)
+- [`split()`](#splitindex)
+
+Altering:
+- [`insert()`](#insertindex-items)
+- [`overwrite()`](#overwriteindex-items)
+- [`override()`](#overrideindex-items)
 
 Min and Max:
 - [`min()`](#minmapper)
@@ -561,4 +567,69 @@ arr.x.uniqSeq()
 
 [ ['a', 1], ['b', 2, 'foo'] ].x.unzipAll()
 // [ ['a', 'b'], [1, 2], [undefined, 'foo'] ]
+```
+
+## `split([index])`
+
+```
+[1,2,3,4].x.split()
+// [ [1, 2], [3, 4] ]
+
+[1,2,3,4,5].x.split()
+// [ [1,2], [3,4,5] ]
+
+[1,2,3,4,5,6].x.split(2)
+// [ [1,2], [3,4,5,6] ]
+
+[1,2,3,4,5,6].x.split(-2)
+// [ [1,2,3,4], [5,6] ]
+```
+
+## `insert(index, ...items)`
+
+```
+[1,2,3,4].x.insert(0, 10, 20)
+// [10,20,1,2,3,4]
+
+[1,2,3,4].x.insert(2, 10, 20)
+// [1,2,10,20,3,4]
+
+[1,2,3,4].x.insert(-1, 10, 20)
+// [1,2,3,10,20,4]
+```
+
+## `overwrite(index, ...items)`
+
+```
+[1,2,3,4,5,6].x.overwrite(0, 7, 8)
+// [7,8,3,4,5,6]
+
+[1,2,3,4,5,6].x.overwrite(2, 7, 8)
+// [1,2,7,8,5,6]
+
+[1,2,3,4,5,6].x.overwrite(-1, 7, 8)
+// [1,2,3,4,5,7,8]
+```
+
+## `override(index, ...items)`
+
+```
+[1,2,3,4,5,6].x.override(0, 7, 8)
+// [7,8,3,4,5,6]
+
+[1,2,3,4,5,6].x.override(2, 7, 8)
+// [1,2,7,8,5,6]
+
+[1,2,3,4,5,6].x.override(-1, 7, 8)
+// [1,2,3,4,5,7]
+```
+
+### `overwrite()` vs. `override()`
+
+```
+[1,2,3,4].x.overwrite(2, 5, 6, 7, 8, 9)
+// [1,2,5,6,7,8,9]
+
+[1,2,3,4].x.override(2, 5, 6, 7, 8, 9)
+// [1,2,5,6]
 ```

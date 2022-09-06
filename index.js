@@ -31,6 +31,11 @@ import zipAll from '@array-x/zip-all';
 import unzip from '@array-x/unzip';
 import unzipAll from '@array-x/unzip-all';
 
+import split from '@array-x/split';
+import insert from '@array-x/insert';
+import overwrite from '@array-x/overwrite';
+import override from '@array-x/override';
+
 Object.defineProperty(Array.prototype, 'x', {
   get() {
     const that = this;
@@ -67,7 +72,12 @@ Object.defineProperty(Array.prototype, 'x', {
       zip: zip.bind(that),
       zipAll: zipAll.bind(that),
       unzip: unzip.bind(that),
-      unzipAll: unzipAll.bind(that)
+      unzipAll: unzipAll.bind(that),
+
+      split: split.bind(that),
+      insert: insert.bind(that),
+      overwrite: overwrite.bind(that),
+      override: override.bind(that)
     };
   }
 });
