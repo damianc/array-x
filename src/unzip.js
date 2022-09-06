@@ -1,13 +1,23 @@
 export default function unzip() {
-  return this.reduce((acc, curr) => {
-    if (!Array.isArray(curr)) return acc;
+  if (this.length === 0) return [];
 
-    const [l, r] = acc;
-    const [cl, cr] = curr;
+  let minArrLength;
+  const arrs = this.filter(tuple => {
+    if (Array.isArray(tuple)) {
+      minArrLength = typeof minArrLength === 'undefined'
+        ? tuple.length
+        : Math.min(minArrLength, tuple.length);
+      return true;
+    }
+    return false;
+  });
 
-    return [
-      [ ...l, cl ],
-      [ ...r, cr ]
-    ];
-  }, [[], []]);
+  return arrs.reduce((acc, curr) => {
+    for (let i = 0; i < minArrLength; i++) {
+      if (!Array.isArray(acc[i])) acc[i] = [];
+      acc[i].push(curr[i]);
+    }
+    
+    return acc;
+}, []);
 }

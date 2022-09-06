@@ -21,7 +21,7 @@ Examining:
 - [`wavg()`](#wavgweightsArrOrWeightSelector-selector)
 
 Clustering:
-- [`zip()`](#zipotherArray)
+- [`zip()`](#zipotherArrays)
 - [`unzip()`](#unzip)
 
 Min and Max:
@@ -439,11 +439,14 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 // as above
 ```
 
-## `zip(otherArray)`
+## `zip(otherArrays...)`
 
 ```
 ['a', 'b', 'c', 'd'].x.zip([1, 2, 3, 4])
 // [ ['a', 1], ['b', 2], ['c', 3], ['d', 4] ]
+
+['a', 'b'].x.zip([1, 2], ['foo', 'bar'])
+// [ ['a', 1, 'foo'], ['b', 2, 'bar'] ]
 
 ['a', 'b', 'c', 'd'].x.zip([1, 2])
 // [ ['a', 1], ['b', 2] ]
@@ -457,4 +460,10 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 ```
 [ ['a', 1], ['b', 2], ['c', 3], ['d', 4] ].x.unzip()
 // [ ['a', 'b', 'c', 'd'], [1, 2, 3, 4] ]
+
+[ ['a', 1, 'foo'], ['b', 2, 'bar'], ['c', 3, 'baz'] ].x.unzip()
+// [ ['a', 'b', 'c'], [1, 2, 3], ['foo', 'bar', 'baz'] ]
+
+[ ['a', 1], ['b', 2, 'foo'], ['c', 3, 'bar']].x.unzip()
+// [ ['a', 'b'], [1, 2] ]
 ```

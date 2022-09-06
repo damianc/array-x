@@ -1,8 +1,8 @@
 require('../prod/array-x');
 
 describe('unzip() with empty input', () => {
-  it('should return array of 2 empty arrays', () => {
-    expect([].x.unzip()).toEqual([[], []]);
+  it('should return empty array', () => {
+    expect([].x.unzip()).toEqual([]);
   });
 });
 
@@ -29,6 +29,23 @@ describe('unzip() with dirty input', () => {
       [['a', 1], 1234, ['b', 2], 'foo'].x.unzip()
     ).toEqual(
       [ ['a', 'b'], [1, 2] ]
+    );
+  });
+});
+
+describe('unzip() with 3+ items arrays', () => {
+  it('should return 3 arrays for array with 3-items entries', () => {
+    expect(
+      [ [1, 'a', 'foo'], [2, 'b', 'bar'], [3, 'c', 'baz'] ].x.unzip()
+    ).toEqual(
+      [ [1, 2, 3], ['a', 'b', 'c'], ['foo', 'bar', 'baz'] ]
+    );
+  });
+  it('should return 3 arrays for array with 3 and 4-items entries', () => {
+    expect(
+      [ [1, 'a', 'foo'], [2, 'b', 'bar', 1234], [3, 'c', 'baz', true] ].x.unzip()
+    ).toEqual(
+      [ [1, 2, 3], ['a', 'b', 'c'], ['foo', 'bar', 'baz'] ]
     );
   });
 });
