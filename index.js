@@ -27,6 +27,7 @@ import avg from '@array-x/avg';
 import wavg from '@array-x/wavg';
 
 import chunk from '@array-x/chunk';
+import chunkByCallback from '@array-x/chunk-by-callback';
 import zip from '@array-x/zip';
 import zipAll from '@array-x/zip-all';
 import unzip from '@array-x/unzip';
@@ -71,6 +72,7 @@ Object.defineProperty(Array.prototype, 'x', {
       wavg: wavg.bind(that),
 
       chunk: chunk.bind(that),
+      chunkByCallback: chunkByCallback.bind(that),
       zip: zip.bind(that),
       zipAll: zipAll.bind(that),
       unzip: unzip.bind(that),

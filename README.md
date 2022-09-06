@@ -23,6 +23,7 @@ Examining:
 
 Clustering:
 - [`chunk()`](#chunksize)
+- [`chunkByCallback()`](#chunkByCallbackcb-matchedItemOpening--true)
 - [`zip()`](#zipotherArrays)
 - [`zipAll()`](#zipAllotherArrays)
 - [`unzip()`](#unzip)
@@ -506,6 +507,25 @@ arr.x.uniqSeq()
 
 [1,2,3,4].x.chunk(0)
 // []
+```
+
+## `chunkByCallback(cb, matchedItemOpening = true)`
+
+```
+// open new chunk when meet even number
+[1,2,3,4,5,6].x.chunkByCallback(x => x % 2 === 0)
+// [ [1], [2,3], [4,5], [6] ]
+
+// close current chunk when meet even number
+[1,2,3,4,5,6].x.chunkByCallback(x => x % 2 === 0, false)
+// [ [1,2], [3,4], [5,6] ]
+
+// same as chunk(3)
+[1,2,3,4,5,6,7,8].x.chunkByCallback(
+  (_, idx) => (idx + 1) % 3 === 0,
+  false
+)
+// [ [1,2,3], [4,5,6], [7,8] ]
 ```
 
 ## `zip(otherArrays...)`
