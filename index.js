@@ -37,6 +37,7 @@ import split from '@array-x/split';
 import insert from '@array-x/insert';
 import overwrite from '@array-x/overwrite';
 import override from '@array-x/override';
+import move from '@array-x/move';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -81,7 +82,8 @@ Object.defineProperty(Array.prototype, 'x', {
       split: split.bind(that),
       insert: insert.bind(that),
       overwrite: overwrite.bind(that),
-      override: override.bind(that)
+      override: override.bind(that),
+      move: move.bind(that)
     };
   }
 });

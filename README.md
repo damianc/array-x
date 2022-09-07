@@ -31,6 +31,7 @@ Clustering:
 - [`split()`](#splitindex)
 
 Altering:
+- [`move()`](#movesourceIndex-count-targetIndex--0)
 - [`insert()`](#insertindex-items)
 - [`overwrite()`](#overwriteindex-items)
 - [`override()`](#overrideindex-items)
@@ -617,6 +618,30 @@ arr.x.uniqSeq()
 
 [1,2,3,4,5,6].x.split(-2)
 // [ [1,2,3,4], [5,6] ]
+```
+
+## `move(sourceIndex, count, targetIndex = 0)`
+
+```
+// move first 3 items to index 2
+[1,2,3,4,5,6].x.move(0, 3, 2)
+// [4,5,1,2,3,6]
+
+// move last 2 items to index 0
+[1,2,3,4,5,6].x.move(-2, 2)
+// [5,6,1,2,3,4]
+
+// move first item to the end
+[1,2,3,4,5,6].x.move(0, 1, -1)
+// [2,3,4,5,6,1]
+
+// move last item to the beginning
+[1,2,3,4,5,6].x.move(-1, 1)
+// [6,1,2,3,4,5]
+
+// move second to last item to the end (swap two last items)
+[1,2,3,4,5,6].x.move(-2, 1, -1)
+// [1,2,3,4,6,5]
 ```
 
 ## `insert(index, ...items)`
