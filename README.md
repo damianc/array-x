@@ -43,6 +43,7 @@ Altering:
 
 Variants of built-ins:
 - [`reverse()`](#reverse)
+- [`forEach()`](#forEachcb)
 
 Min and Max:
 - [`min()`](#minmapper)
@@ -817,6 +818,8 @@ undwarf // [1,2,3,4,5]
 
 ## `reverse()`
 
+Return reverse array keeping original array unchanged.
+
 ```
 const arr = [1,2,3,4];
 const rev = arr.x.reverse();
@@ -827,4 +830,31 @@ rev
 arr
 // [1,2,3,4]
 // original array unchanged
+```
+
+## `forEach(cb)`
+
+Like `forEach()` but with `break`/`continue` feature.
+
+> alias: `each()`
+
+```
+[1,2,3,4].x.forEach((item, idx, meta) => {
+  // meta.array - original array ([1,2,3,4])
+  // meta.api - break and continue
+
+  if (x === 4) return meta.api.break;
+  console.log(item);
+});
+
+// 1 2 3
+```
+
+```
+[1,2,3,4].x.forEach((item, idx, { api }) => {
+  if (x % 2 !== 0) return api.continue;
+  console.log(item);
+});
+
+// 2 4
 ```

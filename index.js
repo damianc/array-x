@@ -46,6 +46,7 @@ import dwarf from '@array-x/dwarf';
 import alterable from '@array-x/alterable';
 
 import reverse from '@array-x/reverse';
+import forEach from '@array-x/for-each';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -53,7 +54,9 @@ Object.defineProperty(Array.prototype, 'x', {
 
     const aliased = {
       // readony(), readOnly()
-      frozen: frozen.bind(that)
+      frozen: frozen.bind(that),
+      // each()
+      forEach: forEach.bind(that)
     };
 
     return {
@@ -106,7 +109,9 @@ Object.defineProperty(Array.prototype, 'x', {
       dwarf: dwarf.bind(that),
       alterable: alterable.bind(that),
 
-      reverse: reverse.bind(that)
+      reverse: reverse.bind(that),
+      forEach: aliased.forEach,
+      each: aliased.forEach
     };
   }
 });
