@@ -48,6 +48,8 @@ import alterable from '@array-x/alterable';
 import reverse from '@array-x/reverse';
 import forEach from '@array-x/for-each';
 
+import forEveryChunk from '@array-x/for-every-chunk';
+
 Object.defineProperty(Array.prototype, 'x', {
   get() {
     const that = this;
@@ -111,7 +113,9 @@ Object.defineProperty(Array.prototype, 'x', {
 
       reverse: reverse.bind(that),
       forEach: aliased.forEach,
-      each: aliased.forEach
+      each: aliased.forEach,
+
+      forEveryChunk: forEveryChunk.bind(that)
     };
   }
 });

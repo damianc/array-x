@@ -45,6 +45,9 @@ Variants of built-ins:
 - [`reverse()`](#reverse)
 - [`forEach()`](#forEachcb)
 
+Iteration:
+- [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
+
 Min and Max:
 - [`min()`](#minmapper)
 - [`max()`](#maxmapper)
@@ -857,4 +860,20 @@ Like `forEach()` but with `break`/`continue` feature.
 });
 
 // 2 4
+```
+
+## `forEveryChunk(chunkSize, cb)`
+
+```
+[1,2,3,4].x.forEveryChunk(2, (chunk, chunkNumber, arr) => {
+  console.log(chunkNumber, chunk);
+});
+// 1, [1,2]
+// 2, [3,4]
+
+[1,2,3,4].x.forEveryChunk(3, (chunk, chunkNumber, arr) => {
+  console.log(chunkNumber, chunk);
+});
+// 1, [1,2,3]
+// 2, [4]
 ```
