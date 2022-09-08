@@ -42,7 +42,7 @@ Altering:
 - [`dwarf()`](#dwarf)
 - [`alterable()`](#alterable)
 
-Variants of built-ins:
+Redefined built-ins:
 - [`reverse()`](#reverse)
 - [`forEach()`](#forEachcb)
 
