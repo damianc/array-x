@@ -45,6 +45,8 @@ import fixed from '@array-x/fixed';
 import dwarf from '@array-x/dwarf';
 import alterable from '@array-x/alterable';
 
+import reverse from '@array-x/reverse';
+
 Object.defineProperty(Array.prototype, 'x', {
   get() {
     const that = this;
@@ -102,7 +104,9 @@ Object.defineProperty(Array.prototype, 'x', {
       readOnly: aliased.frozen,
       fixed: fixed.bind(that),
       dwarf: dwarf.bind(that),
-      alterable: alterable.bind(that)
+      alterable: alterable.bind(that),
+
+      reverse: reverse.bind(that)
     };
   }
 });

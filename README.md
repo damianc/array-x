@@ -41,6 +41,9 @@ Altering:
 - [`dwarf()`](#dwarf)
 - [`alterable()`](#alterable)
 
+Variants of built-ins:
+- [`reverse()`](#reverse)
+
 Min and Max:
 - [`min()`](#minmapper)
 - [`max()`](#maxmapper)
@@ -810,4 +813,18 @@ undwarf.push(5);
 unfrozen // [1,2,3,4,5]
 unfixed // [1,2,3,4,5]
 undwarf // [1,2,3,4,5]
+```
+
+## `reverse()`
+
+```
+const arr = [1,2,3,4];
+const rev = arr.x.reverse();
+
+rev
+// [4,3,2,1]
+
+arr
+// [1,2,3,4]
+// original array unchanged
 ```
