@@ -49,6 +49,7 @@ import reverse from '@array-x/reverse';
 import forEach from '@array-x/for-each';
 
 import forEveryChunk from '@array-x/for-every-chunk';
+import forEveryN from '@array-x/for-every-n';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -115,7 +116,8 @@ Object.defineProperty(Array.prototype, 'x', {
       forEach: aliased.forEach,
       each: aliased.forEach,
 
-      forEveryChunk: forEveryChunk.bind(that)
+      forEveryChunk: forEveryChunk.bind(that),
+      forEveryN: forEveryN.bind(that)
     };
   }
 });

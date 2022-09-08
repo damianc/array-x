@@ -47,6 +47,7 @@ Variants of built-ins:
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
+- [`forEveryN()`](#forEveryNblockSize-cb-fullBlocksOnly--false)
 
 Min and Max:
 - [`min()`](#minmapper)
@@ -868,12 +869,40 @@ Like `forEach()` but with `break`/`continue` feature.
 [1,2,3,4].x.forEveryChunk(2, (chunk, chunkNumber, arr) => {
   console.log(chunkNumber, chunk);
 });
+
 // 1, [1,2]
 // 2, [3,4]
+```
 
+```
 [1,2,3,4].x.forEveryChunk(3, (chunk, chunkNumber, arr) => {
   console.log(chunkNumber, chunk);
 });
+
 // 1, [1,2,3]
 // 2, [4]
+```
+
+## `forEveryN(blockSize, cb, fullBlocksOnly = false)`
+
+```
+[1,2,3,4,5].x.forEveryN(3, (block, idx) => {
+  console.log(block);
+});
+
+// [1,2,3]
+// [2,3,4]
+// [3,4,5]
+// [4,5]
+// [5]
+```
+
+```
+[1,2,3,4,5].x.forEveryN(3, (block, idx) => {
+  console.log(block);
+}, true);
+
+// [1,2,3]
+// [2,3,4]
+// [3,4,5]
 ```
