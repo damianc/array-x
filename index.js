@@ -39,9 +39,20 @@ import overwrite from '@array-x/overwrite';
 import override from '@array-x/override';
 import move from '@array-x/move';
 
+import iterator from '@array-x/iterator';
+import frozen from '@array-x/frozen';
+import fixed from '@array-x/fixed';
+import dwarf from '@array-x/dwarf';
+import alterable from '@array-x/alterable';
+
 Object.defineProperty(Array.prototype, 'x', {
   get() {
     const that = this;
+
+    const aliased = {
+      // readony(), readOnly()
+      frozen: frozen.bind(that)
+    };
 
     return {
       group: group.bind(that),
@@ -83,7 +94,15 @@ Object.defineProperty(Array.prototype, 'x', {
       insert: insert.bind(that),
       overwrite: overwrite.bind(that),
       override: override.bind(that),
-      move: move.bind(that)
+      move: move.bind(that),
+
+      iterator: iterator.bind(that),
+      frozen: aliased.frozen,
+      readonly: aliased.frozen,
+      readOnly: aliased.frozen,
+      fixed: fixed.bind(that),
+      dwarf: dwarf.bind(that),
+      alterable: alterable.bind(that)
     };
   }
 });

@@ -8,6 +8,7 @@ Collecting:
 - [`skipUntilReduce()`](#skipUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`uniq()`](#uniqselector)
 - [`uniqSeq()`](#uniqseqselector)
+- [`iterator()`](#iterator)
 
 Searching:
 - [`localize()`](#localizeitemOrMatcher)
@@ -35,6 +36,10 @@ Altering:
 - [`insert()`](#insertindex-items)
 - [`overwrite()`](#overwriteindex-items)
 - [`override()`](#overrideindex-items)
+- [`frozen()`](#frozen)
+- [`fixed()`](#fixed)
+- [`dwarf()`](#dwarf)
+- [`alterable()`](#alterable)
 
 Min and Max:
 - [`min()`](#minmapper)
@@ -257,6 +262,37 @@ arr.x.uniq()
 
 arr.x.uniqSeq()
 // [1, 2, 3, 2, 1]
+```
+
+## `iterator()`
+
+```
+const iter = [1,2,3,4].x.iterator();
+
+[...iter]
+// [1,2,3,4]
+
+[...iter]
+// []
+```
+
+```
+const iter = [1,2,3,4].x.iterator();
+
+iter.next()
+// {value: 1, done: false}
+
+iter.next()
+// {value: 2, done: false}
+
+[...iter]
+// [3,4]
+
+iter.next()
+// {value: undefined, done: true}
+
+[...iter]
+// []
 ```
 
 ## `localize(itemOrMatcher)`
@@ -691,4 +727,87 @@ arr.x.uniqSeq()
 
 [1,2,3,4].x.override(2, 5, 6, 7, 8, 9)
 // [1,2,5,6]
+```
+
+## `frozen()`
+
+Disable addition, removal and update.
+
+> alias: `readonly()` or `readOnly()`
+
+```
+const arr = [10,20];
+arr.x.frozen();
+
+arr.push(30)
+// TypeError: Cannot add property 2, object is not extensible
+
+arr.pop()
+// TypeError: Cannot delete property '1' of [object Array]
+
+arr[0] = 100
+
+arr
+// [10,20]
+```
+
+## `fixed()`
+
+Disable addition and removal.
+
+```
+const arr = [10,20];
+arr.x.fixed();
+
+arr.push(30)
+// TypeError: Cannot add property 2, object is not extensible
+
+arr.pop()
+// TypeError: Cannot delete property '1' of [object Array]
+
+arr[0] = 100
+
+arr
+// [100,20]
+```
+
+## `dwarf()`
+
+Disable addition.
+
+```
+const arr = [10,20];
+arr.x.dwarf();
+
+arr.push(30)
+// TypeError: Cannot add property 2, object is not extensible
+
+arr.pop()
+
+arr[0] = 100
+
+arr
+// [100]
+```
+
+## `alterable()`
+
+Return array with enabled addition, removal and update.
+
+```
+const frozen = [1,2,3,4].x.frozen();
+const fixed = [1,2,3,4].x.fixed();
+const dwarf = [1,2,3,4].x.dwarf();
+
+const unfrozen = frozen.x.alterable();
+const unfixed = fixed.x.alterable();
+const undwarf = dwarf.x.alterable();
+
+unfrozen.push(5);
+unfixed.push(5);
+undwarf.push(5);
+
+unfrozen // [1,2,3,4,5]
+unfixed // [1,2,3,4,5]
+undwarf // [1,2,3,4,5]
 ```
