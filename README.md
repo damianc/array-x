@@ -21,6 +21,7 @@ Examining:
 - [`countAll()`](#countAlllabelFactory)
 - [`avg()`](#avgmapper)
 - [`wavg()`](#wavgweightsArrOrWeightSelector-selector)
+- [`sum()`](#summapper)
 
 Clustering:
 - [`chunk()`](#chunksize)
@@ -539,6 +540,16 @@ iter.next()
 )
 // 4.863636363636363
 // as above
+```
+
+## `sum([mapper])`
+
+```
+[1,2,3,4].x.sum()
+// 10
+
+['foo', 'bar', 'baz'].x.sum(str => str.length)
+// 9
 ```
 
 ## `chunk(size)`

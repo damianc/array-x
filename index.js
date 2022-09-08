@@ -25,6 +25,7 @@ import count from '@array-x/count';
 import countAll from '@array-x/count-all';
 import avg from '@array-x/avg';
 import wavg from '@array-x/wavg';
+import sum from '@array-x/sum';
 
 import chunk from '@array-x/chunk';
 import chunkByCallback from '@array-x/chunk-by-callback';
@@ -90,6 +91,7 @@ Object.defineProperty(Array.prototype, 'x', {
       countAll: countAll.bind(that),
       avg: avg.bind(that),
       wavg: wavg.bind(that),
+      sum: sum.bind(that),
 
       chunk: chunk.bind(that),
       chunkByCallback: chunkByCallback.bind(that),
