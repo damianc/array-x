@@ -1,4 +1,5 @@
 import group from '@array-x/group';
+import index from '@array-x/index';
 
 import uniq from '@array-x/uniq';
 import uniqSeq from '@array-x/uniq-seq';
@@ -65,6 +66,7 @@ Object.defineProperty(Array.prototype, 'x', {
 
     return {
       group: group.bind(that),
+      index: index.bind(that),
       
       uniq: uniq.bind(that),
       uniqSeq: uniqSeq.bind(that),

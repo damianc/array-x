@@ -2,6 +2,7 @@
 
 Collecting:
 - [`group()`](#grouplabelFactory)
+- [`index()`](#indexkeySelector-valueSelector--null-fallbackKey--__unindexed)
 - [`collectUntil()`](#collectUntilitemOrMatcher-inclusive--true)
 - [`collectUntilReduce()`](#collectUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`skipUntil()`](#skipUntilitemOrMatcher-inclusive--true)
@@ -98,6 +99,64 @@ Min and Max:
 //   NY: [{ name: 'John', city: 'NY' }]
 // }
 ```
+
+## `index(keySelector, valueSelector = null, fallbackKey = '__unindexed')`
+
+- `keySelector`: `string` or `(item: any, index: number) => string`
+- `valueSelector`: `string` or `(item: any, index: number) => string`
+- `fallbackKey`: `string`
+
+```
+[
+  { id: 1, name: 'John', city: 'NY' },
+  { id: 2, name: 'Mark', city: 'LA' },
+  { id: 3, name: 'Adam', city: 'LA', extraKey: 'foo' }
+].x.index('city');
+
+/*
+{
+  NY: [ { id: 1, name: 'John', city: 'NY' } ],
+  LA: [
+    { id: 2, name: 'Mark', city: 'LA' },
+    { id: 3, name: 'Adam', city: 'LA', extraKey: 'foo' }
+  ]
+}
+*/
+```
+
+```
+[
+  { id: 1, name: 'John', city: 'NY' },
+  { id: 2, name: 'Mark', city: 'LA' },
+  { id: 3, name: 'Adam', city: 'LA', extraKey: 'foo' }
+].x.index(
+  u => u.city.toLowerCase(),
+  'id'
+);
+
+/*
+{
+  ny: [ 1 ],
+  la: [ 2, 3 ]
+}
+*/
+```
+
+```
+[
+  { id: 1, name: 'John', city: 'NY' },
+  { id: 2, name: 'Mark', city: 'LA' },
+  { id: 3, name: 'Adam', city: 'LA', extraKey: 'foo' }
+].x.index('extraKey', 'name');
+
+/*
+{
+  foo: [ 'Adam' ],
+  __unindexed: [ 'John', 'Mark' ]
+}
+*/
+```
+
 
 ## `collectUntil(itemOrMatcher, inclusive = true)`
 
