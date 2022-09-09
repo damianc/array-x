@@ -916,7 +916,7 @@ Like `forEach()` but with `break`/`continue` feature.
 [1,2,3,4].x.forEach((item, idx, api, array) => {
   // api - break and continue
 
-  if (x === 4) return meta.api.break;
+  if (x === 4) return api.break;
   console.log(item);
 });
 
