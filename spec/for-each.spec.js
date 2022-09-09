@@ -13,11 +13,11 @@ describe('forEach() in standard use', () => {
   });
 });
 
-describe('forEach() with third callback parameter', () => {
-  it('should give access to array under `array` key', () => {
+describe('forEach() with 3rd and 4th callback parameters', () => {
+  it('should give access to array', () => {
     const arr = [1,2];
     let ok = true;
-    arr.x.forEach((item, idx, { array }) => {
+    arr.x.forEach((item, idx, _, array) => {
       ok &&= array === arr;
     });
     expect(ok).toEqual(true);
@@ -25,7 +25,7 @@ describe('forEach() with third callback parameter', () => {
   describe('being break/continue API', () => {
     it('should allow breaking loop', () => {
       const res = [];
-      [1,2,3,4,5,6].x.forEach((item, idx, { api }) => {
+      [1,2,3,4,5,6].x.forEach((item, idx, api) => {
         if (item === 4) return api.break;
         res.push(item);
       });
@@ -33,7 +33,7 @@ describe('forEach() with third callback parameter', () => {
     });
     it('should allow breaking loop (at the end)', () => {
       const res = [];
-      [1,2,3,4,5,6].x.forEach((item, idx, { api }) => {
+      [1,2,3,4,5,6].x.forEach((item, idx, api) => {
         res.push(item);
         if (item === 4) return api.break;
       });
@@ -41,7 +41,7 @@ describe('forEach() with third callback parameter', () => {
     });
     it('should allow skipping loop', () => {
       const res = [];
-      [1,2,3,4,5,6].x.forEach((item, idx, { api }) => {
+      [1,2,3,4,5,6].x.forEach((item, idx, api) => {
         if (item % 2 !== 0) return api.continue;
         res.push(item);
       });
@@ -49,19 +49,28 @@ describe('forEach() with third callback parameter', () => {
     });
     it('should allow skipping loop at the end, but without effect', () => {
       const res = [];
-      [1,2,3,4,5,6].x.forEach((item, idx, { api }) => {
+      [1,2,3,4,5,6].x.forEach((item, idx, api) => {
         res.push(item);
         if (item % 2 !== 0) return api.continue;
       });
       expect(res).toEqual([1,2,3,4,5,6]);
     });
   });
+  it('should allow breaking and skipping', () => {
+    const res = [];
+    [1,2,3,4,5,6].x.forEach((item, idx, { break: b, continue: c }) => {
+      if (item % 2 !== 0) return c;
+      res.push(item);
+      if (item === 4) return b;
+    });
+    expect(res).toEqual([2,4]);
+  });
 });
 
 describe('forEach() method', () => {
   it('should be accessible as each()', () => {
     const res = [];
-    [1,2,3,4,5,6].x.each((item, idx, { api }) => {
+    [1,2,3,4,5,6].x.each((item, idx, api) => {
       if (item === 4) return api.break;
       res.push(item);
     });

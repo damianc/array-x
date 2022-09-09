@@ -913,9 +913,8 @@ Like `forEach()` but with `break`/`continue` feature.
 > alias: `each()`
 
 ```
-[1,2,3,4].x.forEach((item, idx, meta) => {
-  // meta.array - original array ([1,2,3,4])
-  // meta.api - break and continue
+[1,2,3,4].x.forEach((item, idx, api, array) => {
+  // api - break and continue
 
   if (x === 4) return meta.api.break;
   console.log(item);
@@ -925,9 +924,23 @@ Like `forEach()` but with `break`/`continue` feature.
 ```
 
 ```
-[1,2,3,4].x.forEach((item, idx, { api }) => {
+[1,2,3,4].x.forEach((item, idx, api) => {
   if (x % 2 !== 0) return api.continue;
   console.log(item);
+});
+
+// 2 4
+```
+
+```
+[1,2,3,4,5,6].x.forEach((
+  item,
+  idx,
+  { break: b, continue: c }
+) => {
+  if (item % 2 !== 0) return c;
+  console.log(item);
+  if (item === 4) return b;
 });
 
 // 2 4

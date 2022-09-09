@@ -8,7 +8,7 @@ export default function forEach(cb) {
   };
 
   for (let i = 0; i < this.length; i++) {
-    const cbRes = cb(this[i], i, { array: this, api });
+    const cbRes = cb(this[i], i, api, this);
 
     if (cbRes === _break) break;
     if (cbRes === _continue) continue;
