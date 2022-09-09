@@ -3,6 +3,7 @@ import index from '@array-x/index';
 
 import join1to1 from '@array-x/join1to1';
 import joinManyTo1 from '@array-x/joinmanyto1';
+import join1ToMany from '@array-x/join1tomany';
 
 import uniq from '@array-x/uniq';
 import uniqSeq from '@array-x/uniq-seq';
@@ -73,6 +74,7 @@ Object.defineProperty(Array.prototype, 'x', {
 
       join1to1: join1to1.bind(that),
       joinManyTo1: joinManyTo1.bind(that),
+      join1ToMany: join1ToMany.bind(that),
 
       uniq: uniq.bind(that),
       uniqSeq: uniqSeq.bind(that),
