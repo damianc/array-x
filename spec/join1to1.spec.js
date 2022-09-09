@@ -41,4 +41,22 @@ describe('join1to1()', () => {
       { id: 2, title: 'Post 2', authorId: 102, author: undefined }
     ]);
   });
+  it('should use `undefined` if item does not have key', () => {
+    const dirtyData = [
+      { id: 3, title: 'Post 3' }
+    ];
+    expect(
+      [ ...this.data, ...dirtyData ].x.join1to1(
+        this.authors,
+        'authorId',
+        'id',
+        'author',
+        author => author.name
+      )
+    ).toEqual([
+      { id: 1, title: 'Post 1', authorId: 100, author: 'John' },
+      { id: 2, title: 'Post 2', authorId: 102, author: 'Adam' },
+      { id: 3, title: 'Post 3', author: undefined }
+    ]);
+  });
 });

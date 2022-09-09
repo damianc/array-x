@@ -9,10 +9,15 @@ export default function join1to1(
 
   return this.map(item => {
     const keyValue = item[targetKey];
-    
+    let sourceValue;
+
+    if (sourceIndex[keyValue]) {
+      sourceValue = sourceIndex[keyValue][0];
+    }
+
     return {
       ...item,
-      [targetNewKey]: sourceIndex[keyValue] ? sourceIndex[keyValue][0] : undefined
+      [targetNewKey]: sourceValue
     };
   });
 }
