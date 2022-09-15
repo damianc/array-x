@@ -42,6 +42,7 @@ Altering:
 - [`fixed()`](#fixed)
 - [`dwarf()`](#dwarf)
 - [`alterable()`](#alterable)
+- [`clamped()`](#clampedmin-max)
 
 Redefined built-ins:
 - [`reverse()`](#reverse)
@@ -888,6 +889,31 @@ undwarf.push(5);
 unfrozen // [1,2,3,4,5]
 unfixed // [1,2,3,4,5]
 undwarf // [1,2,3,4,5]
+```
+
+## `clamped(min, max)`
+
+```
+const rgb = [].x.clamped(0, 255);
+
+rgb.push(-120);
+rgb.push(250);
+rgb.push(340);
+
+rgb
+// [0, 250, 255]
+```
+
+```
+const digits = [-20,-4,1,8,12,28].x.clamped(-9, 9);
+// [-9,-4,1,8,9,9]
+
+digits.push(-120);
+digits.push(4);
+digits.push(120);
+
+digits
+// [-9,-4,1,8,9,9,-9,4,9]
 ```
 
 ## `reverse()`
