@@ -43,6 +43,7 @@ Altering:
 - [`dwarf()`](#dwarf)
 - [`alterable()`](#alterable)
 - [`clamped()`](#clampedmin-max)
+- [`folded()`](#foldedcoverSelector)
 
 Redefined built-ins:
 - [`reverse()`](#reverse)
@@ -914,6 +915,43 @@ digits.push(120);
 
 digits
 // [-9,-4,1,8,9,9,-9,4,9]
+```
+
+## `folded(coverSelector)`
+
+```
+const users = [
+  { name: 'John', city: 'LA' },
+  { name: 'Mark', city: 'NY' }
+].x.folded(u => u.name);
+
+console.log(users[0]);
+// John
+console.log(users[1]);
+// Mark
+
+console.log(users.unfold(0));
+// { name: 'John', city: 'LA' }
+console.log(users.unfold(1));
+// { name: 'Mark', city: 'NY' }
+```
+
+```
+const users = [
+  { name: 'John', city: 'LA' }
+].x.folded(u => u.name);
+
+users.push({ name: 'Mark', city: 'NY' });
+
+console.log([...users]);
+// John, Mark
+
+console.log(
+  users.unfold(0),
+  users.unfold(1)
+);
+// { name: 'John', city: 'LA' }
+// { name: 'Mark', city: 'NY' }
 ```
 
 ## `reverse()`

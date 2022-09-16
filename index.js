@@ -46,6 +46,7 @@ import override from '@array-x/override';
 import move from '@array-x/move';
 
 import clamped from '@array-x/clamped';
+import folded from '@array-x/folded';
 import iterator from '@array-x/iterator';
 import frozen from '@array-x/frozen';
 import fixed from '@array-x/fixed';
@@ -118,6 +119,7 @@ Object.defineProperty(Array.prototype, 'x', {
       move: move.bind(that),
 
       clamped: clamped.bind(that),
+      folded: folded.bind(that),
       iterator: iterator.bind(that),
       frozen: aliased.frozen,
       readonly: aliased.frozen,
