@@ -68,7 +68,7 @@ describe('forEveryChunk()', () => {
     const arr = [1,2,3,4];
     let ok = true;
     arr.x.forEveryChunk(2, (chunk, chunkNumber, array) => {
-      ok &&= array === arr;
+      ok = ok && (array === arr);
     });
     expect(ok).toEqual(true);
   });

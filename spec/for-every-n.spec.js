@@ -64,7 +64,7 @@ describe('forEveryN() should give access', () => {
     const arr = [1,2,3,4];
     let ok = true;
     arr.x.forEveryN(2, (chunk, chunkNumber, array) => {
-      ok &&= array === arr;
+      ok = ok && (array === arr);
     });
     expect(ok).toEqual(true);
   });

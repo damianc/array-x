@@ -15,7 +15,7 @@ export default function zipAll(...otherArrs) {
   const arrs = otherArrs.filter(oa => {
     if (Array.isArray(oa)) {
       maxArrLength = Math.max(maxArrLength, oa.length);
-      hasNonEmpty ||= oa.length > 0;
+      hasNonEmpty = hasNonEmpty || oa.length > 0;
       return true;
     }
     return false;

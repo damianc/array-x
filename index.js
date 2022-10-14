@@ -59,6 +59,8 @@ import forEach from '@array-x/for-each';
 import forEveryChunk from '@array-x/for-every-chunk';
 import forEveryN from '@array-x/for-every-n';
 
+import select from '@array-x/select';
+
 Object.defineProperty(Array.prototype, 'x', {
   get() {
     const that = this;
@@ -133,7 +135,9 @@ Object.defineProperty(Array.prototype, 'x', {
       each: aliased.forEach,
 
       forEveryChunk: forEveryChunk.bind(that),
-      forEveryN: forEveryN.bind(that)
+      forEveryN: forEveryN.bind(that),
+
+      select: select.bind(that)
     };
   }
 });

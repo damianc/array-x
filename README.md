@@ -10,6 +10,7 @@ Collecting:
 - [`uniq()`](#uniqselector)
 - [`uniqSeq()`](#uniqseqselector)
 - [`iterator()`](#iterator)
+- [`select()`](#selectfrom--0-to---1-step--1)
 
 Searching:
 - [`localize()`](#localizeitemOrMatcher)
@@ -363,6 +364,25 @@ iter.next()
 
 [...iter]
 // []
+```
+
+## `select(from = 0, to = -1, step = 1)`
+
+```
+[1,2,3,4,5,6].x.select(2,4)
+// [3,4,5]
+
+[1,2,3,4,5,6].x.select(2)
+// [3,4,5,6]
+
+[1,2,3,4,5,6].x.select(-2)
+// [5,6]
+
+[1,2,3,4,5,6].x.select(2,-2)
+// [3,4,5]
+
+[1,2,3,4,5,6].x.select(-3,-2)
+// [4,5]
 ```
 
 ## `localize(itemOrMatcher)`

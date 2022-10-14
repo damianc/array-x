@@ -18,7 +18,7 @@ describe('forEach() with 3rd and 4th callback parameters', () => {
     const arr = [1,2];
     let ok = true;
     arr.x.forEach((item, idx, _, array) => {
-      ok &&= array === arr;
+      ok = ok && (array === arr);
     });
     expect(ok).toEqual(true);
   });
