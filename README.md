@@ -10,6 +10,7 @@ Collecting:
 - [`uniq()`](#uniqselector)
 - [`uniqSeq()`](#uniqseqselector)
 - [`iterator()`](#iterator)
+- [`everyNth()`](#everyNthn--1-from--0-to)
 - [`select()`](#selectfrom--0-to---1-step--1)
 
 Searching:
@@ -369,6 +370,25 @@ iter.next()
 
 [...iter]
 // []
+```
+
+## `everyNth(n = 1, from = 0, to)`
+
+```
+[1,2,3,4,5,6].x.everyNth(2)
+// [1,3,5]
+
+[1,2,3,4,5,6].x.everyNth(2, 1)
+// [2,4,6]
+
+[1,2,3,4,5,6].x.everyNth(2, -3)
+// [4,6]
+
+[1,2,3,4,5,6].x.everyNth(2, -5)
+// [2,4,6]
+
+[1,2,3,4,5,6].x.everyNth(2, -5, -2)
+// [2,4]
 ```
 
 ## `select(from = 0, to = -1, step = 1)`
