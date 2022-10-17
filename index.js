@@ -53,7 +53,7 @@ import fixed from '@array-x/fixed';
 import dwarf from '@array-x/dwarf';
 import alterable from '@array-x/alterable';
 
-import reverse from '@array-x/reverse';
+import reversed from '@array-x/reversed';
 import forEach from '@array-x/for-each';
 
 import forEveryChunk from '@array-x/for-every-chunk';
@@ -132,7 +132,7 @@ Object.defineProperty(Array.prototype, 'x', {
       dwarf: dwarf.bind(that),
       alterable: alterable.bind(that),
 
-      reverse: reverse.bind(that),
+      reversed: reversed.bind(that),
       forEach: aliased.forEach,
       each: aliased.forEach,
 

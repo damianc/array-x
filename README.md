@@ -49,7 +49,7 @@ Altering:
 - [`thick()`](#thick)
 
 Redefined built-ins:
-- [`reverse()`](#reverse)
+- [`reversed()`](#reversed)
 - [`forEach()`](#forEachcb)
 
 Iteration:
@@ -1002,13 +1002,13 @@ console.log(
 // [1,2,3,4]
 ```
 
-## `reverse()`
+## `reversed()`
 
-Return reverse array keeping original array unchanged.
+Return reversed array keeping original array unchanged.
 
 ```
 const arr = [1,2,3,4];
-const rev = arr.x.reverse();
+const rev = arr.x.reversed();
 
 rev
 // [4,3,2,1]
