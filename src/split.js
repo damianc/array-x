@@ -3,14 +3,21 @@ export default function split(matcher = null) {
     return [...this];
   }
 
+  let matched = 0;
+
   function test(item, idx) {
+    let m;
+
     if (typeof matcher === 'function') {
-      return matcher(item, idx);
+      m = matcher(item, idx);
     } else if (Array.isArray(matcher)) {
-      return matcher.includes(item);
+      m = matcher.includes(item);
     } else {
-      return item === matcher;
+      m = item === matcher;
     }
+
+    if (m) matched += 1;
+    return m;
   }
 
   let prevItemMatched = false;
@@ -33,10 +40,10 @@ export default function split(matcher = null) {
         ];
       }
       prevItemMatched = false;
-
       return r;
     }
   }, []);
 
+  if (matched === 0) return res[0];
   return res;
 }

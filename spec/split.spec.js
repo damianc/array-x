@@ -9,6 +9,11 @@ describe('split() without parameters', () => {
 });
 
 describe('split() with one value', () => {
+  it('should split items of array with one matched value', () => {
+    expect(
+      [1,2,3,4].x.split(2)
+    ).toEqual([ [1], [3,4] ]);
+  });
   it('should split items', () => {
     expect(
       [1,10,2,3,30,2,4,40].x.split(2)
@@ -92,5 +97,23 @@ describe('split() on array with matching siblings', () => {
     expect(
       [1,2,4,3,5,6,8,7,9].x.split(x => x % 2 === 0)
     ).toEqual([ [1], [3,5], [7,9] ]);
+  });
+});
+
+describe('split() with value that does not exist in array', () => {
+  it('should return entire array for single value', () => {
+    expect(
+      [1,2,3,4].x.split(8)
+    ).toEqual([1,2,3,4]);
+  });
+  it('should return entire array for multiple values', () => {
+    expect(
+      [1,2,3,4].x.split([10,12,14])
+    ).toEqual([1,2,3,4]);
+  });
+  it('should return entire array for callback', () => {
+    expect(
+      [1,2,3,4].x.split(x => x >= 10)
+    ).toEqual([1,2,3,4]);
   });
 });
