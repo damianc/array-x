@@ -1,7 +1,7 @@
-export default function chunk(size) {
+export default function chunk(size, rejectStickingTail = false) {
   if ((!size) || size <= 0) return [];
   
-  return this.reduce((acc, curr) => {
+  const res = this.reduce((acc, curr) => {
     const last = acc[acc.length - 1];
 
     if (last.length === size) {
@@ -11,4 +11,13 @@ export default function chunk(size) {
       return [...acc, [...tail, curr]];
     }
   }, [[]]);
+
+  if (rejectStickingTail) {
+    const last = res[res.length - 1];
+    if (last.length !== size) {
+      res.splice(-1, 1);
+    }
+  }
+
+  return res;
 }

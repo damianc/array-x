@@ -26,7 +26,7 @@ Examining:
 - [`sum()`](#summapper)
 
 Clustering:
-- [`chunk()`](#chunksize)
+- [`chunk()`](#chunksize-rejectStickingTail--false)
 - [`chunkByCallback()`](#chunkByCallbackcb-matchedItemOpening--true)
 - [`chunkByPattern()`](#chunkByPatternsizes-rejectStickingTail--false)
 - [`zip()`](#zipotherArrays)
@@ -642,7 +642,7 @@ iter.next()
 // 9
 ```
 
-## `chunk(size)`
+## `chunk(size, rejectStickingTail = false)`
 
 ```
 [1,2,3,4,5,6].x.chunk(2)
@@ -650,6 +650,9 @@ iter.next()
 
 [1,2,3,4,5].x.chunk(2)
 // [ [1,2], [3,4], [5] ]
+
+[1,2,3,4,5].x.chunk(2, true)
+// [ [1,2], [3,4] ]
 
 [1,2,3,4].x.chunk(0)
 // []

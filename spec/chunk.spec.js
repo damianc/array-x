@@ -29,3 +29,16 @@ describe('chunk() with positive input', () => {
     );
   });
 });
+
+describe('chunk() with sticking tail', () => {
+  it('should keep sticking tail by default', () => {
+    expect(
+      [1,2,3,4,5].x.chunk(2)
+    ).toEqual([ [1,2], [3,4], [5] ]);
+  });
+  it('should cut sticking tail if last parameter is true', () => {
+    expect(
+      [1,2,3,4,5].x.chunk(2, true)
+    ).toEqual([ [1,2], [3,4] ]);
+  });
+});
