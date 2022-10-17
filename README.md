@@ -61,6 +61,7 @@ Redefined built-ins:
 - [`reduce()`](#reducereducer-finalizer--null-init)
 - [`reversed()`](#reversed)
 - [`forEach()`](#forEachcb)
+- [`spreadMap()`](#spreadMapmapper)
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
@@ -1257,6 +1258,19 @@ Like `forEach()` but with `break`/`continue` feature.
 });
 
 // 2 4
+```
+
+## `spreadMap(mapper)`
+
+```
+[1,2,3,4].x.spreadMap(x => [x, x * x])
+// [1,1,2,4,3,9,4,16]
+
+[1,2,3,4].x.spreadMap(x => [
+  x,
+  x % 2 === 0
+])
+// [1, false, 2, true, 3, false, 4, true]
 ```
 
 ## `forEveryChunk(chunkSize, cb)`
