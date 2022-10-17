@@ -39,6 +39,7 @@ Clustering:
 - [`cut()`](#cutindex)
 
 Altering:
+- [`wrapAlter()`](#wrapAlterprocessor)
 - [`random()`](#randomcount--1)
 - [`shuffle()`](#shuffle)
 - [`move()`](#movesourceIndex-count-targetIndex--0)
@@ -829,6 +830,35 @@ iter.next()
 
 [1,2,3,4,5,6].x.cut(-2)
 // [ [1,2,3,4], [5,6] ]
+```
+
+## `wrapAlter(processor)`
+
+```
+const arr = [1,2,3,4];
+const alt = arr.x.wrapAlter(a => {
+  a.pop();
+  a.push(5);
+});
+
+alt
+// [1,2,3,5]
+arr
+// [1,2,3,4]
+```
+
+```
+const arr = [1,2,3,4];
+const alt = arr.x.wrapAlter(a => {
+  a.pop();
+  a.push(5);
+  return a.slice(2);
+});
+
+alt
+// [3,5]
+arr
+// [1,2,3,4]
 ```
 
 ## `random(count = 1)`
