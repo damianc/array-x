@@ -54,6 +54,7 @@ import wrapAlter from '@array-x/wrap-alter';
 import clamped from '@array-x/clamped';
 import folded from '@array-x/folded';
 import iterator from '@array-x/iterator';
+import revIterator from '@array-x/rev-iterator';
 import frozen from '@array-x/frozen';
 import fixed from '@array-x/fixed';
 import dwarf from '@array-x/dwarf';
@@ -139,6 +140,7 @@ Object.defineProperty(Array.prototype, 'x', {
       clamped: clamped.bind(that),
       folded: folded.bind(that),
       iterator: iterator.bind(that),
+      revIterator: revIterator.bind(that),
       frozen: aliased.frozen,
       readonly: aliased.frozen,
       readOnly: aliased.frozen,

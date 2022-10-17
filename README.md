@@ -10,6 +10,7 @@ Collecting:
 - [`uniq()`](#uniqselector)
 - [`uniqSeq()`](#uniqseqselector)
 - [`iterator()`](#iterator)
+- [`revIterator()`](#revIterator)
 - [`everyNth()`](#everyNthn--1-from--0-to)
 - [`select()`](#selectfrom--0-to---1-step--1)
 
@@ -373,6 +374,18 @@ iter.next()
 // {value: undefined, done: true}
 
 [...iter]
+// []
+```
+
+## `revIterator()`
+
+```
+const revIter = [1,2,3,4].x.revIterator();
+
+[...revIter]
+// [4,3,2,1]
+
+[...revIter]
 // []
 ```
 
