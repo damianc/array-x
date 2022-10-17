@@ -28,6 +28,7 @@ Examining:
 Clustering:
 - [`chunk()`](#chunksize)
 - [`chunkByCallback()`](#chunkByCallbackcb-matchedItemOpening--true)
+- [`chunkByPattern()`](#chunkByPatternsizes-rejectStickingTail--false)
 - [`zip()`](#zipotherArrays)
 - [`zipAll()`](#zipAllotherArrays)
 - [`unzip()`](#unzip)
@@ -671,6 +672,16 @@ iter.next()
   false
 )
 // [ [1,2,3], [4,5,6], [7,8] ]
+```
+
+## `chunkByPattern(...sizes, rejectStickingTail = false)`
+
+```
+[1,2,3,4,5,6].x.chunkByPattern(2, 3)
+// [ [1,2], [3,4,5], [6] ]
+
+[1,2,3,4,5,6].x.chunkByPattern(2, 3, true)
+// [ [1,2], [3,4,5] ]
 ```
 
 ## `zip(otherArrays...)`
