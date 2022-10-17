@@ -53,7 +53,7 @@ Altering:
 - [`dwarf()`](#dwarf)
 - [`alterable()`](#alterable)
 - [`clamped()`](#clampedmin-max)
-- [`fold()`](#foldcoverSelector)
+- [`fold()/unfold()`](#foldcoverSelectorunfoldindex)
 - [`sparse()`](#sparseslots--1)
 - [`thick()`](#thick)
 
@@ -1126,7 +1126,7 @@ digits
 // [-9,-4,1,8,9,9,-9,4,9]
 ```
 
-## `fold(coverSelector)`
+## `fold(coverSelector)`/`unfold(index)`
 
 ```
 const users = [
