@@ -52,7 +52,7 @@ import random from '@array-x/random';
 import wrapAlter from '@array-x/wrap-alter';
 
 import clamped from '@array-x/clamped';
-import folded from '@array-x/folded';
+import fold from '@array-x/fold';
 import iterator from '@array-x/iterator';
 import revIterator from '@array-x/rev-iterator';
 import refIterator from '@array-x/ref-iterator';
@@ -139,7 +139,7 @@ Object.defineProperty(Array.prototype, 'x', {
       wrapAlter: wrapAlter.bind(that),
 
       clamped: clamped.bind(that),
-      folded: folded.bind(that),
+      fold: fold.bind(that),
       iterator: iterator.bind(that),
       revIterator: revIterator.bind(that),
       refIterator: refIterator.bind(that),

@@ -1,12 +1,12 @@
 require('../prod/array-x');
 
 beforeEach(() => {
-  this.fa = [].x.folded(user => user.name);
+  this.fa = [].x.fold(user => user.name);
   this.john = { name: 'John', city: 'NY' };
   this.mark = { name: 'Mark', city: 'LA' };
 });
 
-describe('folded() called on empty array', () => {
+describe('fold() called on empty array', () => {
   describe('should mask items added with push()', () => {
     it('one after one', () => {
       this.fa.push(this.john);
@@ -31,11 +31,11 @@ describe('folded() called on empty array', () => {
   });
 });
 
-describe('folded() called on non-empty array', () => {
+describe('fold() called on non-empty array', () => {
   beforeEach(() => {
     this.adam = { name: 'Adam', city: 'LA' };
     this.mike = { name: 'Mike', city: 'NY' };
-    this.nfa = [this.john, this.mark].x.folded(
+    this.nfa = [this.john, this.mark].x.fold(
       user => user.name
     );
   });
@@ -72,7 +72,7 @@ describe('folded() called on non-empty array', () => {
   });
 });
 
-describe('accesing items of array on which folded() was called', () => {
+describe('accesing items of array on which fold() was called', () => {
    it('should mask item when accessing with index', () => {
     this.fa.push(this.john, this.mark);
     expect(this.fa[0]).toEqual('John');
@@ -80,17 +80,17 @@ describe('accesing items of array on which folded() was called', () => {
   });
   it('should expose original full item when accessing with unfold() method', () => {
     this.fa.push(this.john, this.mark);
-    expect(this.fa.unfold(0)).toEqual(this.john);
-    expect(this.fa.unfold(1)).toEqual(this.mark);
+    expect(this.fa.x.unfold(0)).toEqual(this.john);
+    expect(this.fa.x.unfold(1)).toEqual(this.mark);
   });
   it('unfold() method should return `undefined` for excessive index', () => {
     this.fa.push(this.john, this.mark);
-    expect(this.fa.unfold(2)).toEqual(undefined);
-    expect(this.fa.unfold(-1)).toEqual(undefined);
+    expect(this.fa.x.unfold(2)).toEqual(undefined);
+    expect(this.fa.x.unfold(-1)).toEqual(undefined);
   });
 });
 
-describe('splice() called on folded array', () => {
+describe('splice() called on fold array', () => {
   beforeEach(() => {
     this.paul = { name: 'Paul', city: 'LA' };
   });

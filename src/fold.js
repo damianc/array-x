@@ -1,18 +1,22 @@
-export default function folded(coverSelector = (item) => item) {
-  Object.defineProperty(this, 'unfold', {
-    value: (idx) => this[idx]
-  });
+export default function fold(coverSelector = (item) => item) {
+  const copy = [...this];
 
-  Object.defineProperty(this, 'unshift', {
-    value: (...items) => {
-      const revItems = [...items].reverse();
-      this.reverse();
-      this.push(...revItems);
-      this.reverse();
+  Object.defineProperty(copy, 'x', {
+    value: {
+      unfold: (idx) => copy[idx]
     }
   });
 
-  return new Proxy(this, {
+  Object.defineProperty(copy, 'unshift', {
+    value: (...items) => {
+      const revItems = [...items].reverse();
+      copy.reverse();
+      copy.push(...revItems);
+      copy.reverse();
+    }
+  });
+
+  return new Proxy(copy, {
     get(t, k) {
       if (typeof k === 'symbol') return Reflect.get(t, k);
 
