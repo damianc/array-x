@@ -56,6 +56,7 @@ Altering:
 - [`thick()`](#thick)
 
 Redefined built-ins:
+- [`reduce()`](#reducereducer-finalizer--null-init)
 - [`reversed()`](#reversed)
 - [`forEach()`](#forEachcb)
 
@@ -1120,6 +1121,16 @@ console.log(
 ```
 [1,2,,,,3,,,4].x.thick()
 // [1,2,3,4]
+```
+
+## `reduce(reducer, finalizer = null, init)`
+
+```
+[1,2,3,4].x.reduce(
+  (acc, curr) => acc + curr,
+  (sum, arr) => sum / arr.length
+)
+// 2.5 (average)
 ```
 
 ## `reversed()`

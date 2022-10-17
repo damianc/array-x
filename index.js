@@ -61,6 +61,7 @@ import alterable from '@array-x/alterable';
 
 import reversed from '@array-x/reversed';
 import forEach from '@array-x/for-each';
+import reduce from '@array-x/reduce';
 
 import forEveryChunk from '@array-x/for-every-chunk';
 import forEveryN from '@array-x/for-every-n';
@@ -148,6 +149,7 @@ Object.defineProperty(Array.prototype, 'x', {
       reversed: reversed.bind(that),
       forEach: aliased.forEach,
       each: aliased.forEach,
+      reduce: reduce.bind(that),
 
       forEveryChunk: forEveryChunk.bind(that),
       forEveryN: forEveryN.bind(that),
