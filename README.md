@@ -45,6 +45,7 @@ Altering:
 - [`alterable()`](#alterable)
 - [`clamped()`](#clampedmin-max)
 - [`folded()`](#foldedcoverSelector)
+- [`thick()`](#thick)
 
 Redefined built-ins:
 - [`reverse()`](#reverse)
@@ -978,6 +979,13 @@ console.log(
 );
 // { name: 'John', city: 'LA' }
 // { name: 'Mark', city: 'NY' }
+```
+
+## `thick()`
+
+```
+[1,2,,,,3,,,4].x.thick()
+// [1,2,3,4]
 ```
 
 ## `reverse()`

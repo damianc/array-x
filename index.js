@@ -60,6 +60,7 @@ import forEveryChunk from '@array-x/for-every-chunk';
 import forEveryN from '@array-x/for-every-n';
 
 import select from '@array-x/select';
+import thick from '@array-x/thick';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -137,7 +138,8 @@ Object.defineProperty(Array.prototype, 'x', {
       forEveryChunk: forEveryChunk.bind(that),
       forEveryN: forEveryN.bind(that),
 
-      select: select.bind(that)
+      select: select.bind(that),
+      thick: thick.bind(that)
     };
   }
 });
