@@ -41,6 +41,7 @@ import unzip from '@array-x/unzip';
 import unzipAll from '@array-x/unzip-all';
 
 import split from '@array-x/split';
+import splitByPattern from '@array-x/split-by-pattern';
 import cut from '@array-x/cut';
 import insert from '@array-x/insert';
 import overwrite from '@array-x/overwrite';
@@ -120,6 +121,7 @@ Object.defineProperty(Array.prototype, 'x', {
       unzipAll: unzipAll.bind(that),
 
       split: split.bind(that),
+      splitByPattern: splitByPattern.bind(that),
       cut: cut.bind(that),
       insert: insert.bind(that),
       overwrite: overwrite.bind(that),

@@ -34,6 +34,7 @@ Clustering:
 - [`unzip()`](#unzip)
 - [`unzipAll()`](#unzipAll)
 - [`split()`](#splitmatcher--null)
+- [`splitByPattern()`](#splitByPatterntake-skip-from--null-rejectStickingTail-false)
 - [`cut()`](#cutindex)
 
 Altering:
@@ -777,6 +778,19 @@ iter.next()
 
 [1,2,3,4].x.split(8)
 // [1,2,3,4]
+```
+
+## `splitByPattern(take, skip, from = null, rejectStickingTail = false)`
+
+```
+[1,2,3,4,5,6,7,8].x.splitByPattern(3, 2)
+// [ [1,2,3], [6,7,8] ]
+
+[1,2,3,4,5,6,7,8].x.splitByPattern(3, 2, 1)
+// [ [2,3,4], [7,8] ]
+
+[1,2,3,4,5,6,7,8].x.splitByPattern(3, 2, 1, true)
+// [ [2,3,4] ]
 ```
 
 ## `cut([index])`
