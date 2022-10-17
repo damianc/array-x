@@ -12,6 +12,7 @@ Collecting:
 - [`iterator()`](#iterator)
 - [`revIterator()`](#revIterator)
 - [`refIterator()`](#refIteratorrefKey-nextKey-initItemIdx--0)
+- [`cyclicIterator()`](#cyclicIterator)
 - [`everyNth()`](#everyNthn--1-from--0-to)
 - [`select()`](#selectfrom--0-to---1-step--1)
 
@@ -435,6 +436,23 @@ const path = [...chain].map(b => b.data).join(' -> ');
 
 path
 // 'A'
+```
+
+## `cyclicIterator()`
+
+```
+const ci = [1,2,3,4].x.cyclicIterator();
+const res = [];
+
+for (let i = 1; i <= 10; i++) {
+  res.push(ci.current);
+  ci.next();
+}
+
+console.log(
+  res.join('-')
+);
+// '1-2-3-4-1-2-3-4-1-2'
 ```
 
 ## `everyNth(n = 1, from = 0, to)`
