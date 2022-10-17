@@ -45,6 +45,7 @@ Altering:
 - [`alterable()`](#alterable)
 - [`clamped()`](#clampedmin-max)
 - [`folded()`](#foldedcoverSelector)
+- [`sparse()`](#sparseslots--1)
 - [`thick()`](#thick)
 
 Redefined built-ins:
@@ -979,6 +980,19 @@ console.log(
 );
 // { name: 'John', city: 'LA' }
 // { name: 'Mark', city: 'NY' }
+```
+
+## `sparse(slots = 1)`
+
+```
+[1, 2, 3, 4].x.sparse()
+// [1, empty, 2, empty, 3, empty, 4]
+
+[1, 2, 3, 4].x.sparse(1)
+// [1, empty, 2, empty, 3, empty, 4]
+
+[1, 2, 3, 4].x.sparse(2)
+// [1, empty, empty, 2, empty, empty, 3, empty, empty, 4]
 ```
 
 ## `thick()`

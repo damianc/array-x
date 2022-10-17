@@ -61,6 +61,7 @@ import forEveryN from '@array-x/for-every-n';
 
 import select from '@array-x/select';
 import thick from '@array-x/thick';
+import sparse from '@array-x/sparse';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -139,7 +140,8 @@ Object.defineProperty(Array.prototype, 'x', {
       forEveryN: forEveryN.bind(that),
 
       select: select.bind(that),
-      thick: thick.bind(that)
+      thick: thick.bind(that),
+      sparse: sparse.bind(that)
     };
   }
 });
