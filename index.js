@@ -43,6 +43,7 @@ import unzipAll from '@array-x/unzip-all';
 import split from '@array-x/split';
 import splitByPattern from '@array-x/split-by-pattern';
 import cut from '@array-x/cut';
+import chop from '@array-x/chop';
 import insert from '@array-x/insert';
 import overwrite from '@array-x/overwrite';
 import override from '@array-x/override';
@@ -131,6 +132,7 @@ Object.defineProperty(Array.prototype, 'x', {
       split: split.bind(that),
       splitByPattern: splitByPattern.bind(that),
       cut: cut.bind(that),
+      chop: chop.bind(that),
       insert: insert.bind(that),
       overwrite: overwrite.bind(that),
       override: override.bind(that),

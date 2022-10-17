@@ -39,6 +39,7 @@ Clustering:
 - [`split()`](#splitmatcher--null)
 - [`splitByPattern()`](#splitByPatterntake-skip-from--null-rejectStickingTail--false)
 - [`cut()`](#cutindex)
+- [`chop()`](#chopcuts)
 
 Altering:
 - [`wrapAlter()`](#wrapAlterprocessor)
@@ -891,6 +892,29 @@ path
 
 [1,2,3,4,5,6].x.cut(-2)
 // [ [1,2,3,4], [5,6] ]
+```
+
+## `chop(...cuts)`
+
+```
+[1,2,3,4,5,6].x.chop(2)
+// [ [1,2], [3,4,5,6] ]
+
+[1,2,3,4,5,6].x.chop(-2)
+// [ [1,2,3,4], [5,6] ]
+
+[1,2,3,4,5,6].x.chop(-2, 2)
+// [ [1,2], [3,4], [5,6] ]
+
+[1,2,3,4,5,6,7,8].x.chop(-2, 2)
+// [ [1,2], [3,4,5,6], [7,8] ]
+```
+
+```
+[1,2,3,4,5,6,7,8,9,0].chop(
+  1, 3, 6, 12
+)
+// [ [1], [2,3], [4,5,6], [7,8,9,0] ]
 ```
 
 ## `wrapAlter(processor)`
