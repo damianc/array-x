@@ -48,6 +48,7 @@ import overwrite from '@array-x/overwrite';
 import override from '@array-x/override';
 import move from '@array-x/move';
 import shuffle from '@array-x/shuffle';
+import random from '@array-x/random';
 
 import clamped from '@array-x/clamped';
 import folded from '@array-x/folded';
@@ -130,6 +131,7 @@ Object.defineProperty(Array.prototype, 'x', {
       override: override.bind(that),
       move: move.bind(that),
       shuffle: shuffle.bind(that),
+      random: random.bind(that),
 
       clamped: clamped.bind(that),
       folded: folded.bind(that),
