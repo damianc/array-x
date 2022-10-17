@@ -11,6 +11,7 @@ Collecting:
 - [`uniqSeq()`](#uniqseqselector)
 - [`iterator()`](#iterator)
 - [`revIterator()`](#revIterator)
+- [`refIterator()`](#refIteratorrefKey-nextKey-initItemIdx--0)
 - [`everyNth()`](#everyNthn--1-from--0-to)
 - [`select()`](#selectfrom--0-to---1-step--1)
 
@@ -387,6 +388,51 @@ const revIter = [1,2,3,4].x.revIterator();
 
 [...revIter]
 // []
+```
+
+## `refIterator(refKey, nextKey, initItemIdx = 0)`
+
+```
+const blocks = [
+  { id: 1, next: 2, data: 'A' },
+  { id: 3, next: 4, data: 'C' },
+  { id: 4, data: 'D' },
+  { id: 2, next: 3, data: 'B' }
+];
+
+const chain = blocks.x.refIterator('id', 'next');
+const path = [...chain].map(b => b.data).join(' -> ');
+
+path
+// 'A -> B -> C -> D'
+```
+
+```
+const blocks = [
+  { id: 1, next: 2, data: 'A' },
+  { id: 3, next: 4, data: 'C' },
+  { id: 4, data: 'D' },
+  { id: 2, next: 3, data: 'B' }
+];
+
+const chain = blocks.x.refIterator('id', 'next', 1);
+const path = [...chain].map(b => b.data).join(' -> ');
+
+path
+// 'C -> D'
+```
+
+```
+const blocks = [
+  { id: 1, next: 20, data: 'A' },
+  { id: 2, next: 3, data: 'B' }
+];
+
+const chain = blocks.x.refIterator('id', 'next');
+const path = [...chain].map(b => b.data).join(' -> ');
+
+path
+// 'A'
 ```
 
 ## `everyNth(n = 1, from = 0, to)`
