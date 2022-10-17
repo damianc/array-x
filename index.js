@@ -47,6 +47,7 @@ import insert from '@array-x/insert';
 import overwrite from '@array-x/overwrite';
 import override from '@array-x/override';
 import move from '@array-x/move';
+import shuffle from '@array-x/shuffle';
 
 import clamped from '@array-x/clamped';
 import folded from '@array-x/folded';
@@ -128,6 +129,7 @@ Object.defineProperty(Array.prototype, 'x', {
       overwrite: overwrite.bind(that),
       override: override.bind(that),
       move: move.bind(that),
+      shuffle: shuffle.bind(that),
 
       clamped: clamped.bind(that),
       folded: folded.bind(that),

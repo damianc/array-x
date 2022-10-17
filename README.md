@@ -39,6 +39,7 @@ Clustering:
 - [`cut()`](#cutindex)
 
 Altering:
+- [`shuffle()`](#shuffle)
 - [`move()`](#movesourceIndex-count-targetIndex--0)
 - [`insert()`](#insertindex-items)
 - [`overwrite()`](#overwriteindex-items)
@@ -827,6 +828,13 @@ iter.next()
 
 [1,2,3,4,5,6].x.cut(-2)
 // [ [1,2,3,4], [5,6] ]
+```
+
+## `shuffle()`
+
+```
+[1,2,3,4].x.shuffle()
+// [4,2,3,1] (for example)
 ```
 
 ## `move(sourceIndex, count, targetIndex = 0)`
