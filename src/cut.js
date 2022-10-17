@@ -1,4 +1,4 @@
-export default function split(idx = null) {
+export default function cut(idx = null) {
   const cutIdx = idx === null ? Math.floor(this.length / 2) : idx;
   
   return [

@@ -40,7 +40,7 @@ import zipAll from '@array-x/zip-all';
 import unzip from '@array-x/unzip';
 import unzipAll from '@array-x/unzip-all';
 
-import split from '@array-x/split';
+import cut from '@array-x/cut';
 import insert from '@array-x/insert';
 import overwrite from '@array-x/overwrite';
 import override from '@array-x/override';
@@ -118,7 +118,7 @@ Object.defineProperty(Array.prototype, 'x', {
       unzip: unzip.bind(that),
       unzipAll: unzipAll.bind(that),
 
-      split: split.bind(that),
+      cut: cut.bind(that),
       insert: insert.bind(that),
       overwrite: overwrite.bind(that),
       override: override.bind(that),

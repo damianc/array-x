@@ -33,7 +33,7 @@ Clustering:
 - [`zipAll()`](#zipAllotherArrays)
 - [`unzip()`](#unzip)
 - [`unzipAll()`](#unzipAll)
-- [`split()`](#splitindex)
+- [`cut()`](#cutindex)
 
 Altering:
 - [`move()`](#movesourceIndex-count-targetIndex--0)
@@ -762,19 +762,19 @@ iter.next()
 // [ ['a', 'b'], [1, 2], [undefined, 'foo'] ]
 ```
 
-## `split([index])`
+## `cut([index])`
 
 ```
-[1,2,3,4].x.split()
+[1,2,3,4].x.cut()
 // [ [1, 2], [3, 4] ]
 
-[1,2,3,4,5].x.split()
+[1,2,3,4,5].x.cut()
 // [ [1,2], [3,4,5] ]
 
-[1,2,3,4,5,6].x.split(2)
+[1,2,3,4,5,6].x.cut(2)
 // [ [1,2], [3,4,5,6] ]
 
-[1,2,3,4,5,6].x.split(-2)
+[1,2,3,4,5,6].x.cut(-2)
 // [ [1,2,3,4], [5,6] ]
 ```
 
