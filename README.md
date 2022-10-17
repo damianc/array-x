@@ -1133,6 +1133,17 @@ console.log(
 // 2.5 (average)
 ```
 
+```
+[1,4,2,3].x.reduce(
+  ([currMax, itsIdx], curr, idx) => {
+    return idx === 0 || curr > currMax ? [curr,idx] : [currMax,itsIdx];
+  },
+  ([currMax, itsIdx]) => itsIdx,
+  []
+)
+// 1 (index of largest number)
+```
+
 ## `reversed()`
 
 Return reversed array keeping original array unchanged.
