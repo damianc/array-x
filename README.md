@@ -33,6 +33,7 @@ Clustering:
 - [`zipAll()`](#zipAllotherArrays)
 - [`unzip()`](#unzip)
 - [`unzipAll()`](#unzipAll)
+- [`split()`](#splitmatcher--null)
 - [`cut()`](#cutindex)
 
 Altering:
@@ -760,6 +761,19 @@ iter.next()
 
 [ ['a', 1], ['b', 2, 'foo'] ].x.unzipAll()
 // [ ['a', 'b'], [1, 2], [undefined, 'foo'] ]
+```
+
+## `split(matcher = null)`
+
+```
+[1,2,3,2,4,5].x.split(2)
+// [ [1], [3], [4,5] ]
+
+[1,2,3,4,5,6].x.split([2,4,8])
+// [ [1], [3], [5,6] ]
+
+[0,1,2,4,3,5,6,8,7,9].x.split(x => x % 2 === 0)
+// [ [1], [3,5], [7,9] ]
 ```
 
 ## `cut([index])`
