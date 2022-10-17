@@ -34,7 +34,7 @@ Clustering:
 - [`unzip()`](#unzip)
 - [`unzipAll()`](#unzipAll)
 - [`split()`](#splitmatcher--null)
-- [`splitByPattern()`](#splitByPatterntake-skip-from--null-rejectStickingTail-false)
+- [`splitByPattern()`](#splitByPatterntake-skip-from--null-rejectStickingTail--false)
 - [`cut()`](#cutindex)
 
 Altering:
