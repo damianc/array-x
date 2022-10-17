@@ -1266,6 +1266,11 @@ Like `forEach()` but with `break`/`continue` feature.
 [1,2,3,4].x.spreadMap(x => [x, x * x])
 // [1,1,2,4,3,9,4,16]
 
+[1,2,3,4].x.spreadMap(x => x * x)
+// [1,4,9,16]
+```
+
+```
 [1,2,3,4].x.spreadMap(x => [
   x,
   x % 2 === 0
