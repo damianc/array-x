@@ -46,6 +46,7 @@ Clustering:
 Altering:
 - [`wrapAlter()`](#wrapAlterprocessor)
 - [`adapt()`](#adaptotherArray---adaptations--1)
+- [`adaptByCallback()`](#adaptByCallbackotherArray---tester--null-adaptations--1-lazy--false)
 - [`random()`](#randomcount--1)
 - [`shuffle()`](#shuffle)
 - [`move()`](#movesourceIndex-count-targetIndex--0)
@@ -1036,6 +1037,41 @@ arr
 ```
 [1,2,1,2,1,2].x.adapt([1,20,1,20,1,20], -1)
 // [1,20,1,20,1,20]
+```
+
+## `adaptByCallback(otherArray = [], tester = null, adaptations = 1, lazy = false)`
+
+> default tester: `(a, b) => a !== b`
+
+```
+[1,2,3,4,5,6].x.adaptByCallback(
+  [1,2,30,40,50,60],
+  (a, b) => (a % 2 === 0) && (b % 2 === 0)
+)
+
+// [1,2,3,40,5,6]
+// adapt first other value if both target and source value are even
+```
+
+* in _lazy mode_, every other value is counted whether or not has been adapted:
+
+```
+// normal mode
+[1,2,3,4,5,6].x.adaptByCallback(
+  [1,2,30,40,50,60],
+  x => x % 2 === 0,
+  2
+)
+// [1,2,3,40,5,60]
+
+// lazy mode
+[1,2,3,4,5,6].x.adaptByCallback(
+  [1,2,30,40,50,60],
+  x => x % 2 === 0,
+  2,
+  true
+)
+// [1,2,3,40,5,6]
 ```
 
 ## `random(count = 1)`
