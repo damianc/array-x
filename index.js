@@ -69,6 +69,7 @@ import forEach from '@array-x/for-each';
 import reduce from '@array-x/reduce';
 import spreadMap from '@array-x/spread-map';
 import filterMapped from '@array-x/filter-mapped';
+import replace from '@array-x/replace';
 
 import forEveryChunk from '@array-x/for-every-chunk';
 import forEveryN from '@array-x/for-every-n';
@@ -177,6 +178,7 @@ Object.defineProperty(Array.prototype, 'x', {
       reduce: reduce.bind(that),
       spreadMap: spreadMap.bind(that),
       filterMapped: filterMapped.bind(that),
+      replace: replace.bind(that),
 
       forEveryChunk: forEveryChunk.bind(that),
       forEveryN: forEveryN.bind(that),

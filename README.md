@@ -73,6 +73,7 @@ Redefined built-ins:
 - [`forEach()`](#forEachcb)
 - [`spreadMap()`](#spreadMapmapper)
 - [`filterMapped()`](#filterMappedmapper--null-filter--null)
+- [`replace()`](#replacematcher--x--x-replacer--x--x)
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
@@ -1428,6 +1429,42 @@ Filters items that would pass a test if they were mapped.
 )
 
 // ['lion', 'tiger']
+```
+
+## `replace(matcher = x => x, replacer = x => x)`
+
+```
+[1,2,1,2].x.replace(
+  2,
+  10
+)
+// [1,10,1,10]
+
+[1,2,3,4].x.replace(
+  [1,2,5,6],
+  10
+)
+// [10,10,3,4]
+
+[1,2,3,4].x.replace(
+  x => x % 2 === 0,
+  10
+)
+// [1,10,3,10]
+```
+
+```
+[1,2,3,4].x.replace(
+  [3,4,5,6],
+  x => x * 10
+)
+// [1,2,30,40]
+
+[1,2,3,4].x.replace(
+  x => x % 2 === 0,
+  x => x * 10
+)
+// [1,20,3,40]
 ```
 
 ## `forEveryChunk(chunkSize, cb)`
