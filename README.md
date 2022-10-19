@@ -9,6 +9,7 @@ Collecting:
 - [`skipUntilReduce()`](#skipUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`uniq()`](#uniqselector)
 - [`uniqSeq()`](#uniqseqselector)
+- [`pluck()`](#pluckpath)
 - [`iterator()`](#iterator)
 - [`revIterator()`](#revIterator)
 - [`refIterator()`](#refIteratorrefKey-nextKey-initItemIdx--0)
@@ -372,6 +373,31 @@ arr.x.uniq()
 
 arr.x.uniqSeq()
 // [1, 2, 3, 2, 1]
+```
+
+## `pluck(path)`
+
+```
+[
+  { foo: { bar: [1,2,{ baz: 120 }] } },
+  { foo: { bar: [3,4,{ baz: 340 }] } },
+  { foo: { bar: [5,6,{ baz: 560 }] } }
+].x.pluck('foo.bar[2].baz')
+// other working variant: pluck('foo.bar.2.baz')
+
+// [120, 340, 560]
+```
+
+```
+[
+  [1,2,3],
+  [2,3,5],
+  [3,4,7],
+  [4,5,9]
+].x.pluck(2)
+// other working variants: pluck('2'), pluck('[2]')
+
+// [3, 5, 7, 9]
 ```
 
 ## `iterator()`
