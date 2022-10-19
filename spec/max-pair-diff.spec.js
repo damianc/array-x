@@ -22,7 +22,7 @@ describe('maxPairDiff() with default comparer', () => {
 });
 
 describe('maxPairDiff() with custom comparer', () => {
-  it('should return max absolute diff for adjacent items', () => {
+  it('should return max diff for adjacent items', () => {
     expect(
       [20,10,40].x.maxPairDiff(
         (l, r) => l - r

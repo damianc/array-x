@@ -2,8 +2,8 @@ const differ = function (comparer) {
   return {
     local(arr, cb = null) {
       if (arr.length < 2) return;
-      if (!cb) {
-          cb = (l,r) => Math.abs(l-r);
+      if (cb === null) {
+          cb = (l, r) => Math.abs(l - r);
       }
       let diff = cb(arr[0], arr[1]);
       return arr.slice(0,-1).reduce((acc, curr, idx) => {

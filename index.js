@@ -85,6 +85,8 @@ import complement from '@array-x/complement';
 
 import minPairDiff from '@array-x/min-pair-diff';
 import maxPairDiff from '@array-x/max-pair-diff';
+import minDiff from '@array-x/min-diff';
+import maxDiff from '@array-x/max-diff';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -187,7 +189,9 @@ Object.defineProperty(Array.prototype, 'x', {
       complement: complement.bind(that),
 
       minPairDiff: minPairDiff.bind(that),
-      maxPairDiff: maxPairDiff.bind(that)
+      maxPairDiff: maxPairDiff.bind(that),
+      minDiff: minDiff.bind(that),
+      maxDiff: maxDiff.bind(that)
     };
   }
 });

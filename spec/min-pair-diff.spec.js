@@ -22,7 +22,7 @@ describe('minPairDiff() with default comparer', () => {
 });
 
 describe('minPairDiff() with custom comparer', () => {
-  it('should return min absolute diff for adjacent items', () => {
+  it('should return min diff for adjacent items', () => {
     expect(
       [20,10,40].x.minPairDiff(
         (l, r) => l - r

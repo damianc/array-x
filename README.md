@@ -89,6 +89,8 @@ Difference:
 
 - [`minPairDiff()`](#minPairDiffcomparer--null)
 - [`maxPairDiff()`](#maxPairDiffcomparer--null)
+- [`minDiff()`](#minDiffcomparer--null)
+- [`maxDiff()`](#maxDiffcomparer--null)
 
 ## `group(labelFactory...)`
 
@@ -1458,6 +1460,8 @@ Like `forEach()` but with `break`/`continue` feature.
 // min -> 10
 ```
 
+* with custom comparer:
+
 ```
 [20,10,40].x.minPairDiff(
   (l, r) => l - r
@@ -1482,6 +1486,8 @@ Like `forEach()` but with `break`/`continue` feature.
 // max -> 30
 ```
 
+* with custom comparer:
+
 ```
 [20,10,40].x.maxPairDiff(
   (l, r) => l - r
@@ -1491,4 +1497,104 @@ Like `forEach()` but with `break`/`continue` feature.
 // [ 20 - 10, 10 - 40 ]
 // [ 10, -30 ]
 // max -> 10
+```
+
+## `minDiff(comparer = null)`
+
+> default comparer: `(l, r) => Math.abs(l - r)`
+
+```
+[20,80,40,10].x.minDiff()
+// 10
+
+// [
+//   |20-80|, |20-40|, |20-10|,
+//   |80-20|, |80-40|, |80-10|,
+//   |40-20|, |40-80|, |40-10|,
+//   |10-20|, |10-80|, |10-40|
+// ]
+
+// [
+//   60, 20, 10,
+//   60, 40, 70,
+//   20, 40, 30,
+//   10, 70, 30
+// ]
+
+// min -> 10
+```
+
+* with custom comparer:
+
+```
+[20,80,40,10].x.minDiff(
+  (l, r) => l / r
+)
+// 0.125
+
+// [
+//   20/80, 20/40, 20/10,
+//   80/20, 80/40, 80/10,
+//   40/20, 40/80, 40/10,
+//   10/20, 10/80, 10/40
+// ]
+
+// [
+//   0.25, 0.5, 2,
+//   4, 2, 8,
+//   2, 0.5, 4,
+//   0.5, 0.125, 0.25
+// ]
+
+// min -> 0.125
+```
+
+## `maxDiff(comparer = null)`
+
+> default comparer: `(l, r) => Math.abs(l - r)`
+
+```
+[20,80,40,10].x.maxDiff()
+// 70
+
+// [
+//   |20-80|, |20-40|, |20-10|,
+//   |80-20|, |80-40|, |80-10|,
+//   |40-20|, |40-80|, |40-10|,
+//   |10-20|, |10-80|, |10-40|
+// ]
+
+// [
+//   60, 20, 10,
+//   60, 40, 70,
+//   20, 40, 30,
+//   10, 70, 30
+// ]
+
+// max -> 70
+```
+
+* with custom comparer:
+
+```
+[20,80,40,10].x.maxDiff(
+  (l, r) => l / r
+)
+// 8
+
+// [
+//   20/80, 20/40, 20/10,
+//   80/20, 80/40, 80/10,
+//   40/20, 40/80, 40/10,
+//   10/20, 10/80, 10/40
+// ]
+
+// [
+//   0.25, 0.5, 2,
+//   4, 2, 8,
+//   2, 0.5, 4,
+//   0.5, 0.125, 0.25
+// ]
+
+// max -> 8
 ```
