@@ -72,6 +72,7 @@ Redefined built-ins:
 - [`reversed()`](#reversed)
 - [`forEach()`](#forEachcb)
 - [`spreadMap()`](#spreadMapmapper)
+- [`filterMapped()`](#filterMappedmapper--null-filter--null)
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
@@ -1404,6 +1405,29 @@ Like `forEach()` but with `break`/`continue` feature.
   x % 2 === 0
 ])
 // [1, false, 2, true, 3, false, 4, true]
+```
+
+## `filterMapped(mapper = null, filter = null)`
+
+Filters items that would pass a test if they were mapped.
+
+```
+[1,2,3,4,5,6,7,8,9].x.filterMapped(
+  x => Math.sqrt(x),
+  x => x === parseInt(x)
+)
+
+// [1,4,9]
+// numbers whose square root is integer
+```
+
+```
+['cat', 'dog', 'lion', 'tiger'].x.filterMapped(
+  str => str.length,
+  len => len > 3
+)
+
+// ['lion', 'tiger']
 ```
 
 ## `forEveryChunk(chunkSize, cb)`
