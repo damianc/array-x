@@ -1277,6 +1277,13 @@ console.log(
 // [3,4]
 ```
 
+## `diff(otherSet = [])`
+
+```
+[1,2,3,4].x.diff([3,4,5,6])
+// [1,2]
+```
+
 ## `reduce(reducer, finalizer = null, init)`
 
 ```

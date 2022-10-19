@@ -79,6 +79,7 @@ import sparse from '@array-x/sparse';
 
 import union from '@array-x/union';
 import intersection from '@array-x/intersection';
+import diff from '@array-x/diff';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -175,7 +176,8 @@ Object.defineProperty(Array.prototype, 'x', {
       sparse: sparse.bind(that),
 
       union: union.bind(that),
-      intersection: intersection.bind(that)
+      intersection: intersection.bind(that),
+      diff: diff.bind(that)
     };
   }
 });
