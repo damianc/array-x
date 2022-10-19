@@ -65,6 +65,7 @@ Sets:
 - [`intersection()`](#intersectionotherSet--)
 - [`diff()`](#diffotherSet--)
 - [`symDiff()`](#symDiffotherSet--)
+- [`complement()`](#complementotherSet--)
 
 Redefined built-ins:
 - [`reduce()`](#reducereducer-finalizer--null-init)
@@ -1291,6 +1292,13 @@ console.log(
 ```
 [1,2,3,4].x.symDiff([3,4,5,6])
 // [1,2,5,6]
+```
+
+## `complement(otherSet = [])`
+
+```
+[1,2,3,4].x.complement([3,4,5,6])
+// [5,6]
 ```
 
 ## `reduce(reducer, finalizer = null, init)`

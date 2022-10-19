@@ -81,6 +81,7 @@ import union from '@array-x/union';
 import intersection from '@array-x/intersection';
 import diff from '@array-x/diff';
 import symDiff from '@array-x/sym-diff';
+import complement from '@array-x/complement';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -179,7 +180,8 @@ Object.defineProperty(Array.prototype, 'x', {
       union: union.bind(that),
       intersection: intersection.bind(that),
       diff: diff.bind(that),
-      symDiff: symDiff.bind(that)
+      symDiff: symDiff.bind(that),
+      complement: complement.bind(that)
     };
   }
 });
