@@ -91,6 +91,9 @@ Difference:
 - [`maxPairDiff()`](#maxPairDiffcomparer--null)
 - [`minDiff()`](#minDiffcomparer--null)
 - [`maxDiff()`](#maxDiffcomparer--null)
+- [`minDiffAhead()`](#minDiffAheadcomparer--null)
+- [`maxDiffAhead()`](#maxDiffAheadcomparer--null)
+- [`maxPairDiff()` vs. `maxDiff()` vs. `maxDiffAhead()`](#maxPairDiff-vs-maxDiff-vs-maxDiffAhead)
 
 ## `group(labelFactory...)`
 
@@ -1598,3 +1601,109 @@ Like `forEach()` but with `break`/`continue` feature.
 
 // max -> 8
 ```
+
+## `minDiffAhead(comparer = null)`
+
+> default comparer: `(l, r) => Math.abs(l - r)`
+
+```
+[10 80 200 20].x.minDiffAhead()
+// 10
+
+// [
+//   |10-80|, |10-200|, |10-20|,
+//   |80-200|, |80-20|,
+//   |200-20|
+// ]
+// 
+// [
+//  70, 190, 10,
+//  120, 60,
+//  180
+// ]
+// 
+// min -> 10
+```
+
+* with custom comparer:
+
+```
+[10 80 200 20].x.minDiffAhead(
+  (l, r) => l - r
+)
+// -190
+
+// [
+//   10-80, 10-200, 10-20,
+//   80-200, 80-20,
+//   200-20
+// ]
+// 
+// [
+//  -70, -190, -10,
+//  -120, 60,
+//  180
+// ]
+// 
+// min -> -190
+```
+
+## `maxDiffAhead(comparer = null)`
+
+> default comparer: `(l, r) => Math.abs(l - r)`
+
+```
+[10 80 200 20].x.maxDiffAhead()
+// 190
+
+// [
+//   |10-80|, |10-200|, |10-20|,
+//   |80-200|, |80-20|,
+//   |200-20|
+// ]
+// 
+// [
+//  70, 190, 10,
+//  120, 60,
+//  180
+// ]
+// 
+// max -> 190
+```
+
+* with custom comparer:
+
+```
+[10 80 200 20].x.maxDiffAhead(
+  (l, r) => l - r
+)
+// 180
+
+// [
+//   10-80, 10-200, 10-20,
+//   80-200, 80-20,
+//   200-20
+// ]
+// 
+// [
+//  -70, -190, -10,
+//  -120, 60,
+//  180
+// ]
+// 
+// max -> 180
+```
+
+## `maxPairDiff()` vs. `maxDiff()` vs. `maxDiffAhead()`
+
+* `maxPairDiff()` compares every sibling
+* `maxDiff()` compares every item with all other items
+* `maxDiffAhead()` compares every item with all other items that follow it
+
+For `[1,2,3,4]`:
+
+| Method | Comparisons performed |
+|--|--|
+| `maxPairDiff()` | 1-2, 2-3 and 3-4 |
+| `maxDiff()` | 1-2, 1-3, 1-4, 2-1, 2-3, 2-4, 3-1, 3-2, 3-4, 4-1, 4-2 and 4-3 |
+| `maxDiffAhead()` | 1-2, 1-3, 1-4, 2-3, 2-4 and 3-4 |

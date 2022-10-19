@@ -87,6 +87,8 @@ import minPairDiff from '@array-x/min-pair-diff';
 import maxPairDiff from '@array-x/max-pair-diff';
 import minDiff from '@array-x/min-diff';
 import maxDiff from '@array-x/max-diff';
+import minDiffAhead from '@array-x/min-diff-ahead';
+import maxDiffAhead from '@array-x/max-diff-ahead';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -191,7 +193,9 @@ Object.defineProperty(Array.prototype, 'x', {
       minPairDiff: minPairDiff.bind(that),
       maxPairDiff: maxPairDiff.bind(that),
       minDiff: minDiff.bind(that),
-      maxDiff: maxDiff.bind(that)
+      maxDiff: maxDiff.bind(that),
+      minDiffAhead: minDiffAhead.bind(that),
+      maxDiffAhead: maxDiffAhead.bind(that)
     };
   }
 });
