@@ -83,6 +83,7 @@ Redefined built-ins:
 - [`spreadMap()`](#spreadMapmapper)
 - [`filterMapped()`](#filterMappedmapper--null-filter--null)
 - [`replace()`](#replacematcher--x--x-replacer--x--x)
+- [`findIndexes()`](#findIndexesmatcher--null)
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
@@ -1674,6 +1675,22 @@ let item = 2;
   x => x * 10
 )
 // [1,20,3,40]
+```
+
+## `findIndexes(matcher = null)`
+
+```
+[1,2,3,4,5,6].x.findIndexes(x => x % 2 === 0)
+// [1,3,5]
+
+[1,2,3,4,5,6].x.findIndexes([2,4])
+// [1,3]
+
+[1,2,3,1,2,3].x.findIndexes(3)
+// [2,5]
+
+[1,2,3,1,2,3].x.findIndexes()
+// []
 ```
 
 ## `forEveryChunk(chunkSize, cb)`
