@@ -1466,12 +1466,12 @@ Like `forEach()` but with `break`/`continue` feature.
 > default comparer: `(l, r) => Math.abs(l - r)`
 
 ```
-[20,10,40].x.minPairDiff()
+[20,10,40].x.maxPairDiff()
 // 30
 ```
 
 ```
-[20,10,40].x.minPairDiff(
+[20,10,40].x.maxPairDiff(
   (l, r) => l - r
 )
 // 10
