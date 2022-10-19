@@ -54,6 +54,7 @@ Altering:
 - [`overwrite()`](#overwriteindex-items)
 - [`override()`](#overrideindex-items)
 - [`precede()`](#precedeappendix---fillWithUndefined--false)
+- [`follow()`](#followappendix---fillWithUndefined--false)
 - [`frozen()`](#frozen)
 - [`fixed()`](#fixed)
 - [`dwarf()`](#dwarf)
@@ -1193,6 +1194,30 @@ arr
 
 [1,2,3,4].x.precede([10,20], true)
 // [10,1,20,2,undefined,3,undefined,4]
+```
+
+## `follow(appendix = [], fillWithUndefined = false)`
+
+```
+[1,2,3,4].x.follow(0)
+// [1,0,2,0,3,0,4,0]
+
+[1,2,3,4].x.follow([10,20,30,40])
+// [1,10,2,20,3,30,4,40]
+
+[1,2,3,4].x.follow(x => x * 2)
+// [1,2,2,4,3,6,4,8]
+```
+
+```
+[1,2].x.follow([10,20,30,40])
+// [1,10,2,20]
+
+[1,2,3,4].x.follow([10,20])
+// [1,10,2,20,3,4]
+
+[1,2,3,4].x.follow([10,20], true)
+// [1,10,2,20,3,undefined,4,undefined]
 ```
 
 ## `frozen()`

@@ -54,6 +54,7 @@ import wrapAlter from '@array-x/wrap-alter';
 import adapt from '@array-x/adapt';
 import adaptByCallback from '@array-x/adapt-by-callback';
 import precede from '@array-x/precede';
+import follow from '@array-x/follow';
 
 import clamped from '@array-x/clamped';
 import fold from '@array-x/fold';
@@ -163,6 +164,7 @@ Object.defineProperty(Array.prototype, 'x', {
       adapt: adapt.bind(that),
       adaptByCallback: adaptByCallback.bind(that),
       precede: precede.bind(that),
+      follow: follow.bind(that),
 
       clamped: clamped.bind(that),
       fold: fold.bind(that),
