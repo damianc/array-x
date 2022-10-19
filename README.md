@@ -1454,6 +1454,13 @@ Filters items that would pass a test if they were mapped.
 ```
 
 ```
+let item = 2;
+[1,2,1,2].x.replace(
+  item,
+  x => x * 10
+)
+// [1,20,1,20]
+
 [1,2,3,4].x.replace(
   [3,4,5,6],
   x => x * 10
