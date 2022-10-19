@@ -84,6 +84,7 @@ Redefined built-ins:
 - [`filterMapped()`](#filterMappedmapper--null-filter--null)
 - [`replace()`](#replacematcher--x--x-replacer--x--x)
 - [`findIndexes()`](#findIndexesmatcher--null)
+- [`includes()`](#includesmatcher--null)
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
@@ -1691,6 +1692,25 @@ let item = 2;
 
 [1,2,3,1,2,3].x.findIndexes()
 // []
+```
+
+## `includes(matcher = null)`
+
+```
+[1,2,3,4].x.includes(4)
+// true
+
+[1,2,3,4].x.includes([4,8])
+// true
+
+[1,2,3,4].x.includes(x => x % 2 === 0)
+// true
+
+[1,2,3,4].x.includes(x => x >= 100)
+// false
+
+[1,2,3,4].x.includes()
+// false
 ```
 
 ## `forEveryChunk(chunkSize, cb)`

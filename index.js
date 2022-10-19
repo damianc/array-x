@@ -80,6 +80,7 @@ import spreadMap from '@array-x/spread-map';
 import filterMapped from '@array-x/filter-mapped';
 import replace from '@array-x/replace';
 import findIndexes from '@array-x/find-indexes';
+import includes from '@array-x/includes';
 
 import forEveryChunk from '@array-x/for-every-chunk';
 import forEveryN from '@array-x/for-every-n';
@@ -199,6 +200,7 @@ Object.defineProperty(Array.prototype, 'x', {
       filterMapped: filterMapped.bind(that),
       replace: replace.bind(that),
       findIndexes: findIndexes.bind(that),
+      includes: includes.bind(that),
 
       forEveryChunk: forEveryChunk.bind(that),
       forEveryN: forEveryN.bind(that),
