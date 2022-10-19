@@ -12,6 +12,8 @@ Collecting:
 - [`pluck()`](#pluckpath)
 - [`pluckMultiple()`](#pluckMultiplepaths)
 - [`glue()`](#glueotherArray---headSize-tailSize)
+- [`glueHeads()`](#glueHeadsotherArray---leftSize-rightSize--leftSize)
+- [`glueTails()`](#glueTailsotherArray---leftSize-rightSize--leftSize)
 - [`iterator()`](#iterator)
 - [`revIterator()`](#revIterator)
 - [`refIterator()`](#refIteratorrefKey-nextKey-initItemIdx--0)
@@ -436,6 +438,32 @@ arr.x.uniqSeq()
 
 [1,2,3,4].x.glue([5,6,7,8], 3, 1)
 // [1,2,3,8]
+```
+
+## `glueHeads(otherArray = [], leftSize, rightSize = leftSize)`
+
+```
+[1,2,3,4].x.glueHeads([5,6,7,8], 2)
+// [1,2,5,6]
+
+[1,2,3,4].x.glueHeads([5,6,7,8], 1, 3)
+// [1,5,6,7]
+
+[1,2,3,4].x.glueHeads([5,6,7,8], 3, 1)
+// [1,2,3,5]
+```
+
+## `glueTails(otherArray = [], leftSize, rightSize = leftSize)`
+
+```
+[1,2,3,4].x.glueTails([5,6,7,8], 2)
+// [3,4,7,8]
+
+[1,2,3,4].x.glueTails([5,6,7,8], 1, 3)
+// [4,6,7,8]
+
+[1,2,3,4].x.glueTails([5,6,7,8], 3, 1)
+// [2,3,4,8]
 ```
 
 ## `iterator()`
