@@ -60,6 +60,9 @@ Altering:
 - [`sparse()`](#sparseslots--1)
 - [`thick()`](#thick)
 
+Sets:
+- [`union()`](#unionotherSet--)
+
 Redefined built-ins:
 - [`reduce()`](#reducereducer-finalizer--null-init)
 - [`reversed()`](#reversed)
@@ -1254,6 +1257,16 @@ console.log(
 ```
 [1,2,,,,3,,,4].x.thick()
 // [1,2,3,4]
+```
+
+## `union(otherSet = [])`
+
+```
+[1,2,3,4].x.union([5,6,7,8])
+// [1,2,3,4,5,6,7,8]
+
+[1,2,3,4].x.union([3,4,5,6])
+// [1,2,3,4,5,6]
 ```
 
 ## `reduce(reducer, finalizer = null, init)`

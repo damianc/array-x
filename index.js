@@ -77,6 +77,8 @@ import select from '@array-x/select';
 import thick from '@array-x/thick';
 import sparse from '@array-x/sparse';
 
+import union from '@array-x/union';
+
 Object.defineProperty(Array.prototype, 'x', {
   get() {
     const that = this;
@@ -169,7 +171,9 @@ Object.defineProperty(Array.prototype, 'x', {
 
       select: select.bind(that),
       thick: thick.bind(that),
-      sparse: sparse.bind(that)
+      sparse: sparse.bind(that),
+
+      union: union.bind(that)
     };
   }
 });
