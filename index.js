@@ -83,6 +83,9 @@ import diff from '@array-x/diff';
 import symDiff from '@array-x/sym-diff';
 import complement from '@array-x/complement';
 
+import minPairDiff from '@array-x/min-pair-diff';
+import maxPairDiff from '@array-x/max-pair-diff';
+
 Object.defineProperty(Array.prototype, 'x', {
   get() {
     const that = this;
@@ -181,7 +184,10 @@ Object.defineProperty(Array.prototype, 'x', {
       intersection: intersection.bind(that),
       diff: diff.bind(that),
       symDiff: symDiff.bind(that),
-      complement: complement.bind(that)
+      complement: complement.bind(that),
+
+      minPairDiff: minPairDiff.bind(that),
+      maxPairDiff: maxPairDiff.bind(that)
     };
   }
 });

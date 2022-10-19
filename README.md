@@ -85,6 +85,11 @@ Min and Max:
 - [`findMinIndex()`](#findMinIndexmapper)
 - [`findMaxIndex()`](#findMaxIndexmapper)
 
+Difference:
+
+- [`minPairDiff()`](#minPairDiffcomparer--null)
+- [`maxPairDiff()`](#maxPairDiffcomparer--null)
+
 ## `group(labelFactory...)`
 
 ```
@@ -1438,4 +1443,36 @@ Like `forEach()` but with `break`/`continue` feature.
 // [1,2,3]
 // [2,3,4]
 // [3,4,5]
+```
+
+## `minPairDiff(comparer = null)`
+
+> default comparer: `(l, r) => Math.abs(l - r)`
+
+```
+[20,10,40].x.minPairDiff()
+// 10
+```
+
+```
+[20,10,40].x.minPairDiff(
+  (l, r) => l - r
+)
+// -30
+```
+
+## `maxPairDiff(comparer = null)`
+
+> default comparer: `(l, r) => Math.abs(l - r)`
+
+```
+[20,10,40].x.minPairDiff()
+// 30
+```
+
+```
+[20,10,40].x.minPairDiff(
+  (l, r) => l - r
+)
+// 10
 ```
