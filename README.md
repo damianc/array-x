@@ -10,6 +10,7 @@ Collecting:
 - [`uniq()`](#uniqselector)
 - [`uniqSeq()`](#uniqseqselector)
 - [`pluck()`](#pluckpath)
+- [`pluckMultiple()`](#pluckMultiplepaths)
 - [`iterator()`](#iterator)
 - [`revIterator()`](#revIterator)
 - [`refIterator()`](#refIteratorrefKey-nextKey-initItemIdx--0)
@@ -398,6 +399,29 @@ arr.x.uniqSeq()
 // other working variants: pluck('2'), pluck('[2]')
 
 // [3, 5, 7, 9]
+```
+
+## `pluckMultiple(...paths)`
+
+```
+[
+  { foo: { bar: [1,2,{ baz: 120 }] } },
+  { foo: { bar: [3,4,{ baz: 340 }] } },
+  { foo: { bar: [5,6,{ baz: 560 }] } }
+].x.pluckMultiple('foo.bar[0]', 'foo.bar[1]', 'foo.bar[2].baz')
+
+// [ [1,2,120], [3,4,340], [5,6,560] ]
+```
+
+```
+[
+  [1,2,3],
+  [2,3,5],
+  [3,4,7],
+  [4,5,9]
+].x.pluckMultiple(0, 2)
+
+// [ [1,3], [2,5], [3,7], [4,9] ]
 ```
 
 ## `iterator()`

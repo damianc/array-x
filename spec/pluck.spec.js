@@ -40,6 +40,14 @@ describe('pluck() with invalid path', () => {
   });
 });
 
+describe('pluck() with invalid, too long path', () => {
+  it('should return undefined', () => {
+    expect(
+      this.obj.x.pluck('foo.bar.baz.quux')
+    ).toEqual([undefined,undefined,undefined]);
+  });
+});
+
 describe('pluck() with valid path', () => {
   it('should return respective value', () => {
     expect(

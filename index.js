@@ -57,6 +57,7 @@ import precede from '@array-x/precede';
 import follow from '@array-x/follow';
 
 import pluck from '@array-x/pluck';
+import pluckMultiple from '@array-x/pluck-multiple';
 import clamped from '@array-x/clamped';
 import fold from '@array-x/fold';
 import iterator from '@array-x/iterator';
@@ -168,6 +169,7 @@ Object.defineProperty(Array.prototype, 'x', {
       follow: follow.bind(that),
 
       pluck: pluck.bind(that),
+      pluckMultiple: pluckMultiple.bind(that),
       clamped: clamped.bind(that),
       fold: fold.bind(that),
       iterator: iterator.bind(that),
