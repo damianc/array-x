@@ -1455,6 +1455,7 @@ Like `forEach()` but with `break`/`continue` feature.
 
 // [ Math.abs(20 - 10), Math.abs(10 - 40) ]
 // [ 10, 30 ]
+// min -> 10
 ```
 
 ```
@@ -1465,6 +1466,7 @@ Like `forEach()` but with `break`/`continue` feature.
 
 // [ 20 - 10, 10 - 40 ]
 // [ 10, -30 ]
+// min -> -30
 ```
 
 ## `maxPairDiff(comparer = null)`
@@ -1477,6 +1479,7 @@ Like `forEach()` but with `break`/`continue` feature.
 
 // [ Math.abs(20 - 10), Math.abs(10 - 40) ]
 // [ 10, 30 ]
+// max -> 30
 ```
 
 ```
@@ -1487,4 +1490,5 @@ Like `forEach()` but with `break`/`continue` feature.
 
 // [ 20 - 10, 10 - 40 ]
 // [ 10, -30 ]
+// max -> 10
 ```
