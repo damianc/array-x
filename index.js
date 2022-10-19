@@ -78,6 +78,7 @@ import thick from '@array-x/thick';
 import sparse from '@array-x/sparse';
 
 import union from '@array-x/union';
+import intersection from '@array-x/intersection';
 
 Object.defineProperty(Array.prototype, 'x', {
   get() {
@@ -173,7 +174,8 @@ Object.defineProperty(Array.prototype, 'x', {
       thick: thick.bind(that),
       sparse: sparse.bind(that),
 
-      union: union.bind(that)
+      union: union.bind(that),
+      intersection: intersection.bind(that)
     };
   }
 });

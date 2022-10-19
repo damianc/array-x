@@ -62,6 +62,7 @@ Altering:
 
 Sets:
 - [`union()`](#unionotherSet--)
+- [`intersection()`](#intersectionotherSet--)
 
 Redefined built-ins:
 - [`reduce()`](#reducereducer-finalizer--null-init)
@@ -1267,6 +1268,13 @@ console.log(
 
 [1,2,3,4].x.union([3,4,5,6])
 // [1,2,3,4,5,6]
+```
+
+## `intersection(otherSet = [])`
+
+```
+[1,2,3,4].x.intersection([3,4,5,6])
+// [3,4]
 ```
 
 ## `reduce(reducer, finalizer = null, init)`
