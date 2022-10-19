@@ -53,6 +53,7 @@ import random from '@array-x/random';
 import wrapAlter from '@array-x/wrap-alter';
 import adapt from '@array-x/adapt';
 import adaptByCallback from '@array-x/adapt-by-callback';
+import precede from '@array-x/precede';
 
 import clamped from '@array-x/clamped';
 import fold from '@array-x/fold';
@@ -161,6 +162,7 @@ Object.defineProperty(Array.prototype, 'x', {
       wrapAlter: wrapAlter.bind(that),
       adapt: adapt.bind(that),
       adaptByCallback: adaptByCallback.bind(that),
+      precede: precede.bind(that),
 
       clamped: clamped.bind(that),
       fold: fold.bind(that),
