@@ -1,4 +1,4 @@
-export default function adapt(arr, adapts = 1) {
+export default function adapt(arr = [], adapts = 1) {
   const copy = [...this];
 
   if (adapts === -1) {
@@ -16,6 +16,6 @@ export default function adapt(arr, adapts = 1) {
       if (changes >= adapts) break;
     }
   }
-  
+
   return copy;
 }

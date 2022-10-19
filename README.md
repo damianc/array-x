@@ -45,6 +45,7 @@ Clustering:
 
 Altering:
 - [`wrapAlter()`](#wrapAlterprocessor)
+- [`adapt()`](#adaptotherArray---adaptations--1)
 - [`random()`](#randomcount--1)
 - [`shuffle()`](#shuffle)
 - [`move()`](#movesourceIndex-count-targetIndex--0)
@@ -1014,7 +1015,7 @@ arr
 // [1,2,3,4]
 ```
 
-## `adapt(otherArray, adaptations = 1)`
+## `adapt(otherArray = [], adaptations = 1)`
 
 * adapt only one different value from other array:
 
