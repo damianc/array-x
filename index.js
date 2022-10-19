@@ -58,6 +58,7 @@ import iterator from '@array-x/iterator';
 import revIterator from '@array-x/rev-iterator';
 import refIterator from '@array-x/ref-iterator';
 import cyclicIterator from '@array-x/cyclic-iterator';
+import echoIterator from '@array-x/echo-iterator';
 import frozen from '@array-x/frozen';
 import fixed from '@array-x/fixed';
 import dwarf from '@array-x/dwarf';
@@ -148,6 +149,7 @@ Object.defineProperty(Array.prototype, 'x', {
       revIterator: revIterator.bind(that),
       refIterator: refIterator.bind(that),
       cyclicIterator: cyclicIterator.bind(that),
+      echoIterator: echoIterator.bind(that),
       frozen: aliased.frozen,
       readonly: aliased.frozen,
       readOnly: aliased.frozen,

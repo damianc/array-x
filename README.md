@@ -13,6 +13,7 @@ Collecting:
 - [`revIterator()`](#revIterator)
 - [`refIterator()`](#refIteratorrefKey-nextKey-initItemIdx--0)
 - [`cyclicIterator()`](#cyclicIterator)
+- [`echoIterator()`](#echoIteratorsticky--false)
 - [`everyNth()`](#everyNthn--1-from--0-to)
 - [`select()`](#selectfrom--0-to---1-step--1)
 
@@ -453,6 +454,36 @@ console.log(
   res.join('-')
 );
 // '1-2-3-4-1-2-3-4-1-2'
+```
+
+## `echoIterator(sticky = false)`
+
+```
+const echit = [1,2,3,4].x.echoIterator();
+
+let chain = echit.current;
+for (
+  let i = 1, _ = echit.next();
+  i++ < 12;
+  echit.next()
+) chain += ' -> ' + echit.current;
+
+chain
+// '1 -> 2 -> 3 -> 4 -> 3 -> 2 -> 1 -> 2 -> 3 -> 4 -> 3 -> 2'
+```
+
+```
+const echit = [1,2,3,4].x.echoIterator(true);
+
+let chain = echit.current;
+for (
+  let i = 1, _ = echit.next();
+  i++ < 12;
+  echit.next()
+) chain += ' -> ' + echit.current;
+
+chain
+// '1 -> 2 -> 3 -> 4 -> 4 -> 3 -> 2 -> 1 -> 1 -> 2 -> 3 -> 4'
 ```
 
 ## `everyNth(n = 1, from = 0, to)`
