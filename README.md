@@ -1014,6 +1014,29 @@ arr
 // [1,2,3,4]
 ```
 
+## `adapt(otherArray, adaptations = 1)`
+
+* adapt only one different value from other array:
+
+```
+[1,2,1,2].x.adapt([1,20,1,20])
+// [1,20,1,2]
+```
+
+* adapt two different values from other array:
+
+```
+[1,2,1,2,1,2].x.adapt([1,20,1,20,1,20], 2)
+// [1,20,1,20,1,2]
+```
+
+* adapt all different values from other array (use `-1` as a second parameter):
+
+```
+[1,2,1,2,1,2].x.adapt([1,20,1,20,1,20], -1)
+// [1,20,1,20,1,20]
+```
+
 ## `random(count = 1)`
 
 ```

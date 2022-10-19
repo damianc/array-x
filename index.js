@@ -51,6 +51,7 @@ import move from '@array-x/move';
 import shuffle from '@array-x/shuffle';
 import random from '@array-x/random';
 import wrapAlter from '@array-x/wrap-alter';
+import adapt from '@array-x/adapt';
 
 import clamped from '@array-x/clamped';
 import fold from '@array-x/fold';
@@ -157,6 +158,7 @@ Object.defineProperty(Array.prototype, 'x', {
       shuffle: shuffle.bind(that),
       random: random.bind(that),
       wrapAlter: wrapAlter.bind(that),
+      adapt: adapt.bind(that),
 
       clamped: clamped.bind(that),
       fold: fold.bind(that),
