@@ -11,6 +11,7 @@ Collecting:
 - [`uniqSeq()`](#uniqseqselector)
 - [`pluck()`](#pluckpath)
 - [`pluckMultiple()`](#pluckMultiplepaths)
+- [`glue()`](#glueotherArray---head-tail)
 - [`iterator()`](#iterator)
 - [`revIterator()`](#revIterator)
 - [`refIterator()`](#refIteratorrefKey-nextKey-initItemIdx--0)
@@ -422,6 +423,19 @@ arr.x.uniqSeq()
 ].x.pluckMultiple(0, 2)
 
 // [ [1,3], [2,5], [3,7], [4,9] ]
+```
+
+## `glue(otherArray = [], head, tail)`
+
+```
+[1,2,3,4].x.glue([5,6,7,8], 2, 2)
+// [1,2,7,8]
+
+[1,2,3,4].x.glue([5,6,7,8], 1, 3)
+// [1,6,7,8]
+
+[1,2,3,4].x.glue([5,6,7,8], 3, 1)
+// [1,2,3,8]
 ```
 
 ## `iterator()`
