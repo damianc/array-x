@@ -35,6 +35,8 @@ import sum from '@array-x/sum';
 import chunk from '@array-x/chunk';
 import chunkByCallback from '@array-x/chunk-by-callback';
 import chunkByPattern from '@array-x/chunk-by-pattern';
+import chunkByGroup from '@array-x/chunk-by-group';
+import partition from '@array-x/partition';
 import zip from '@array-x/zip';
 import zipAll from '@array-x/zip-all';
 import unzip from '@array-x/unzip';
@@ -159,6 +161,8 @@ Object.defineProperty(Array.prototype, 'x', {
       chunk: chunk.bind(that),
       chunkByCallback: chunkByCallback.bind(that),
       chunkByPattern: chunkByPattern.bind(that),
+      chunkByGroup: chunkByGroup.bind(that),
+      partition: partition.bind(that),
       zip: zip.bind(that),
       zipAll: zipAll.bind(that),
       unzip: unzip.bind(that),

@@ -39,6 +39,8 @@ Clustering:
 - [`chunk()`](#chunksize-rejectStickingTail--false)
 - [`chunkByCallback()`](#chunkByCallbackcb-matchedItemOpening--true)
 - [`chunkByPattern()`](#chunkByPatternsizes-rejectStickingTail--false)
+- [`chunkByGroup()`](#chunkByGroupgrouper--item--0)
+- [`partition()`](#partitionpartitioner--item--0)
 - [`zip()`](#zipotherArrays)
 - [`zipAll()`](#zipAllotherArrays)
 - [`unzip()`](#unzip)
@@ -946,6 +948,84 @@ chain
 
 [1,2,3,4,5,6].x.chunkByPattern(2, 3, true)
 // [ [1,2], [3,4,5] ]
+```
+
+## `chunkByGroup(grouper = item => 0)`
+
+```
+['foo', 'bar', 'baz', 'quux'].x.chunkByGroup(
+  str => str.length
+)
+
+// [ ['foo','bar','baz'], ['quux'] ]
+```
+
+* groups are sorted in ascending order, yet chunks themselves are not sorted:
+
+```
+[
+  'Alabama', 'Texas', 'Illinois',
+  'Arizona', 'Idaho'
+].x.chunkByGroup(str => str[0])
+
+// [ ['Alabama','Arizona'], ['Illinois','Idaho'], ['Texas'] ]
+```
+
+* if the callback returns a number, the smaller it is, the closer to the array's beginning the chunk will be:
+
+```
+[1,30,500,600,40,2].x.chunkByGroup(x => {
+  if (x < 10) return 1;
+  if (x < 100) return 2;
+  return 3;
+});
+
+// [ [1,2], [30,40], [500,600] ]
+```
+
+* grouping callback can be binary one, i.e., returning either `true` or `false`:
+
+```
+[1,2,3,4,5,6].x.chunkByGroup(x => x % 2 === 0)
+// [ [1,3,5], [2,4,6] ]
+```
+
+In such a case, a chunk with items that matches the callback will be second, as results are sorted in ascending order and the callback returns one of two strings: `true` or `false`. To put items matching the callback at the beginning, either rewrite condition or put it into `()` preceded with `!`:
+
+```
+[1,2,3,4,5,6].x.chunkByGroup(x => !(x % 2 === 0))
+// [ [2,4,6], [1,3,5] ]
+```
+
+## `partition(partitioner = item => 0)`
+
+The _partitioner_ should return a number. If you want to handle strings, use [`chunkByGroup()`](#chunkByGroupgrouper--item--0).  
+  
+The smaller _partitioner_ result is, the closer to the array's beginning the chunk will be:
+
+```
+[1,30,500,600,40,2].x.partition(x => {
+  if (x < 10) return 1;
+  if (x < 100) return 2;
+  return 3;
+});
+
+// [ [1,2], [30,40], [500,600] ]
+```
+
+```
+[1,2,3,4,5,6].x.partition(x => x % 2 === 0)
+// [ [1,3,5], [2,4,6] ]
+
+// 1 % 2 === 0 -> false, false -> 0
+// 2 % 2 === 0 -> true, true -> 1
+
+
+[1,2,3,4,5,6].x.partition(x => !(x % 2 === 0))
+// [ [2,4,6], [1,3,5] ]
+
+// 1 % 2 === 0 -> false, !false -> true -> 1
+// 2 % 2 === 0 -> true, !true -> false -> 0
 ```
 
 ## `zip(otherArrays...)`
