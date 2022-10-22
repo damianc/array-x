@@ -87,6 +87,7 @@ Redefined built-ins:
 - [`includes()`](#includesmatcher--null)
 - [`mapReduce()`](#mapReducechunkSize--2-reducer--null-init--null-rejectStickingTail--false)
 - [`pop()`](#popn--1)
+- [`shift()`](#shiftn--1)
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
@@ -1776,6 +1777,18 @@ arr.x.pop(2);
 
 arr
 // [1,2,3,4]
+```
+
+## `shift(n = 1)`
+
+```
+const arr = [1,2,3,4,5,6];
+
+arr.x.shift(2);
+// returns removed items: [1,2]
+
+arr
+// [3,4,5,6]
 ```
 
 ## `forEveryChunk(chunkSize, cb)`

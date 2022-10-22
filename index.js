@@ -83,6 +83,7 @@ import findIndexes from '@array-x/find-indexes';
 import includes from '@array-x/includes';
 import mapReduce from '@array-x/map-reduce';
 import pop from '@array-x/pop';
+import shift from '@array-x/shift';
 
 import forEveryChunk from '@array-x/for-every-chunk';
 import forEveryN from '@array-x/for-every-n';
@@ -205,6 +206,7 @@ Object.defineProperty(Array.prototype, 'x', {
       includes: includes.bind(that),
       mapReduce: mapReduce.bind(that),
       pop: pop.bind(that),
+      shift: shift.bind(that),
 
       forEveryChunk: forEveryChunk.bind(that),
       forEveryN: forEveryN.bind(that),
