@@ -1545,10 +1545,6 @@ console.log(
 
 ## `scan(reducer, init = null)`
 
-$$
-scanArr_i = reduce(inputArr_{<0;i>}\color{#888}{, init}\color{#000})
-$$
-
 $scanArr_i = reduce(inputArr_{<0;i>}\color{#888}{, init}\color{#000})$
 
 ```
