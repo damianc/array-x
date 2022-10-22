@@ -82,6 +82,7 @@ import replace from '@array-x/replace';
 import findIndexes from '@array-x/find-indexes';
 import includes from '@array-x/includes';
 import mapReduce from '@array-x/map-reduce';
+import pop from '@array-x/pop';
 
 import forEveryChunk from '@array-x/for-every-chunk';
 import forEveryN from '@array-x/for-every-n';
@@ -203,6 +204,7 @@ Object.defineProperty(Array.prototype, 'x', {
       findIndexes: findIndexes.bind(that),
       includes: includes.bind(that),
       mapReduce: mapReduce.bind(that),
+      pop: pop.bind(that),
 
       forEveryChunk: forEveryChunk.bind(that),
       forEveryN: forEveryN.bind(that),

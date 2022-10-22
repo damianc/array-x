@@ -86,6 +86,7 @@ Redefined built-ins:
 - [`findIndexes()`](#findIndexesmatcher--null)
 - [`includes()`](#includesmatcher--null)
 - [`mapReduce()`](#mapReducechunkSize--2-reducer--null-init--null-rejectStickingTail--false)
+- [`pop()`](#popn--1)
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
@@ -1763,6 +1764,18 @@ let item = 2;
 // [2,5]
 
 // [(1+2+3)/3, (4+5+6)/3]
+```
+
+## `pop(n = 1)`
+
+```
+const arr = [1,2,3,4,5,6];
+
+arr.x.pop(2);
+// returns removed items: [5,6]
+
+arr
+// [1,2,3,4]
 ```
 
 ## `forEveryChunk(chunkSize, cb)`
