@@ -91,7 +91,7 @@ Redefined built-ins:
 - [`shift()`](#shiftn--1)
 - [`frame()`](#framesize-rejectIncomplete--true)
 - [`audit()`](#audittester-frameSize--2)
-- [`auditChunks()`](#auditChunkstester-chunkSize-2-rejectSticking--true)
+- [`auditChunks()`](#auditChunkstester-chunkSize--2-rejectSticking--true)
 - [`audit()` vs. `auditChunks()`](#audit-vs-auditChunks)
 
 Iteration:
