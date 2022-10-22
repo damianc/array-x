@@ -85,6 +85,7 @@ Redefined built-ins:
 - [`replace()`](#replacematcher--x--x-replacer--x--x)
 - [`findIndexes()`](#findIndexesmatcher--null)
 - [`includes()`](#includesmatcher--null)
+- [`mapReduce()`](#mapReducechunkSize--2-reducer--null-init--null-rejectStickingTail--false)
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
@@ -1711,6 +1712,57 @@ let item = 2;
 
 [1,2,3,4].x.includes()
 // false
+```
+
+## `mapReduce(chunkSize = 2, reducer = null, init = null, rejectStickingTail = false)`
+
+> default reducer: `(a, c) => a + c`
+
+```
+[10,20,30,40].x.mapReduce(
+  2, (a, b) => a + b
+)
+// [30,70]
+```
+
+```
+['<', 'div', '>', '<', 'span', '>'].x.mapReduce(
+  3, (a, b) => a + b
+)
+// ['<div>', '<span>']
+```
+
+* `init` parameter can be a literal value or a callback:
+
+```
+[1,2,3,4,5,6].x.mapReduce(
+  2,
+  (a, b) => a + b,
+  (chunk, chunkNumber) => chunkNumber
+)
+// [4,9,14]
+
+// [1+1+2, 2+3+4, 3+5+6]
+// [1+3, 2+7, 3+11]
+```
+
+```
+// average of every triplet
+// sticking tail rejected
+
+[1,2,3,4,5,6,7,8].x.mapReduce(
+  3,
+  (a, b, idx, chunk) => {
+    let res = a + b;
+    if (idx === chunk.length - 1) res = res / chunk.length;
+    return res;
+  },
+  null,
+  true
+)
+// [2,5]
+
+// [(1+2+3)/3, (4+5+6)/3]
 ```
 
 ## `forEveryChunk(chunkSize, cb)`
