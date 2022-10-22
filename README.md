@@ -1546,8 +1546,10 @@ console.log(
 ## `scan(reducer, init = null)`
 
 $$
-scan\_arr_i = reduce(input\_arr_{<0;i>}\color{#888}{, init}\color{#000})
+scanArr_i = reduce(inputArr_{<0;i>}\color{#888}{, init}\color{#000})
 $$
+
+$scanArr_i = reduce(inputArr_{<0;i>}\color{#888}{, init}\color{#000})$
 
 ```
 [1,2,3,4].x.scan((a, c) => a + c)
