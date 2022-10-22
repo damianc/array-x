@@ -90,6 +90,9 @@ Redefined built-ins:
 - [`pop()`](#popn--1)
 - [`shift()`](#shiftn--1)
 - [`frame()`](#framesize-rejectIncomplete--true)
+- [`audit()`](#audittester-frameSize--2)
+- [`auditChunks()`](#auditChunkstester-chunkSize-2-rejectSticking--true)
+- [`audit()` vs. `auditChunks()`](#audit-vs-auditChunks)
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
@@ -1823,6 +1826,117 @@ arr
 
 [1,2,3,4,5,6].x.frame(3, false)
 // [ [1,2,3],[2,3,4],[3,4,5],[4,5,6], [5,6], [6] ]
+```
+
+## `audit(tester, frameSize = 2)`
+
+* check if items are sorted in ascending order:
+
+```
+[1,2,3,4].x.audit(
+  (l, r) => l <= r
+)
+// true
+
+[1,4,2,3].x.audit(
+  (l, r) => l <= r
+)
+// false
+```
+
+* check if every third item is sum of two preceding items:
+
+```
+[1,2,3,5,8].x.audit(
+  (l, r, sum) => l + r === sum,
+  3
+)
+// true
+```
+
+* check if item is a string that starts with preceding item:
+
+```
+['foo', 'foo bar', 'foo bar baz'].x.audit(
+  (leftString, rightString) => rightString.indexOf(leftString) === 0
+)
+// true
+```
+
+## `auditChunks(tester, chunkSize = 2, rejectSticking = true)`
+
+* check if every second word is reversed variant of preceding one:
+
+```
+['foo', 'oof', 'bar', 'rab'].x.auditChunks(
+  (word, reversed) => word === [...reversed].reverse().join('')
+)
+// true
+```
+
+* check if every three items fit shape `[A, B, A + B]`:
+
+```
+[1,2,3,4,5,9,14,18].x.auditChunk(
+  (l, r, sum) => l + r === sum,
+  3
+)
+// true
+
+// 1 + 2 = 3 -> true
+// 4 + 5 = 9 -> true
+// -> true
+
+
+// 14 and 18 are ignored as last chunk is "sticking"
+// i.e., chunk length (2) is less than required chunk size (3)
+
+// to include sticking chunk, use false as third parameter:
+
+
+[1,2,3,4,5,9,14,18].x.auditChunk(
+  (l, r, sum) => l + r === sum,
+  3
+)
+// false
+
+// 1 + 2 = 3 -> true
+// 4 + 5 = 9 -> true
+// 14 + 18 = undefined -> false
+// -> false
+```
+
+## `audit()` vs. `auditChunks()`
+
+| Call | Comparisons performed |
+|--|--|
+| `[1,2,3,4,5,6].x.audit(...)` | `1,2`, `2,3`, `3,4`, `4,5` and `5,6` |
+| `[1,2,3,4,5,6].x.auditChunks(...)` | `1,2`, `3,4` and `5,6` |
+
+* `audit()` takes all possible chunks:
+
+```
+[10,20,14,18].x.audit(
+  (l, r) => l <= r
+)
+// false
+
+// 10 <= 20 -> true
+// 20 <= 14 -> false
+// -> false
+```
+
+* `auditChunks()` takes only adjacent chunks:
+
+```
+[10,20,14,18].x.auditChunks(
+  (l, r) => l <= r
+)
+// true
+
+// 10 <= 20 -> true
+// 14 <= 18 -> true
+// -> true
 ```
 
 ## `forEveryChunk(chunkSize, cb)`
