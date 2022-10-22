@@ -88,6 +88,7 @@ Redefined built-ins:
 - [`mapReduce()`](#mapReducechunkSize--2-reducer--null-init--null-rejectStickingTail--false)
 - [`pop()`](#popn--1)
 - [`shift()`](#shiftn--1)
+- [`frame()`](#framesize-rejectIncomplete--true)
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
@@ -1789,6 +1790,16 @@ arr.x.shift(2);
 
 arr
 // [3,4,5,6]
+```
+
+## `frame(size, rejectIncomplete = true)`
+
+```
+[1,2,3,4,5,6].x.frame(3)
+// [ [1,2,3],[2,3,4],[3,4,5],[4,5,6] ]
+
+[1,2,3,4,5,6].x.frame(3, false)
+// [ [1,2,3],[2,3,4],[3,4,5],[4,5,6], [5,6], [6] ]
 ```
 
 ## `forEveryChunk(chunkSize, cb)`
