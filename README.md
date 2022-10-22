@@ -1844,7 +1844,7 @@ arr
 // false
 ```
 
-* check if every third item is sum of two preceding items:
+* check if item is sum of preceding two items:
 
 ```
 [1,2,3,5,8].x.audit(
@@ -1896,7 +1896,8 @@ arr
 
 [1,2,3,4,5,9,14,18].x.auditChunk(
   (l, r, sum) => l + r === sum,
-  3
+  3,
+  false
 )
 // false
 
