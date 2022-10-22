@@ -1747,7 +1747,7 @@ let item = 2;
 ```
 
 ```
-// average of every triplet
+// average of every triplets
 // sticking tail rejected
 
 [1,2,3,4,5,6,7,8].x.mapReduce(
