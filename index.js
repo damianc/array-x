@@ -85,6 +85,7 @@ import mapReduce from '@array-x/map-reduce';
 import pop from '@array-x/pop';
 import shift from '@array-x/shift';
 import frame from '@array-x/frame';
+import scan from '@array-x/scan';
 
 import forEveryChunk from '@array-x/for-every-chunk';
 import forEveryN from '@array-x/for-every-n';
@@ -209,6 +210,7 @@ Object.defineProperty(Array.prototype, 'x', {
       pop: pop.bind(that),
       shift: shift.bind(that),
       frame: frame.bind(that),
+      scan: scan.bind(that),
 
       forEveryChunk: forEveryChunk.bind(that),
       forEveryN: forEveryN.bind(that),

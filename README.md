@@ -78,6 +78,7 @@ Sets:
 
 Redefined built-ins:
 - [`reduce()`](#reducereducer-finalizer--null-init)
+- [`scan()`](#scanreducer-init--null)
 - [`reversed()`](#reversed)
 - [`forEach()`](#forEachcb)
 - [`spreadMap()`](#spreadMapmapper)
@@ -1540,6 +1541,30 @@ console.log(
   []
 )
 // 1 (index of largest number)
+```
+
+## `scan(reducer, init = null)`
+
+$$
+scan\_arr_i = reduce(input\_arr_{<0;i>}\color{#888}{, init}\color{#000})
+$$
+
+```
+[1,2,3,4].x.scan((a, c) => a + c)
+// [1,3,6,10]
+
+// 1 -> 1
+// 3 -> 1 + 2
+// 6 -> 1 + 2 + 3 or 3 + 3
+// 10 -> 1 + 2 + 3 + 4 or 6 + 4
+```
+
+```
+['f', 'o', 'o'].x.scan((a, c) => a + c)
+// ['f', 'fo', 'foo']
+
+['b', 'a', 'r'].x.scan((a, c) => a + c, 'foo')
+// ['foob', 'fooba', 'foobar']
 ```
 
 ## `reversed()`
