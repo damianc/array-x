@@ -81,6 +81,7 @@ Sets:
 Redefined built-ins:
 - [`reduce()`](#reducereducer-finalizer--null-init)
 - [`scan()`](#scanreducer-init--null)
+- [`sort()`](#sortcomparators)
 - [`reversed()`](#reversed)
 - [`forEach()`](#forEachcb)
 - [`spreadMap()`](#spreadMapmapper)
@@ -1646,6 +1647,43 @@ $scanArr_i = reduce(inputArr_{<0;i>}\color{#888}{, init}\color{#000})$
 
 ['b', 'a', 'r'].x.scan((a, c) => a + c, 'foo')
 // ['foob', 'fooba', 'foobar']
+```
+
+## `sort(...comparators)`
+
+every `comparator` can be:
+- one-sign string:
+  * `-` to sort primitive values in descending order
+  * `+` to sort primitive values in ascending order
+- string that contains key to sort by
+  * `foo` to sort by `foo` key in ascending order
+  * `+foo` to sort by `foo` key in ascending order
+  * `-foo` to sort by `foo` key in descending order
+- callback - compare function like one passed to native `sort()` method
+
+```
+[2,3,1,4].x.sort()
+// [1,2,3,4]
+```
+
+```
+const arr = [
+  { name: 'Mark', age: 20 },
+  { name: 'John', age: 20 },
+  { name: 'Adam', age: 22 }
+];
+
+arr.x.sort(
+  '-age', 'name'
+);
+
+arr.map(u => u.name)
+// ['Adam', 'John', 'Mark']
+```
+
+```
+['C', 'A', 'D', 'B'].x.sort('-')
+// ['D', 'C', 'B', 'A']
 ```
 
 ## `reversed()`
