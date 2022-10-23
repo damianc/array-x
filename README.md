@@ -96,6 +96,7 @@ Redefined built-ins:
 - [`audit()`](#audittester-frameSize--2)
 - [`auditChunks()`](#auditChunkstester-chunkSize--2-rejectSticking--true)
 - [`audit()` vs. `auditChunks()`](#audit-vs-auditChunks)
+- [`expandToLength()`](#expandToLengthlength-cb-prevs-init--0)
 
 Iteration:
 - [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
@@ -2056,6 +2057,48 @@ arr
 // 10 <= 20 -> true
 // 14 <= 18 -> true
 // -> true
+```
+
+## `expandToLength(length, cb, prevs, init = 0)`
+
+> To compute another value, `N` last items are taken.  
+> `N` equals value of the `prevs` parameter if exists, otherwise it looks for arity of the `cb` function.
+
+
+```
+[1,1].x.expandToLength(8, (a, b) => a + b)
+// [1,1,2,3,5,8,13,21]
+
+[1].x.expandToLength(8, (a, b) => a + b, 2, 0)
+// [1,1,2,3,5,8,13,21]
+
+[1].x.expandToLength(8, (a, b) => a + b, 2, 1)
+// [1,2,3,5,8,13,21,34]
+```
+
+```
+['a', 'b', 'c'].x.expandToLength(6, (a, b) => a + b)
+// ['a', 'b', 'c', 'bc', 'cbc', 'bccbc']
+
+['a', 'b', 'c'].x.expandToLength(6, (a, b, c) => a + b + c)
+// ['a', 'b', 'c', 'abc', 'bcabc', 'cabcbcabc']
+```
+
+```
+['a', 'b', 'c'].x.expandToLength(6, (a, b, c) => a + b + c, 3)
+// ['a', 'b', 'c', 'abc', 'bcabc', 'cabcbcabc']
+
+// a + b + c -> abc => [a, b, c, abc]
+// b + c + abc -> bcabc => [a, b, c, abc, bcabc]
+// c + abc + bcabc -> cabcbcabc => [a, b, c, abc, bcabc, cabcbcabc]
+
+
+['a', 'b', 'c'].x.expandToLength(6, (a, b) => a + b, 3)
+// ['a', 'b', 'c', 'ab', 'bc', 'cab']
+
+// a + b [c ignored] -> ab => [a, b, c, ab]
+// b + c [ab ignored] -> bc => [a, b, c, ab, bc]
+// c + ab [bc ignored] -> cab => [a, b, c, ab, bc, cab]
 ```
 
 ## `forEveryChunk(chunkSize, cb)`

@@ -91,6 +91,7 @@ import frame from '@array-x/frame';
 import scan from '@array-x/scan';
 import audit from '@array-x/audit';
 import auditChunks from '@array-x/audit-chunks';
+import expandToLength from '@array-x/expand-to-length';
 
 import forEveryChunk from '@array-x/for-every-chunk';
 import forEveryN from '@array-x/for-every-n';
@@ -221,6 +222,7 @@ Object.defineProperty(Array.prototype, 'x', {
       scan: scan.bind(that),
       audit: audit.bind(that),
       auditChunks: auditChunks.bind(that),
+      expandToLength: expandToLength.bind(that),
 
       forEveryChunk: forEveryChunk.bind(that),
       forEveryN: forEveryN.bind(that),
