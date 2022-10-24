@@ -96,6 +96,7 @@ Redefined built-ins:
 - [`audit()`](#audittester-frameSize--2)
 - [`auditChunks()`](#auditChunkstester-chunkSize--2-rejectSticking--true)
 - [`audit()` vs. `auditChunks()`](#audit-vs-auditChunks)
+- [`expandTo()`](#expandTotarget-cb-prevs-init-0-includeSticking--false-maxIters--32)
 - [`expandToLength()`](#expandToLengthlength-cb-prevs-init--0)
 
 Iteration:
@@ -2057,6 +2058,39 @@ arr
 // 10 <= 20 -> true
 // 14 <= 18 -> true
 // -> true
+```
+
+## `expandTo(target, cb, prevs, init = 0, includeSticking = false, maxIters = 32)`
+
+> To compute another value, `N` last items are taken.  
+> `N` equals value of the `prevs` parameter if exists, otherwise it looks for arity of the `cb` function.
+
+```
+[1,1].x.expandTo(8, (a, b) => a + b)
+// [1,1,2,3,5,8]
+```
+
+```
+[1].x.expandTo(8, (a, b) => a + b, 2, 1)
+// [1,2,3,5,8]
+```
+
+If `target` is a function, it should return a boolean indicating whether or not the expanding is going on:
+
+```
+[1].x.expandTo(
+  x => x <= 8,
+  (a, b) => a + b,
+  2, 1
+)
+// [1,2,3,5,8]
+
+[1,2].x.expandTo(
+  x => x !== -4,
+  (a, b) => a - b,
+  2, 0, true
+)
+// [1,2,-1,3,-4]
 ```
 
 ## `expandToLength(length, cb, prevs, init = 0)`
