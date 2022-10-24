@@ -93,6 +93,7 @@ Redefined built-ins:
 - [`pop()`](#popn--1)
 - [`shift()`](#shiftn--1)
 - [`toString()`](#toStringitemMapper--null-separator--null-emptyMsg--null)
+- [`toJSON()`](#toJSONmapper--null)
 - [`frame()`](#framesize-rejectIncomplete--true)
 - [`audit()`](#audittester-frameSize--2)
 - [`auditChunks()`](#auditChunkstester-chunkSize--2-rejectSticking--true)
@@ -2010,6 +2011,33 @@ arr.x.toString()
 
 arr + ''
 // '1,2,3,4'
+```
+
+## `toJSON(mapper = null)`
+
+```
+const arr = [1,2,3,4];
+arr.x.toJSON(nums => {
+  const even = nums.filter(n => n % 2 === 0);
+  return even.map(n => n * 10);
+});
+
+JSON.stringify({
+  nums: arr
+});
+// '{"nums":[20,40]}'
+```
+
+```
+const arr = [1,2,3,4];
+arr.x.toJSON(nums => nums.reduce(
+  (acc, curr) => acc + curr
+));
+
+JSON.stringify({
+  numsSum: arr
+});
+// '{"numsSum":10}'
 ```
 
 ## `frame(size, rejectIncomplete = true)`

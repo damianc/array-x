@@ -94,6 +94,7 @@ import auditChunks from '@array-x/audit-chunks';
 import expandTo from '@array-x/expand-to';
 import expandToLength from '@array-x/expand-to-length';
 import toString from '@array-x/to-string';
+import toJSON from '@array-x/to-json';
 
 import forEveryChunk from '@array-x/for-every-chunk';
 import forEveryN from '@array-x/for-every-n';
@@ -227,6 +228,7 @@ Object.defineProperty(Array.prototype, 'x', {
       expandTo: expandTo.bind(that),
       expandToLength: expandToLength.bind(that),
       toString: toString.bind(that),
+      toJSON: toJSON.bind(that),
 
       forEveryChunk: forEveryChunk.bind(that),
       forEveryN: forEveryN.bind(that),
