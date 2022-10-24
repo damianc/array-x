@@ -20,7 +20,7 @@ describe('glue() with other array and head', () => {
   it('should return head of input array concatenated with passed array', () => {
     expect(
       [1,2,3,4].x.glue([5,6,7,8], 2)
-    ).toEqual([1,2,5,6,7,8]);
+    ).toEqual([1,2,7,8]);
   });
 });
 

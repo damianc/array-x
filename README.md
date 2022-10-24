@@ -11,7 +11,7 @@ Collecting:
 - [`uniqSeq()`](#uniqseqselector)
 - [`pluck()`](#pluckpath)
 - [`pluckMultiple()`](#pluckMultiplepaths)
-- [`glue()`](#glueotherArray---headSize-tailSize)
+- [`glue()`](#glueotherArray---headSize-tailSize--headSize)
 - [`glueHeads()`](#glueHeadsotherArray---leftSize-rightSize--leftSize)
 - [`glueTails()`](#glueTailsotherArray---leftSize-rightSize--leftSize)
 - [`iterator()`](#iterator)
@@ -444,10 +444,10 @@ arr.x.uniqSeq()
 // [ [1,3], [2,5], [3,7], [4,9] ]
 ```
 
-## `glue(otherArray = [], headSize, tailSize)`
+## `glue(otherArray = [], headSize, tailSize = headSize)`
 
 ```
-[1,2,3,4].x.glue([5,6,7,8], 2, 2)
+[1,2,3,4].x.glue([5,6,7,8], 2)
 // [1,2,7,8]
 
 [1,2,3,4].x.glue([5,6,7,8], 1, 3)
