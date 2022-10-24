@@ -97,8 +97,8 @@ import expandToLength from '@array-x/expand-to-length';
 import toString from '@array-x/to-string';
 import toJSON from '@array-x/to-json';
 
-import forEveryChunk from '@array-x/for-every-chunk';
-import forEveryN from '@array-x/for-every-n';
+import forEachChunk from '@array-x/for-each-chunk';
+import forEachFrame from '@array-x/for-each-frame';
 import everyNth from '@array-x/every-nth';
 
 import select from '@array-x/select';
@@ -232,8 +232,8 @@ Object.defineProperty(Array.prototype, 'x', {
       toString: toString.bind(that),
       toJSON: toJSON.bind(that),
 
-      forEveryChunk: forEveryChunk.bind(that),
-      forEveryN: forEveryN.bind(that),
+      forEachChunk: forEachChunk.bind(that),
+      forEachFrame: forEachFrame.bind(that),
       everyNth: everyNth.bind(that),
 
       select: select.bind(that),

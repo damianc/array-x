@@ -1,4 +1,4 @@
-export default function forEveryN(blockSize, cb, fullBlocksOnly = false) {
+export default function forEachFrame(blockSize, cb, fullBlocksOnly = false) {
   if (blockSize <= 0) return;
 
   for (let i = 0; i < this.length; i++) {

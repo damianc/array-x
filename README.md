@@ -103,8 +103,8 @@ Redefined built-ins:
 - [`expandToLength()`](#expandToLengthlength-cb-prevs-init--0)
 
 Iteration:
-- [`forEveryChunk()`](#forEveryChunkchunkSize-cb)
-- [`forEveryN()`](#forEveryNblockSize-cb-fullBlocksOnly--false)
+- [`forEachChunk()`](#forEachChunkchunkSize-cb)
+- [`forEachFrame()`](#forEachFrameblockSize-cb-fullBlocksOnly--false)
 
 Min and Max:
 - [`min()`](#minmapper)
@@ -1812,11 +1812,11 @@ Like `forEach()` but with `break`/`continue` feature.
 [1,2,3,4,5,6].x.forEach((
   item,
   idx,
-  { break: b, continue: c }
+  flow
 ) => {
-  if (item % 2 !== 0) return c;
+  if (item % 2 !== 0) return flow.continue;
   console.log(item);
-  if (item === 4) return b;
+  if (item === 4) return flow.break;
 });
 
 // 2 4
@@ -2326,10 +2326,10 @@ If `target` is a function, it should return a boolean indicating whether or not 
 // c + ab [bc ignored] -> cab => [a, b, c, ab, bc, cab]
 ```
 
-## `forEveryChunk(chunkSize, cb)`
+## `forEachChunk(chunkSize, cb)`
 
 ```
-[1,2,3,4].x.forEveryChunk(2, (chunk, chunkNumber, arr) => {
+[1,2,3,4].x.forEachChunk(2, (chunk, chunkNumber, arr) => {
   console.log(chunkNumber, chunk);
 });
 
@@ -2338,7 +2338,7 @@ If `target` is a function, it should return a boolean indicating whether or not 
 ```
 
 ```
-[1,2,3,4].x.forEveryChunk(3, (chunk, chunkNumber, arr) => {
+[1,2,3,4].x.forEachChunk(3, (chunk, chunkNumber, arr) => {
   console.log(chunkNumber, chunk);
 });
 
@@ -2346,10 +2346,10 @@ If `target` is a function, it should return a boolean indicating whether or not 
 // 2, [4]
 ```
 
-## `forEveryN(blockSize, cb, fullBlocksOnly = false)`
+## `forEachFrame(blockSize, cb, fullBlocksOnly = false)`
 
 ```
-[1,2,3,4,5].x.forEveryN(3, (block, idx) => {
+[1,2,3,4,5].x.forEachFrame(3, (block, idx) => {
   console.log(block);
 });
 
@@ -2361,7 +2361,7 @@ If `target` is a function, it should return a boolean indicating whether or not 
 ```
 
 ```
-[1,2,3,4,5].x.forEveryN(3, (block, idx) => {
+[1,2,3,4,5].x.forEachFrame(3, (block, idx) => {
   console.log(block);
 }, true);
 
