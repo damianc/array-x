@@ -92,6 +92,7 @@ Redefined built-ins:
 - [`mapReduce()`](#mapReducechunkSize--2-reducer--null-init--null-rejectStickingTail--false)
 - [`pop()`](#popn--1)
 - [`shift()`](#shiftn--1)
+- [`toString()`](#toStringitemMapper--null-separator--null-emptyMsg--null)
 - [`frame()`](#framesize-rejectIncomplete--true)
 - [`audit()`](#audittester-frameSize--2)
 - [`auditChunks()`](#auditChunkstester-chunkSize--2-rejectSticking--true)
@@ -1936,6 +1937,79 @@ arr.x.shift(2);
 
 arr
 // [3,4,5,6]
+```
+
+## `toString(itemMapper = null, separator = null, emptyMsg = null)`
+
+* define only mapper:
+
+```
+const arr = [1,2,3,4];
+arr.x.toString(x => x * 10);
+
+arr + ''
+// '10,20,30,40'
+```
+
+* define only separator:
+
+```
+const arr = [1,2,3,4];
+arr.x.toString(null, ' - ');
+
+arr + ''
+// '1 - 2 - 3 - 4'
+```
+
+* define only alternative text for empty array:
+
+```
+const arr = [];
+arr.x.toString(null, null, 'no items');
+
+arr + ''
+// 'no items'
+
+arr.push(1,2);
+arr + ''
+// '1,2'
+```
+
+* define mapper, separator and alternative text:
+
+```
+const arr = [
+  { id: 1, name: 'John', city: 'LA' },
+  { id: 2, name: 'Mark', city: 'NY' }
+];
+
+arr.x.toString(
+  u => u.name + ', ' + u.city,
+  '; ',
+  'no users'
+);
+
+arr + ''
+// 'John, LA; Mark, NY'
+
+arr.splice(0, 2);
+arr + ''
+// 'no users'
+```
+
+* remove custom stuff:
+
+```
+const arr = [1,2,3,4];
+arr.x.toString(x => x * 10);
+
+arr + ''
+// '10,20,30,40'
+
+arr.x.toString()
+
+arr + ''
+// '1,2,3,4'
 ```
 
 ## `frame(size, rejectIncomplete = true)`
