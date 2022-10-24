@@ -96,7 +96,7 @@ Redefined built-ins:
 - [`audit()`](#audittester-frameSize--2)
 - [`auditChunks()`](#auditChunkstester-chunkSize--2-rejectSticking--true)
 - [`audit()` vs. `auditChunks()`](#audit-vs-auditChunks)
-- [`expandTo()`](#expandTotarget-cb-prevs-init-0-includeSticking--false-maxIters--32)
+- [`expandTo()`](#expandTotarget-cb-prevs-init--0-includeSticking--false-maxIters--32)
 - [`expandToLength()`](#expandToLengthlength-cb-prevs-init--0)
 
 Iteration:
