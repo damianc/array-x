@@ -97,6 +97,7 @@ import expandToLength from '@array-x/expand-to-length';
 import toString from '@array-x/to-string';
 import toJSON from '@array-x/to-json';
 
+import chunkReduce from '@array-x/chunk-reduce';
 import forEachChunk from '@array-x/for-each-chunk';
 import forEachFrame from '@array-x/for-each-frame';
 import everyNth from '@array-x/every-nth';
@@ -232,6 +233,7 @@ Object.defineProperty(Array.prototype, 'x', {
       toString: toString.bind(that),
       toJSON: toJSON.bind(that),
 
+      chunkReduce: chunkReduce.bind(that),
       forEachChunk: forEachChunk.bind(that),
       forEachFrame: forEachFrame.bind(that),
       everyNth: everyNth.bind(that),

@@ -42,6 +42,7 @@ Clustering:
 - [`chunkByPattern()`](#chunkByPatternsizes-rejectStickingTail--false)
 - [`chunkByGroup()`](#chunkByGroupgrouper--item--0)
 - [`partition()`](#partitionpartitioner--item--0)
+- [`chunkReduce()`](#chunkReducesize-reducer--null-init--null-rejectStickingTail--false)
 - [`zip()`](#zipotherArrays)
 - [`zipAll()`](#zipAllotherArrays)
 - [`unzip()`](#unzip)
@@ -1107,6 +1108,47 @@ The smaller _partitioner_ result is, the closer to the array's beginning the chu
 
 // 1 % 2 === 0 -> false, !false -> true -> 1
 // 2 % 2 === 0 -> true, !true -> false -> 0
+```
+
+## `chunkReduce(size, reducer = null, init = null, rejectStickingTail = false)`
+
+```
+[1,2,3,4,5,6].x.chunkReduce(
+  2, (acc, curr) => acc + curr
+)
+// [3,7,11]
+
+[1,2,3,4,5,6].x.chunkReduce(
+  3, (acc, curr) => acc + curr
+)
+// [6,15]
+```
+
+```
+[1,2,3,4,5].x.chunkReduce(
+  2, (acc, curr) => acc + curr
+)
+// [3,7,5]
+
+[1,2,3,4,5].x.chunkReduce(
+  2, (acc, curr) => acc + curr,
+  null, true
+)
+// [3,7]
+```
+
+* double first member of every pair:
+
+```
+[1,2,3,4,5,6].x.chunkReduce(
+  2, (acc, curr) => acc + curr,
+  chunk => chunk[0]
+)
+// [4,10,16]
+
+// [1,2] -> [1,1,2] => 1 + 1 + 2 = 4
+// [3,4] -> [3,3,4] => 3 + 3 + 4 = 10
+// [5,6] -> [5,5,6] => 5 + 5 + 6 = 16
 ```
 
 ## `zip(otherArrays...)`
