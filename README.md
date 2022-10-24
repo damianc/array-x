@@ -43,6 +43,7 @@ Clustering:
 - [`chunkByGroup()`](#chunkByGroupgrouper--item--0)
 - [`partition()`](#partitionpartitioner--item--0)
 - [`chunkReduce()`](#chunkReducesize-reducer--null-init--null-rejectStickingTail--false)
+- [`frameReduce()`](#frameReducesize-reducer--null-init--null-rejectStickingTail--false)
 - [`zip()`](#zipotherArrays)
 - [`zipAll()`](#zipAllotherArrays)
 - [`unzip()`](#unzip)
@@ -1149,6 +1150,32 @@ The smaller _partitioner_ result is, the closer to the array's beginning the chu
 // [1,2] -> [1,1,2] => 1 + 1 + 2 = 4
 // [3,4] -> [3,3,4] => 3 + 3 + 4 = 10
 // [5,6] -> [5,5,6] => 5 + 5 + 6 = 16
+```
+
+## `frameReduce(size, reducer = null, init = null, rejectStickingTail = false)`
+
+```
+[1,2,3,4].x.frameReduce(
+  2, (acc, curr) => acc + curr
+)
+// [3,5,7,4]
+// [1+2, 2+3, 3+4, 4]
+
+[1,2,3,4].x.frameReduce(
+  2, (acc, curr) => acc + curr,
+  null, true
+)
+// [3,5,7]
+// [1+2, 2+3, 3+4]
+```
+
+```
+[1,2,3,4,5,6].x.frameReduce(
+  3, (acc, curr) => acc + curr,
+  null, true
+)
+// [6,9,12,15]
+// [1+2+3, 2+3+4, 3+4+5, 4+5+6]
 ```
 
 ## `zip(otherArrays...)`
