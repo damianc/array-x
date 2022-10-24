@@ -54,7 +54,7 @@ describe('override() with too small negative index', () => {
   it('should replace source array with items if their number equals length of source array', () => {
     expect([1,2].x.override(-20,3,4)).toEqual([3,4]);
   });
-  xit('should replace source array with items if their number is greater than length of source array', () => {
+  it('should replace source array with items if their number is greater than length of source array', () => {
     expect([1,2].x.override(-20,3,4,5,6)).toEqual([3,4]);
   });
   it('should replace first items of source array if number of items is less than length of source array', () => {

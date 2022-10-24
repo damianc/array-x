@@ -1,9 +1,22 @@
-export default function override(idx, ...items) {
-  if (this.length === 0) return [];
-  
+export default function override(idx = null, ...items) {
   const copy = [...this];
-  const s = idx >= 0 ? (this.length - idx) : idx * -1; 
 
-  copy.splice(idx, items.length, ...items.slice(0, s));
+  if (idx === null) {
+    idx = copy.length;
+  }
+
+  const origLength = copy.length;
+  const removed = copy.splice(idx, items.length);
+
+  if (removed.length < items.length) {
+    const diff = items.length - removed.length;
+    items.splice(-diff, diff);
+  }
+
+  if (idx < 0) {
+    idx += origLength;
+  }
+
+  copy.splice(idx, 0, ...items);
   return copy;
 }
