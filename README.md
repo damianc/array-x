@@ -3,6 +3,7 @@
 Collecting:
 - [`group()`](#grouplabelFactory)
 - [`index()`](#indexkeySelector-valueSelector--null-fallbackKey--__unindexed)
+- [`pivot()`](#pivotindexKey--null-valueSelector--null-keyMapper--null)
 - [`collectUntil()`](#collectUntilitemOrMatcher-inclusive--true)
 - [`collectUntilReduce()`](#collectUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`skipUntil()`](#skipUntilitemOrMatcher-inclusive--true)
@@ -221,6 +222,81 @@ Difference:
 */
 ```
 
+## `pivot(indexKey = null, valueSelector = null, keyMapper = null)`
+
+```
+const posts = [
+  { id: 120, title: 'Post A', author: 'John' },
+  { id: 121, title: 'Post B', author: 'Mark' },
+  { id: 122, title: 'Post C', author: 'John' }
+];
+
+posts.x.pivot('author', 'title')
+// {
+//   John: ['Post A', 'Post C'],
+//   Mark: ['Post B']
+// }
+```
+
+```
+const posts = [
+  { id: 120, title: 'Post A', author: 'John' },
+  { id: 121, title: 'Post B', author: 'Mark' },
+  { id: 122, title: 'Post C', author: 'John' }
+];
+
+posts.x.pivot(
+  'author',
+  p => `[#${p.id}] ${p.title}`,
+  a => a.toLowerCase()
+)
+// {
+//   john: ['[#120] Post A', '[#122] Post C'],
+//   mark: ['[#121] Post B']
+// }
+```
+
+```
+const posts = [
+  { id: 120, title: 'Post A', author: 'John' },
+  { id: 121, title: 'Post B', author: 'Mark' },
+  { id: 122, title: 'Post C', author: 'John' }
+];
+
+posts.x.pivot('author')
+// {
+//   John: [
+//     { id: 120, title: 'Post A' },
+//     { id: 122, title: 'Post C' }
+//   ],
+//   Mark: [
+//     { id: 121, title: 'Post B' }
+//   ]
+// }
+
+posts.x.pivot('author', p => p)
+// {
+//   John: [
+//     { id: 120, title: 'Post A', author: 'John' },
+//     { id: 122, title: 'Post C', author: 'John' }
+//   ],
+//   Mark: [
+//     { id: 121, title: 'Post B', author: 'Mark' }
+//   ]
+// }
+```
+
+```
+const arr = [
+  [1, 'foo'], [1, 'bar'], [2, 'baz']
+];
+
+arr.x.pivot(0, 1)
+// {
+//   1: [ 'foo', 'bar' ],
+//   2: [ 'baz' ]
+// }
+```
 
 ## `collectUntil(itemOrMatcher, inclusive = true)`
 

@@ -1,6 +1,7 @@
 import group from '@array-x/group';
 import index from '@array-x/index';
 
+import pivot from '@array-x/pivot';
 import join1to1 from '@array-x/join1to1';
 import joinManyTo1 from '@array-x/joinmanyto1';
 import join1ToMany from '@array-x/join1tomany';
@@ -132,6 +133,7 @@ Object.defineProperty(Array.prototype, 'x', {
       group: group.bind(that),
       index: index.bind(that),
 
+      pivot: pivot.bind(that),
       join1to1: join1to1.bind(that),
       joinManyTo1: joinManyTo1.bind(that),
       join1ToMany: join1ToMany.bind(that),
