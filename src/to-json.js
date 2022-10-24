@@ -7,6 +7,8 @@ export default function toJSON(mapper = null) {
   Object.setPrototypeOf(newProto, prevProto);
   Object.setPrototypeOf(this, newProto);
 
+  return JSON.stringify(this);
+
   function jsoner() {
     if (mapper === null) mapper = x => x;
     return mapper(this);

@@ -2040,6 +2040,19 @@ JSON.stringify({
 // '{"numsSum":10}'
 ```
 
+```
+const arr = [1,2,3,4];
+arr.x.toJSON(nums => nums.x.toString(
+  x => x * 10,
+  '/'
+));
+
+JSON.stringify({
+  str: arr
+});
+// '{"str":"10/20/30/40"}'
+```
+
 ## `frame(size, rejectIncomplete = true)`
 
 ```

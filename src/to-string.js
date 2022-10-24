@@ -10,6 +10,8 @@ export default function toString(itemMapper = null, separator = null, emptyMsg =
   Object.setPrototypeOf(newProto, prevProto);
   Object.setPrototypeOf(this, newProto);
 
+  return this + '';
+
   function stringifier() {
     if (this.length > 0) {
       return this.map(itemMapper).join(separator);
