@@ -1052,16 +1052,16 @@ The smaller _partitioner_ result is, the closer to the array's beginning the chu
 ## `zipAll(otherArrays...)`
 
 ```
-['a', 'b'].x.zip([1, 2])
+['a', 'b'].x.zipAll([1, 2])
 // [ ['a', 1], ['b', 2] ]
 
-['a', 'b'].x.zip([1, 2], ['foo', 'bar'])
+['a', 'b'].x.zipAll([1, 2], ['foo', 'bar'])
 // [ ['a', 1, 'foo'], ['b', 2, 'bar'] ]
 
-['a', 'b', 'c', 'd'].x.zip([1, 2])
+['a', 'b', 'c', 'd'].x.zipAll([1, 2])
 // [ ['a', 1], ['b', 2], ['c', undefined], ['d', undefined] ]
 
-['a', 'b'].x.zip([1, 2, 3, 4])
+['a', 'b'].x.zipAll([1, 2, 3, 4])
 // [ ['a', 1], ['b', 2], [undefined, 3], [undefined, 4] ]
 ```
 
@@ -1091,10 +1091,10 @@ The smaller _partitioner_ result is, the closer to the array's beginning the chu
 ## `unzipAll()`
 
 ```
-[ ['a', 1, 'foo'], ['b', 2, 'bar'], ['c', 3, 'baz'] ].x.unzip()
+[ ['a', 1, 'foo'], ['b', 2, 'bar'], ['c', 3, 'baz'] ].x.unzipAll()
 // [ ['a', 'b', 'c'], [1, 2, 3], ['foo', 'bar', 'baz'] ]
 
-[ ['a', 1], ['b', 2, 'foo'], ['c', 3, 'bar']].x.unzip()
+[ ['a', 1], ['b', 2, 'foo'], ['c', 3, 'bar']].x.unzipAll()
 // [ ['a', 'b', 'c'], [1, 2, 3], [undefined, 'foo', 'bar'] ]
 ```
 
