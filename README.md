@@ -63,6 +63,7 @@ Altering:
 - [`insert()`](#insertindex-items)
 - [`overwrite()`](#overwriteindex-items)
 - [`override()`](#overrideindex-items)
+- [`cork()`](#corkvalue)
 - [`precede()`](#precedeappendix---fillWithUndefined--false)
 - [`follow()`](#followappendix---fillWithUndefined--false)
 - [`frozen()`](#frozen)
@@ -1508,6 +1509,25 @@ arr
 
 [1,2,3,4].x.override(2, 5, 6, 7, 8, 9)
 // [1,2,5,6]
+```
+
+## `cork(value)`
+
+```
+[1,2,3,4].x.cork(0)
+// [1,0,2,0,3,0,4]
+```
+
+```
+[1,2,3,4].x.cork([10,20])
+// [1,10,2,20,3,10,4]
+```
+
+```
+[1,2,3,4].x.cork(
+  (curr, next, idx) => (curr + next) / 2
+)
+// [1, 1.5, 2, 2.5, 3, 3.5, 4]
 ```
 
 ## `precede(appendix = [], fillWithUndefined = false)`

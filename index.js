@@ -56,6 +56,7 @@ import random from '@array-x/random';
 import wrapAlter from '@array-x/wrap-alter';
 import adapt from '@array-x/adapt';
 import adaptByCallback from '@array-x/adapt-by-callback';
+import cork from '@array-x/cork';
 import precede from '@array-x/precede';
 import follow from '@array-x/follow';
 
@@ -198,6 +199,7 @@ Object.defineProperty(Array.prototype, 'x', {
       wrapAlter: wrapAlter.bind(that),
       adapt: adapt.bind(that),
       adaptByCallback: adaptByCallback.bind(that),
+      cork: cork.bind(that),
       precede: precede.bind(that),
       follow: follow.bind(that),
 
