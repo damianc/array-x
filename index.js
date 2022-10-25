@@ -96,6 +96,8 @@ import expandTo from '@array-x/expand-to';
 import expandToLength from '@array-x/expand-to-length';
 import toString from '@array-x/to-string';
 import toJSON from '@array-x/to-json';
+import padLeft from '@array-x/pad-left';
+import padRight from '@array-x/pad-right';
 
 import chunkReduce from '@array-x/chunk-reduce';
 import frameReduce from '@array-x/frame-reduce';
@@ -128,7 +130,9 @@ Object.defineProperty(Array.prototype, 'x', {
       // readony(), readOnly()
       frozen: frozen.bind(that),
       // each()
-      forEach: forEach.bind(that)
+      forEach: forEach.bind(that),
+      // pad()
+      padLeft: padLeft.bind(that)
     };
 
     return {
@@ -233,6 +237,9 @@ Object.defineProperty(Array.prototype, 'x', {
       expandToLength: expandToLength.bind(that),
       toString: toString.bind(that),
       toJSON: toJSON.bind(that),
+      pad: aliased.padLeft,
+      padLeft: aliased.padLeft,
+      padRight: padRight.bind(that),
 
       chunkReduce: chunkReduce.bind(that),
       frameReduce: frameReduce.bind(that),

@@ -95,6 +95,8 @@ Redefined built-ins:
 - [`mapReduce()`](#mapReducechunkSize--2-reducer--null-init--null-rejectStickingTail--false)
 - [`pop()`](#popn--1)
 - [`shift()`](#shiftn--1)
+- [`padLeft()`](#padLeftmaxLength-value)
+- [`padRight()`](#padRightmaxLength-value)
 - [`toString()`](#toStringitemMapper--null-separator--null-emptyMsg--null)
 - [`toJSON()`](#toJSONmapper--null)
 - [`frame()`](#framesize-rejectIncomplete--true)
@@ -2083,6 +2085,28 @@ arr.x.shift(2);
 
 arr
 // [3,4,5,6]
+```
+
+## `padLeft(maxLength, value)`
+
+> alias: `pad()`
+
+```
+[1,2].x.padLeft(4, 0)
+// [0,0,1,2]
+
+[1,2].x.pad(4, 0)
+// [0,0,1,2]
+```
+
+## `padRight(maxLength, value)`
+
+```
+[1,2].x.padRight(4, 0)
+// [1,2,0,0]
+
+[1,2,3,4,5,6].x.padRight(4, 0)
+// [1,2,3,4,5,6]
 ```
 
 ## `toString(itemMapper = null, separator = null, emptyMsg = null)`
