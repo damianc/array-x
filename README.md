@@ -97,6 +97,7 @@ Redefined built-ins:
 - [`shift()`](#shiftn--1)
 - [`padLeft()`](#padLeftmaxLength-value)
 - [`padRight()`](#padRightmaxLength-value)
+- [`join()`](#joinseparator)
 - [`toString()`](#toStringitemMapper--null-separator--null-emptyMsg--null)
 - [`toJSON()`](#toJSONmapper--null)
 - [`frame()`](#framesize-rejectIncomplete--true)
@@ -2107,6 +2108,24 @@ arr
 
 [1,2,3,4,5,6].x.padRight(4, 0)
 // [1,2,3,4,5,6]
+```
+
+## `join(separator)`
+
+```
+[1,2,3,4].x.join('-')
+// '1-2-3-4'
+```
+
+```
+[4,8,1,0,0,8,0,8,0].x.join(
+  (item, idx, accStr) => {
+    if (idx === 1) return ' ';
+    if (idx === 4 || idx === 6) return '-';
+    return '';
+  }
+)
+// '48 100-80-80'
 ```
 
 ## `toString(itemMapper = null, separator = null, emptyMsg = null)`

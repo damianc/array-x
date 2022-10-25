@@ -98,6 +98,7 @@ import toString from '@array-x/to-string';
 import toJSON from '@array-x/to-json';
 import padLeft from '@array-x/pad-left';
 import padRight from '@array-x/pad-right';
+import join from '@array-x/join';
 
 import chunkReduce from '@array-x/chunk-reduce';
 import frameReduce from '@array-x/frame-reduce';
@@ -240,6 +241,7 @@ Object.defineProperty(Array.prototype, 'x', {
       pad: aliased.padLeft,
       padLeft: aliased.padLeft,
       padRight: padRight.bind(that),
+      join: join.bind(that),
 
       chunkReduce: chunkReduce.bind(that),
       frameReduce: frameReduce.bind(that),
