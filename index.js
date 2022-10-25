@@ -99,6 +99,8 @@ import toJSON from '@array-x/to-json';
 import padLeft from '@array-x/pad-left';
 import padRight from '@array-x/pad-right';
 import join from '@array-x/join';
+import matchSome from '@array-x/match-some';
+import matchEvery from '@array-x/match-every';
 
 import chunkReduce from '@array-x/chunk-reduce';
 import frameReduce from '@array-x/frame-reduce';
@@ -242,6 +244,8 @@ Object.defineProperty(Array.prototype, 'x', {
       padLeft: aliased.padLeft,
       padRight: padRight.bind(that),
       join: join.bind(that),
+      matchSome: matchSome.bind(that),
+      matchEvery: matchEvery.bind(that),
 
       chunkReduce: chunkReduce.bind(that),
       frameReduce: frameReduce.bind(that),

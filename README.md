@@ -98,6 +98,8 @@ Redefined built-ins:
 - [`padLeft()`](#padLeftmaxLength-value)
 - [`padRight()`](#padRightmaxLength-value)
 - [`join()`](#joinseparator)
+- [`matchSome()`](#matchSometests)
+- [`matchEvery()`](#matchEverytests)
 - [`toString()`](#toStringitemMapper--null-separator--null-emptyMsg--null)
 - [`toJSON()`](#toJSONmapper--null)
 - [`frame()`](#framesize-rejectIncomplete--true)
@@ -2126,6 +2128,26 @@ arr
   }
 )
 // '48 100-80-80'
+```
+
+## `matchSome(...tests)`
+
+```
+[1,2,3,4,5,6].x.matchSome(
+  x => x % 2 === 0,
+  x => x >= 3
+)
+// [2,3,4,5,6]
+```
+
+## `matchEvery(...tests)`
+
+```
+[1,2,3,4,5,6].x.matchEvery(
+  x => x % 2 === 0,
+  x => x >= 3
+)
+// [4,6]
 ```
 
 ## `toString(itemMapper = null, separator = null, emptyMsg = null)`
