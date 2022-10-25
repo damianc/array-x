@@ -95,6 +95,7 @@ Redefined built-ins:
 - [`mapReduce()`](#mapReducechunkSize--2-reducer--null-init--null-rejectStickingTail--false)
 - [`pop()`](#popn--1)
 - [`shift()`](#shiftn--1)
+- [`fill()`](#fillvalueOrGenerator)
 - [`padLeft()`](#padLeftmaxLength-value)
 - [`padRight()`](#padRightmaxLength-value)
 - [`join()`](#joinseparator)
@@ -2088,6 +2089,23 @@ arr.x.shift(2);
 
 arr
 // [3,4,5,6]
+```
+
+## `fill(valueOrGenerator)`
+
+```
+[1,2,3,4].x.fill(0)
+// [0,0,0,0]
+```
+
+```
+[0,0,0,0].x.fill([1,2])
+// [1,2,1,2]
+```
+
+```
+(new Array(4)).x.fill(idx => idx + 1)
+// [1,2,3,4]
 ```
 
 ## `padLeft(maxLength, value)`
