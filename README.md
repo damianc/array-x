@@ -85,6 +85,7 @@ Sets:
 Redefined built-ins:
 - [`reduce()`](#reducereducer-finalizer--null-init)
 - [`scan()`](#scanreducer-init--null)
+- [`sample()`](#samplesize-step--1)
 - [`sort()`](#sortcomparators)
 - [`reversed()`](#reversed)
 - [`forEach()`](#forEachcb)
@@ -1822,6 +1823,19 @@ $scanArr_i = reduce(inputArr_{<0;i>}\color{#888}{, init}\color{#000})$
 
 ['b', 'a', 'r'].x.scan((a, c) => a + c, 'foo')
 // ['foob', 'fooba', 'foobar']
+```
+
+## `sample(size, step = 1)`
+
+```
+[1,2,3,4,5,6].x.sample(2)
+// [ [1,2],[2,3],[3,4],[4,5],[5,6] ]
+
+[1,2,3,4,5,6].x.sample(2, 2)
+// [ [1,2],[3,4],[5,6] ]
+
+[1,2,3,4,5,6].x.sample(2, 3)
+// [ [1,2],[4,5] ]
 ```
 
 ## `sort(...comparators)`

@@ -91,6 +91,7 @@ import pop from '@array-x/pop';
 import shift from '@array-x/shift';
 import frame from '@array-x/frame';
 import scan from '@array-x/scan';
+import sample from '@array-x/sample';
 import audit from '@array-x/audit';
 import auditChunks from '@array-x/audit-chunks';
 import expandTo from '@array-x/expand-to';
@@ -237,6 +238,7 @@ Object.defineProperty(Array.prototype, 'x', {
       shift: shift.bind(that),
       frame: frame.bind(that),
       scan: scan.bind(that),
+      sample: sample.bind(that),
       audit: audit.bind(that),
       auditChunks: auditChunks.bind(that),
       expandTo: expandTo.bind(that),
