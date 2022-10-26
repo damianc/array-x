@@ -5,7 +5,6 @@ Collecting:
 - [`index()`](#indexkeySelector-valueSelector--null-fallbackKey--__unindexed)
 - [`pivot()`](#pivotindexKey--null-valueSelector--null-keyMapper--null)
 - [`joinOneToOne()`](#joinOneToOnesource-targetKey-sourceKey-targetNewKey-sourceValueSelector--null)
-- [`joinOneToOne()`](#joinOneToOnesource-targetKey-sourceKey-targetNewKey-sourceValueSelector--null)
 - [`joinOneToMany()`](#joinOneToManysource-targetKey-sourceKey-targetNewKey-sourceValueSelector--null)
 - [`joinManyToOne()`](#joinManyToOnesource-targetKey-sourceKey-targetNewKey-sourceValueSelector--null)
 - [`collectUntil()`](#collectUntilitemOrMatcher-inclusive--true)
