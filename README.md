@@ -8,6 +8,7 @@ Collecting:
 - [`collectUntilReduce()`](#collectUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`skipUntil()`](#skipUntilitemOrMatcher-inclusive--true)
 - [`skipUntilReduce()`](#skipUntilReduceaccTester-reducer-reducerInit-inclusive--true)
+- [`extractSub()`](#extractSubpattern-multi--true-overlay--true)
 - [`uniq()`](#uniqselector)
 - [`uniqSeq()`](#uniqseqselector)
 - [`pluck()`](#pluckpath)
@@ -430,6 +431,57 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
   0
 )
 // []
+```
+
+## `extractSub(pattern, multi = true, overlay = true)`
+
+```
+[1,2,3,4,1,2,3,4].x.extractSub(
+  [1,2]
+)
+
+// [
+//   [ 0, [1,2] ],
+//   [ 4, [1,2] ]
+// ]
+```
+
+```
+const even = x => x % 2 === 0;
+const odd = x => x % 2 !== 0;
+
+[1,2,3,4,1,2,3,4].x.extractSub(
+  [1,even,odd]
+)
+
+// [
+//   [ 0, [1,2,3] ],
+//   [ 4, [1,2,3] ]
+// ]
+```
+
+* get only one:
+
+```
+[1,2,3,4,1,2,3,4].x.extractSub(
+  [1,even,odd], false
+)
+
+// [ 0, [1,2,3] ]
+```
+
+```
+const arr = [1,2,4,6,3,5];
+
+arr.x.extractSub(
+  [even, even]
+)
+// [ [1,[2,4]], [2,[4,6]] ]
+
+arr.x.extractSub(
+  [even,even], true, false
+)
+// [ [1,[2,4]] ]
 ```
 
 ## `uniq([selector])`
