@@ -7,7 +7,7 @@ import joinManyTo1 from '@array-x/joinmanyto1';
 import join1ToMany from '@array-x/join1tomany';
 
 import uniq from '@array-x/uniq';
-import uniqSeq from '@array-x/uniq-seq';
+import uniqAdjacent from '@array-x/uniq-adjacent';
 
 import takeUntil from '@array-x/take-until';
 import takeUntilReduce from '@array-x/take-until-reduce';
@@ -152,7 +152,7 @@ Object.defineProperty(Array.prototype, 'x', {
       joinOneToMany: join1ToMany.bind(that),
 
       uniq: uniq.bind(that),
-      uniqSeq: uniqSeq.bind(that),
+      uniqAdjacent: uniqAdjacent.bind(that),
 
       takeUntil: takeUntil.bind(that),
       takeUntilReduce: takeUntilReduce.bind(that),

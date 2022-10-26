@@ -13,7 +13,7 @@ Collecting:
 - [`skipUntilReduce()`](#skipUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`extractSub()`](#extractSubpattern-multi--true-overlay--true)
 - [`uniq()`](#uniqselector)
-- [`uniqSeq()`](#uniqseqselector)
+- [`uniqAdjacent()`](#uniqAdjacentselector)
 - [`pluck()`](#pluckpath)
 - [`pluckMultiple()`](#pluckMultiplepaths)
 - [`glue()`](#glueotherArray---headSize-tailSize--headSize)
@@ -598,13 +598,13 @@ arr.x.extractSub(
 // [{x:10,y:10}, {x:20,y:20}]
 ```
 
-## `uniqSeq([selector])`
+## `uniqAdjacent([selector])`
 
 ```
-[1, 2, 3, 2, 1].x.uniqSeq()
+[1, 2, 3, 2, 1].x.uniqAdjacent()
 // [1, 2, 3, 2, 1]
 
-[1, 2, 3, 3, 2, 2, 1, 1].x.uniqSeq()
+[1, 2, 3, 3, 2, 2, 1, 1].x.uniqAdjacent()
 // [1, 2, 3, 2, 1]
 
 [
@@ -616,7 +616,7 @@ arr.x.extractSub(
   { x: 2, id: 105 },
   { x: 1, id: 106 },
   { x: 1, id: 107 }
-].x.uniqSeq(obj => obj.x)
+].x.uniqAdjacent(obj => obj.x)
 // [
 //   { x: 1, id: 100 },
 //   { x: 2, id: 101 },
@@ -626,7 +626,7 @@ arr.x.extractSub(
 // ]
 ```
 
-### `uniq()` vs. `uniqSeq()`
+### `uniq()` vs. `uniqAdjacent()`
 
 ```
 const arr = [1, 2, 2, 3, 3, 2, 1, 1];
@@ -634,7 +634,7 @@ const arr = [1, 2, 2, 3, 3, 2, 1, 1];
 arr.x.uniq()
 // [1, 2, 3]
 
-arr.x.uniqSeq()
+arr.x.uniqAdjacent()
 // [1, 2, 3, 2, 1]
 ```
 

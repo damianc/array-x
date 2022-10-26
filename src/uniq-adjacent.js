@@ -1,6 +1,6 @@
 import { val } from '@utils';
 
-export default function uniqSeq(selector = null) {
+export default function uniqAdjacent(selector = null) {
   const $ = val(selector);
   
   return this.reduce((acc, curr, idx) => {
