@@ -9,8 +9,8 @@ import join1ToMany from '@array-x/join1tomany';
 import uniq from '@array-x/uniq';
 import uniqSeq from '@array-x/uniq-seq';
 
-import collectUntil from '@array-x/collect-until';
-import collectUntilReduce from '@array-x/collect-until-reduce';
+import takeUntil from '@array-x/take-until';
+import takeUntilReduce from '@array-x/take-until-reduce';
 import skipUntil from '@array-x/skip-until';
 import skipUntilReduce from '@array-x/skip-until-reduce';
 import extractSub from '@array-x/extract-sub';
@@ -154,8 +154,8 @@ Object.defineProperty(Array.prototype, 'x', {
       uniq: uniq.bind(that),
       uniqSeq: uniqSeq.bind(that),
 
-      collectUntil: collectUntil.bind(that),
-      collectUntilReduce: collectUntilReduce.bind(that),
+      takeUntil: takeUntil.bind(that),
+      takeUntilReduce: takeUntilReduce.bind(that),
       skipUntil: skipUntil.bind(that),
       skipUntilReduce: skipUntilReduce.bind(that),
       extractSub: extractSub.bind(that),

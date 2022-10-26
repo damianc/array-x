@@ -1,4 +1,4 @@
-export default function collectUntilReduce(matchEnd, reducer, reducerInit, inclusive = true) {
+export default function takeUntilReduce(matchEnd, reducer, reducerInit, inclusive = true) {
   const res = [];
 
   let acc = reducerInit;

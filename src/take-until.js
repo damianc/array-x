@@ -1,4 +1,4 @@
-export default function collectUntil(itemCb, inclusive = true) {
+export default function takeUntil(itemCb, inclusive = true) {
   if (this.length === 0) return [];
   
   const idx = this.findIndex(item => typeof itemCb === 'function'
