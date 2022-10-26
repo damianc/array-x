@@ -4,6 +4,10 @@ Collecting:
 - [`group()`](#grouplabelFactory)
 - [`index()`](#indexkeySelector-valueSelector--null-fallbackKey--__unindexed)
 - [`pivot()`](#pivotindexKey--null-valueSelector--null-keyMapper--null)
+- [`joinOneToOne()`](#joinOneToOnesource-targetKey-sourceKey-targetNewKey-sourceValueSelector--null)
+- [`joinOneToOne()`](#joinOneToOnesource-targetKey-sourceKey-targetNewKey-sourceValueSelector--null)
+- [`joinOneToMany()`](#joinOneToManysource-targetKey-sourceKey-targetNewKey-sourceValueSelector--null)
+- [`joinManyToOne()`](#joinManyToOnesource-targetKey-sourceKey-targetNewKey-sourceValueSelector--null)
 - [`collectUntil()`](#collectUntilitemOrMatcher-inclusive--true)
 - [`collectUntilReduce()`](#collectUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`skipUntil()`](#skipUntilitemOrMatcher-inclusive--true)
@@ -307,6 +311,107 @@ arr.x.pivot(0, 1)
 //   1: [ 'foo', 'bar' ],
 //   2: [ 'baz' ]
 // }
+```
+
+## `joinOneToOne(source, targetKey, sourceKey, targetNewKey, sourceValueSelector = null)`
+
+```
+const posts = [
+  { id: 1, title: 'Post 1', authorId: 100 },
+  { id: 2, title: 'Post 2', authorId: 102 }
+];
+
+const authors = [
+  { id: 100, name: 'John' },
+  { id: 101, name: 'Mark' },
+  { id: 102, name: 'Adam' }
+];
+
+
+posts.x.joinOneToOne(
+  authors,
+  'authorId',
+  'id',
+  'author',
+  author => author.name
+)
+
+/*
+[
+  { id: 1, title: 'Post 1', authorId: 100, author: 'John' },
+  { id: 2, title: 'Post 2', authorId: 102, author: 'Adam' }
+]
+*/
+```
+
+## `joinOneToMany(source, targetKey, sourceKey, targetNewKey, sourceValueSelector = null)`
+
+```
+const authors = [
+  { id: 100, name: 'John' },
+  { id: 102, name: 'Adam' },
+  { id: 101, name: 'Mark' }
+];
+
+const posts = [
+  { id: 1, title: 'Post 1 by John', authorId: 100 },
+  { id: 2, title: 'Post 1 by Adam', authorId: 102 },
+  { id: 3, title: 'Post 2 by Adam', authorId: 102 },
+  { id: 4, title: 'Post 2 by John', authorId: 100 }
+];
+
+
+authors.x.joinOneToMany(
+  posts,
+  'id',
+  'authorId',
+  'posts',
+  post => post.title
+)
+
+/*
+[
+  { id: 100, name: 'John', posts: ['Post 1 by John', 'Post 2 by John'] },
+  { id: 102, name: 'Adam', posts: ['Post 1 by Adam', 'Post 2 by Adam'] },
+  { id: 101, name: 'Mark', posts: [] }
+]
+*/
+```
+
+## `joinManyToOne(source, targetKey, sourceKey, targetNewKey, sourceValueSelector = null)`
+
+```
+ const posts = [
+  { id: 1, title: 'Post 1', tagsIds: [10,20] },
+  { id: 2, title: 'Post 2', tagsIds: [20,40] },
+  { id: 3, title: 'Post 3', tagsIds: [] },
+  { id: 4, title: 'Post 4' },
+];
+
+const tags = [
+  { id: 10, name: 'Tag A' },
+  { id: 20, name: 'Tag B' },
+  { id: 30, name: 'Tag C' },
+  { id: 40, name: 'Tag D' }
+];
+
+
+posts.x.joinManyToOne(
+  tags,
+  'tagsIds',
+  'id',
+  'tags',
+  tag => tag.name
+)
+
+/*
+[
+  { id: 1, title: 'Post 1', tagsIds: [10, 20], tags: ['Tag A', 'Tag B'] },
+  { id: 2, title: 'Post 2', tagsIds: [20, 40], tags: ['Tag B', 'Tag D'] },
+  { id: 3, title: 'Post 3', tagsIds: [], tags: [] },
+  { id: 4, title: 'Post 4', tags: [] }
+]
+*/
 ```
 
 ## `collectUntil(itemOrMatcher, inclusive = true)`

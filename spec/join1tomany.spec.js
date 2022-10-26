@@ -14,10 +14,10 @@ beforeEach(() => {
   ];
 });
 
-describe('join1ToMany()', () => {
+describe('joinOneToMany()', () => {
   it('should join 1-to-many', () => {
     expect(
-      this.data.slice(0, 2).x.join1ToMany(
+      this.data.slice(0, 2).x.joinOneToMany(
         this.posts,
         'id',
         'authorId',
@@ -31,7 +31,7 @@ describe('join1ToMany()', () => {
   });
   it('should use empty array if there is no match', () => {
     expect(
-      this.data.x.join1ToMany(
+      this.data.x.joinOneToMany(
         this.posts,
         'id',
         'authorId',
@@ -49,7 +49,7 @@ describe('join1ToMany()', () => {
       { name: 'Bob' }
     ];
     expect(
-      [ ...this.data.slice(0, 2), ...dirtyData ].x.join1ToMany(
+      [ ...this.data.slice(0, 2), ...dirtyData ].x.joinOneToMany(
         this.posts,
         'id',
         'authorId',

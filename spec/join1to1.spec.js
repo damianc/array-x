@@ -12,10 +12,10 @@ beforeEach(() => {
   ];
 });
 
-describe('join1to1()', () => {
+describe('joinOneToOne()', () => {
   it('should join 1-to-1', () => {
     expect(
-      this.data.x.join1to1(
+      this.data.x.joinOneToOne(
         this.authors,
         'authorId',
         'id',
@@ -29,7 +29,7 @@ describe('join1to1()', () => {
   });
   it('should use `undefined` if there is no match', () => {
     expect(
-      this.data.x.join1to1(
+      this.data.x.joinOneToOne(
         this.authors.slice(0, 2),
         'authorId',
         'id',
@@ -46,7 +46,7 @@ describe('join1to1()', () => {
       { id: 3, title: 'Post 3' }
     ];
     expect(
-      [ ...this.data, ...dirtyData ].x.join1to1(
+      [ ...this.data, ...dirtyData ].x.joinOneToOne(
         this.authors,
         'authorId',
         'id',

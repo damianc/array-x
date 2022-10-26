@@ -147,9 +147,9 @@ Object.defineProperty(Array.prototype, 'x', {
       index: index.bind(that),
 
       pivot: pivot.bind(that),
-      join1to1: join1to1.bind(that),
-      joinManyTo1: joinManyTo1.bind(that),
-      join1ToMany: join1ToMany.bind(that),
+      joinOneToOne: join1to1.bind(that),
+      joinManyToOne: joinManyTo1.bind(that),
+      joinOneToMany: join1ToMany.bind(that),
 
       uniq: uniq.bind(that),
       uniqSeq: uniqSeq.bind(that),

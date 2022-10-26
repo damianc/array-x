@@ -15,10 +15,10 @@ beforeEach(() => {
   ];
 });
 
-describe('joinManyTo1()', () => {
+describe('joinManyToOne()', () => {
   it('should join many-to-1', () => {
     expect(
-      this.data.slice(0,2).x.joinManyTo1(
+      this.data.slice(0,2).x.joinManyToOne(
         this.tags,
         'tagsIds',
         'id',
@@ -37,7 +37,7 @@ describe('joinManyTo1()', () => {
       { id: 6, title: 'Post 6', tagsIds: [150] }
     ];
     expect(
-      [ ...dataHead, ...dirtyData ].x.joinManyTo1(
+      [ ...dataHead, ...dirtyData ].x.joinManyToOne(
         this.tags,
         'tagsIds',
         'id',
@@ -53,7 +53,7 @@ describe('joinManyTo1()', () => {
   });
   it('should use empty array if item does not have key or has empty array under the key', () => {
     expect(
-      this.data.x.joinManyTo1(
+      this.data.x.joinManyToOne(
         this.tags,
         'tagsIds',
         'id',
