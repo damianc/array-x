@@ -2212,14 +2212,14 @@ let item = 2;
 
 ```
 [10,20,30,40].x.mapReduce(
-  2, (a, b) => a + b
+  2, (acc, curr) => acc + curr
 )
 // [30,70]
 ```
 
 ```
 ['<', 'div', '>', '<', 'span', '>'].x.mapReduce(
-  3, (a, b) => a + b
+  3, (acc, curr) => acc + curr
 )
 // ['<div>', '<span>']
 ```
@@ -2229,7 +2229,7 @@ let item = 2;
 ```
 [1,2,3,4,5,6].x.mapReduce(
   2,
-  (a, b) => a + b,
+  (acc, curr) => acc + curr,
   (chunk, chunkNumber) => chunkNumber
 )
 // [4,9,14]
@@ -2244,8 +2244,8 @@ let item = 2;
 
 [1,2,3,4,5,6,7,8].x.mapReduce(
   3,
-  (a, b, idx, chunk) => {
-    let res = a + b;
+  (acc, curr, idx, chunk) => {
+    let res = acc + curr;
     if (idx === chunk.length - 1) res = res / chunk.length;
     return res;
   },
