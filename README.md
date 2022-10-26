@@ -7,8 +7,8 @@ Collecting:
 - [`joinOneToOne()`](#joinOneToOnesource-targetKey-sourceKey-targetNewKey-sourceValueSelector--null)
 - [`joinOneToMany()`](#joinOneToManysource-targetKey-sourceKey-targetNewKey-sourceValueSelector--null)
 - [`joinManyToOne()`](#joinManyToOnesource-targetKey-sourceKey-targetNewKey-sourceValueSelector--null)
-- [`collectUntil()`](#collectUntilitemOrMatcher-inclusive--true)
-- [`collectUntilReduce()`](#collectUntilReduceaccTester-reducer-reducerInit-inclusive--true)
+- [`takeUntil()`](#takeUntilitemOrMatcher-inclusive--true)
+- [`takeUntilReduce()`](#takeUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`skipUntil()`](#skipUntilitemOrMatcher-inclusive--true)
 - [`skipUntilReduce()`](#skipUntilReduceaccTester-reducer-reducerInit-inclusive--true)
 - [`extractSub()`](#extractSubpattern-multi--true-overlay--true)
@@ -413,31 +413,31 @@ posts.x.joinManyToOne(
 */
 ```
 
-## `collectUntil(itemOrMatcher, inclusive = true)`
+## `takeUntil(itemOrMatcher, inclusive = true)`
 
 ```
-[1, 2, 3, 4, 5, 6].x.collectUntil(4)
+[1, 2, 3, 4, 5, 6].x.takeUntil(4)
 // [1, 2, 3, 4]
 
-[1, 2, 3, 4, 5, 6].x.collectUntil(4, false)
+[1, 2, 3, 4, 5, 6].x.takeUntil(4, false)
 // [1, 2, 3]
 
-[1, 3, 2, 4].x.collectUntil(x => x % 2 === 0)
+[1, 3, 2, 4].x.takeUntil(x => x % 2 === 0)
 // [1, 3, 2]
 
-[1, 3, 2, 4].x.collectUntil(x => x % 2 === 0, false)
+[1, 3, 2, 4].x.takeUntil(x => x % 2 === 0, false)
 // [1, 3]
 
-[1, 2, 3, 4, 5, 6].x.collectUntil(10)
+[1, 2, 3, 4, 5, 6].x.takeUntil(10)
 // [1, 2, 3, 4, 5, 6]
 ```
 
-## `collectUntilReduce(accTester, reducer, reducerInit, inclusive = true)`
+## `takeUntilReduce(accTester, reducer, reducerInit, inclusive = true)`
 
 ```
 // collect numbers until their average equals 5
 
-const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
+const res = [6, 5, 4, 3, 2, 1].x.takeUntilReduce(
   (acc) => acc.x.avg() === 5,
   (a, b) => [...a, b],
   []
@@ -446,14 +446,14 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 ```
 
 ```
-[1, 2, 3, 4, 5, 6].x.collectUntilReduce(
+[1, 2, 3, 4, 5, 6].x.takeUntilReduce(
   sum => sum >= 10,
   (a, b) => a + b,
   0
 )
 // [1, 2, 3, 4]
 
-[1, 2, 3, 4, 5, 6].x.collectUntilReduce(
+[1, 2, 3, 4, 5, 6].x.takeUntilReduce(
   sum => sum >= 10,
   (a, b) => a + b,
   0,
@@ -461,14 +461,14 @@ const res = [6, 5, 4, 3, 2, 1].x.collectUntilReduce(
 )
 // [1, 2, 3]
 
-[10, 20, 30, 40].x.collectUntilReduce(
+[10, 20, 30, 40].x.takeUntilReduce(
   sum => sum >= 10,
   (a, b) => a + b,
   0
 )
 // [10]
 
-[10, 20, 30, 40].x.collectUntilReduce(
+[10, 20, 30, 40].x.takeUntilReduce(
   sum => sum >= 10,
   (a, b) => a + b,
   0,
