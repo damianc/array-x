@@ -78,6 +78,7 @@ import fixed from '@array-x/fixed';
 import dwarf from '@array-x/dwarf';
 import alterable from '@array-x/alterable';
 
+import flat from '@array-x/flat';
 import sort from '@array-x/sort';
 import reversed from '@array-x/reversed';
 import forEach from '@array-x/for-each';
@@ -225,6 +226,7 @@ Object.defineProperty(Array.prototype, 'x', {
       dwarf: dwarf.bind(that),
       alterable: alterable.bind(that),
 
+      flat: flat.bind(that),
       sort: sort.bind(that),
       reversed: reversed.bind(that),
       forEach: aliased.forEach,

@@ -90,6 +90,7 @@ Redefined built-ins:
 - [`reduce()`](#reducereducer-finalizer--null-init)
 - [`scan()`](#scanreducer-init--null)
 - [`sample()`](#samplesize-step--1)
+- [`flat()`](#flatlevel---1)
 - [`sort()`](#sortcomparators)
 - [`reversed()`](#reversed)
 - [`forEach()`](#forEachcb)
@@ -1992,6 +1993,22 @@ $scanArr_i = reduce(inputArr_{<0;i>}\color{#888}{, init}\color{#000})$
 
 [1,2,3,4,5,6].x.sample(2, 3)
 // [ [1,2],[4,5] ]
+```
+
+## `flat(level = -1)`
+
+* by default, `flat()` without parameter (or with default parameter `-1`) performs deep flat:
+
+```
+[1,2,[3,4,[5,6],7,8],9,10].x.flat()
+// [1,2,3,4,5,6,7,8,9,10]
+```
+
+* with parameter given, depth of flattening can be limited:
+
+```
+[1,[2,[3,[4,[5,[6,7],8],9],10],11],12].x.flat(3)
+// [1,2,3,4,[5,[6,7],8],9,10,11,12]
 ```
 
 ## `sort(...comparators)`
