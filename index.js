@@ -36,6 +36,7 @@ import sum from '@array-x/sum';
 
 import chunk from '@array-x/chunk';
 import chunkByCallback from '@array-x/chunk-by-callback';
+import chunkByReduce from '@array-x/chunk-by-reduce';
 import chunkByPattern from '@array-x/chunk-by-pattern';
 import chunkByGroup from '@array-x/chunk-by-group';
 import partition from '@array-x/partition';
@@ -182,6 +183,7 @@ Object.defineProperty(Array.prototype, 'x', {
 
       chunk: chunk.bind(that),
       chunkByCallback: chunkByCallback.bind(that),
+      chunkByReduce: chunkByReduce.bind(that),
       chunkByPattern: chunkByPattern.bind(that),
       chunkByGroup: chunkByGroup.bind(that),
       partition: partition.bind(that),

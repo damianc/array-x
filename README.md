@@ -43,6 +43,7 @@ Examining:
 Clustering:
 - [`chunk()`](#chunksize-rejectStickingTail--false)
 - [`chunkByCallback()`](#chunkByCallbackcb-matchedItemOpening--true)
+- [`chunkByReduce()`](#chunkByReducereducer-init--null-tester--null)
 - [`chunkByPattern()`](#chunkByPatternsizes-rejectStickingTail--false)
 - [`chunkByGroup()`](#chunkByGroupgrouper--item--0)
 - [`partition()`](#partitionpartitioner--item--0)
@@ -1186,6 +1187,28 @@ chain
   false
 )
 // [ [1,2,3], [4,5,6], [7,8] ]
+```
+
+## `chunkByReduce(reducer, init = null, tester = null)`
+
+```
+[1,2,3,4,5,6,7,8].x.chunkByReduce(
+  (acc, curr) => acc + curr,
+  null,
+  sum => sum >= 8
+)
+
+// [ [1,2,3,4],[5,6],[7,8] ]
+```
+
+```
+[1,2,3,4,5,6,7,8].x.chunkByReduce(
+  (acc, curr) => [...acc, curr],
+  [],
+  arr => arr.length === 2
+)
+
+// [ [1,2],[3,4],[5,6],[7,8] ]
 ```
 
 ## `chunkByPattern(...sizes, rejectStickingTail = false)`
