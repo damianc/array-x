@@ -1,5 +1,13 @@
 # `array-x`
 
+## Installation
+
+```
+npm i @damianc/array-x
+```
+
+> Note that it's `@damianc/array-x`: if you only type `array-x`, completely other package will be installed!
+
 Collecting:
 - [`group()`](#grouplabelFactory)
 - [`index()`](#indexkeySelector-valueSelector--null-fallbackKey--__unindexed)
