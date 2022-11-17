@@ -104,6 +104,7 @@ Redefined built-ins:
 - [`pop()`](#popn--1)
 - [`shift()`](#shiftn--1)
 - [`pull()`](#pullindex)
+- [`remove()`](#removevaluesOrCb)
 - [`fill()`](#fillvalueOrGenerator)
 - [`padLeft()`](#padLeftmaxLength-value)
 - [`padRight()`](#padRightmaxLength-value)
@@ -2340,6 +2341,44 @@ arr.x.pull()
 // 4
 arr
 // [1,2,3]
+```
+
+## `remove(valuesOrCb)`
+
+* single literal value:
+
+```
+const arr = [1,2,3,2,1];
+
+arr.x.remove(2)
+// [2,2]
+
+arr
+// [1,3,1]
+```
+
+* array of values:
+
+```
+const arr = [1,2,3,4,3,2,1];
+
+arr.x.remove([1,2,8])
+// [1,2,2,1]
+
+arr
+// [3,4,3]
+```
+
+* callback:
+
+```
+const arr = [1,2,3,4];
+
+arr.x.remove(x => x % 2 !== 0)
+// [1,3]
+
+arr
+// [2,4]
 ```
 
 ## `fill(valueOrGenerator)`
