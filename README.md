@@ -106,6 +106,7 @@ Redefined built-ins:
 - [`pull()`](#pullindex)
 - [`remove()`](#removevaluesOrCb)
 - [`fill()`](#fillvalueOrGenerator)
+- [`generate()`](#generatelength-valueGenerator)
 - [`padLeft()`](#padLeftmaxLength-value)
 - [`padRight()`](#padRightmaxLength-value)
 - [`join()`](#joinseparator)
@@ -2396,6 +2397,22 @@ arr
 ```
 (new Array(4)).x.fill(idx => idx + 1)
 // [1,2,3,4]
+```
+
+## `generate(length, valueGenerator)`
+
+```
+[].x.generate(4, 0)
+// [0,0,0,0]
+
+[].x.generate(4, idx => idx + 1)
+// [1,2,3,4]
+
+[1].x.generate(4, (idx, curr) => {
+  const lastItem = curr[curr.length - 1];
+  return lastItem * 10;
+})
+// [1,10,100,1000]
 ```
 
 ## `padLeft(maxLength, value)`

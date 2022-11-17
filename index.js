@@ -104,6 +104,7 @@ import expandToLength from '@array-x/expand-to-length';
 import toString from '@array-x/to-string';
 import toJSON from '@array-x/to-json';
 import fill from '@array-x/fill';
+import generate from '@array-x/generate';
 import padLeft from '@array-x/pad-left';
 import padRight from '@array-x/pad-right';
 import join from '@array-x/join';
@@ -256,6 +257,7 @@ Object.defineProperty(Array.prototype, 'x', {
       toString: toString.bind(that),
       toJSON: toJSON.bind(that),
       fill: fill.bind(that),
+      generate: generate.bind(that),
       pad: aliased.padLeft,
       padLeft: aliased.padLeft,
       padRight: padRight.bind(that),
