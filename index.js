@@ -92,6 +92,7 @@ import includes from '@array-x/includes';
 import mapReduce from '@array-x/map-reduce';
 import pop from '@array-x/pop';
 import shift from '@array-x/shift';
+import pull from '@array-x/pull';
 import frame from '@array-x/frame';
 import scan from '@array-x/scan';
 import sample from '@array-x/sample';
@@ -242,6 +243,7 @@ Object.defineProperty(Array.prototype, 'x', {
       mapReduce: mapReduce.bind(that),
       pop: pop.bind(that),
       shift: shift.bind(that),
+      pull: pull.bind(that),
       frame: frame.bind(that),
       scan: scan.bind(that),
       sample: sample.bind(that),

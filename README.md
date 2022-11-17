@@ -103,6 +103,7 @@ Redefined built-ins:
 - [`mapReduce()`](#mapReducechunkSize--2-reducer--null-init--null-rejectStickingTail--false)
 - [`pop()`](#popn--1)
 - [`shift()`](#shiftn--1)
+- [`pull()`](#pullindex)
 - [`fill()`](#fillvalueOrGenerator)
 - [`padLeft()`](#padLeftmaxLength-value)
 - [`padRight()`](#padRightmaxLength-value)
@@ -2319,6 +2320,26 @@ arr.x.shift(2);
 
 arr
 // [3,4,5,6]
+```
+
+## `pull(index)`
+
+```
+const arr = [1,2,3,4];
+
+arr.x.pull(2)
+// 3
+arr
+// [1,2,4]
+```
+
+```
+const arr = [1,2,3,4];
+
+arr.x.pull()
+// 4
+arr
+// [1,2,3]
 ```
 
 ## `fill(valueOrGenerator)`
