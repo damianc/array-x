@@ -107,6 +107,7 @@ import fill from '@array-x/fill';
 import generate from '@array-x/generate';
 import padLeft from '@array-x/pad-left';
 import padRight from '@array-x/pad-right';
+import align from '@array-x/align';
 import join from '@array-x/join';
 import matchSome from '@array-x/match-some';
 import matchEvery from '@array-x/match-every';
@@ -261,6 +262,7 @@ Object.defineProperty(Array.prototype, 'x', {
       pad: aliased.padLeft,
       padLeft: aliased.padLeft,
       padRight: padRight.bind(that),
+      align: align.bind(that),
       join: join.bind(that),
       matchSome: matchSome.bind(that),
       matchEvery: matchEvery.bind(that),

@@ -109,6 +109,7 @@ Redefined built-ins:
 - [`generate()`](#generatelength-valueGenerator)
 - [`padLeft()`](#padLeftmaxLength-value)
 - [`padRight()`](#padRightmaxLength-value)
+- [`align()`](#alignlength-filling-padSide--left-cutSide--right)
 - [`join()`](#joinseparator)
 - [`matchSome()`](#matchSometests)
 - [`matchEvery()`](#matchEverytests)
@@ -2435,6 +2436,22 @@ arr
 
 [1,2,3,4,5,6].x.padRight(4, 0)
 // [1,2,3,4,5,6]
+```
+
+## `align(length, filling, padSide = 'left', cutSide = 'right')`
+
+```
+[1,2,3,4].x.align(6, 0)
+// [0,0,1,2,3,4]
+
+[1,2,3,4].x.align(6, 0, 'right')
+// [1,2,3,4,0,0]
+
+[1,2,3,4].x.align(2)
+// [1,2]
+
+[1,2,3,4].x.align(2, null, null, 'left')
+// [3,4]
 ```
 
 ## `join(separator)`
