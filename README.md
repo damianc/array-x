@@ -157,7 +157,7 @@ Difference:
 
 ## `observe()`
 
-Enrich array by additional methods:
+Enriches array by additional methods:
 
 - `on(type, handler)` - adds a handler for given action
 - `off(type, handler)` - removes a handler for given action
@@ -165,7 +165,7 @@ Enrich array by additional methods:
 - `cleanAllListeners()` - removes all handlers for all actions
 - `unobserve()` - makes array is no longer observable
 
-> `type` parameter is one of following: `push` or `pop`
+> `type` parameter is one of the following: `push` or `pop`
 
 ```
 const arr = [1,2,3,4];
