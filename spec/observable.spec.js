@@ -147,3 +147,13 @@ describe('observable() / removing handlers', () => {
     expect([r1, r2, a]).toEqual([2,2,2])
   });
 });
+
+describe('observable() / unsupported types of action', () => {
+  it('should throw error', () => {
+    const arr = [1,2,3,4];
+    arr.x.observable();
+    expect(() => {
+      arr.on('xd', console.log);
+    }).toThrow();
+  });
+});

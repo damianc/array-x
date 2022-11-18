@@ -10,6 +10,11 @@ export default function observable() {
   };
 
   function getHandlersKey(type) {
+    const supported = ['push', 'pop'];
+    if (!supported.includes(type)) {
+      throw new Error('Unsupported type of observable array operation: ' + type);
+    }
+
     return 'on' + type[0].toUpperCase() + type.slice(1);
   }
 
