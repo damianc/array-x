@@ -8,6 +8,9 @@ npm i @damianc/array-x
 
 > Note that it's `@damianc/array-x`: if you only type `array-x`, completely other package will be installed!
 
+Observing:
+- [`observe()`](#observe)
+
 Collecting:
 - [`group()`](#grouplabelFactory)
 - [`index()`](#indexkeySelector-valueSelector--null-fallbackKey--__unindexed)
@@ -151,6 +154,46 @@ Difference:
 - [`minDiffAhead()`](#minDiffAheadcomparer--null)
 - [`maxDiffAhead()`](#maxDiffAheadcomparer--null)
 - [`maxPairDiff()` vs. `maxDiff()` vs. `maxDiffAhead()`](#maxPairDiff-vs-maxDiff-vs-maxDiffAhead)
+
+## `observe()`
+
+Enrich array by additional methods:
+
+- `on(type, handler)` - adds a handler for given action
+- `off(type, handler)` - removes a handler for given action
+- `cleanListeners(type)` - removes all handlers for given action
+- `cleanAllListeners()` - removes all handlers for all actions
+- `unobserve()` - makes array is no longer observable
+
+> `type` parameter is one of following: `push` or `pop`
+
+```
+const arr = [1,2,3,4];
+arr.x.observable();
+
+arr.on('push', (newArray, itemsAdded, newLength) => {
+  console.log('added new item(s):', itemsAdded);
+});
+
+arr.push(5,6);
+// added new item(s): [5,6]
+```
+
+```
+const arr = [1,2,3,4];
+arr.x.observable();
+
+arr.on('pop', (newArray, itemRemoved) => {
+  console.log('removed item:', itemRemoved);
+});
+arr.on('pop', (newArray, itemRemoved) => {
+  console.log('item has been removed:', itemRemoved);
+});
+
+arr.pop();
+// removed item: 4
+// item has been removed: 4
+```
 
 ## `group(labelFactory...)`
 
