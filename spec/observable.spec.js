@@ -148,12 +148,33 @@ describe('observable() / removing handlers', () => {
   });
 });
 
-describe('observable() / unsupported types of action', () => {
-  it('should throw error', () => {
+describe('observable() / unsupported types of action and handlers', () => {
+  it('should throw error when passing to on()', () => {
     const arr = [1,2,3,4];
     arr.x.observable();
     expect(() => {
       arr.on('xd', console.log);
+    }).toThrow();
+  });
+  it('should throw error when passing to off()', () => {
+    const arr = [1,2,3,4];
+    arr.x.observable();
+    expect(() => {
+      arr.off('xd', console.log);
+    }).toThrow();
+  });
+  it('should throw error when passing to cleanListeners()', () => {
+    const arr = [1,2,3,4];
+    arr.x.observable();
+    expect(() => {
+      arr.cleanListeners('xd');
+    }).toThrow();
+  });
+  it('should throw error when passing handler being not a function', () => {
+    const arr = [1,2,3,4];
+    arr.x.observable();
+    expect(() => {
+      arr.on('push', 1234);
     }).toThrow();
   });
 });

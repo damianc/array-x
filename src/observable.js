@@ -38,7 +38,11 @@ export default function observable() {
     on(type, handler) {
       const key = getHandlersKey(type);
       const _handlers = handlers[key];
-      _handlers.push(handler);
+      if (typeof handler !== 'function') {
+        throw new Error('Listener of observable array must be a function, ' + typeof handler + ' given');
+      } else {
+        _handlers.push(handler);
+      }
     },
     off(type, handler) {
       const key = getHandlersKey(type);
