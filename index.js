@@ -63,6 +63,7 @@ import cork from '@array-x/cork';
 import precede from '@array-x/precede';
 import follow from '@array-x/follow';
 
+import last from '@array-x/last';
 import pluck from '@array-x/pluck';
 import pluckMultiple from '@array-x/pluck-multiple';
 import glue from '@array-x/glue';
@@ -215,6 +216,7 @@ Object.defineProperty(Array.prototype, 'x', {
       precede: precede.bind(that),
       follow: follow.bind(that),
 
+      last: last.bind(that),
       pluck: pluck.bind(that),
       pluckMultiple: pluckMultiple.bind(that),
       glue: glue.bind(that),
