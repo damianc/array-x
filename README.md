@@ -25,6 +25,8 @@ Collecting:
 - [`extractSub()`](#extractSubpattern-multi--true-overlay--true)
 - [`uniq()`](#uniqselector)
 - [`uniqAdjacent()`](#uniqAdjacentselector)
+- [`nth()`](#nthindex)
+- [`multiple()`](#multipleindexes)
 - [`last()`](#last)
 - [`pluck()`](#pluckpath)
 - [`pluckMultiple()`](#pluckMultiplepaths)
@@ -694,6 +696,23 @@ arr.x.uniq()
 
 arr.x.uniqAdjacent()
 // [1, 2, 3, 2, 1]
+```
+
+## `nth(index)`
+
+```
+[1,2,3,4].x.nth(0)
+// 1
+
+[1,2,3,4].x.nth(-1)
+// 4
+```
+
+## `multiple(indexes)`
+
+```
+['foo', 'bar', 'baz', 'quux'].x.multiple([1,3])
+// ['bar', 'quux']
 ```
 
 ## `last()`

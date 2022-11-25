@@ -63,6 +63,8 @@ import cork from '@array-x/cork';
 import precede from '@array-x/precede';
 import follow from '@array-x/follow';
 
+import nth from '@array-x/nth';
+import multiple from '@array-x/multiple';
 import last from '@array-x/last';
 import pluck from '@array-x/pluck';
 import pluckMultiple from '@array-x/pluck-multiple';
@@ -216,6 +218,8 @@ Object.defineProperty(Array.prototype, 'x', {
       precede: precede.bind(that),
       follow: follow.bind(that),
 
+      nth: nth.bind(that),
+      multiple: multiple.bind(that),
       last: last.bind(that),
       pluck: pluck.bind(that),
       pluckMultiple: pluckMultiple.bind(that),
